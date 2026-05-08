@@ -1,0 +1,13 @@
+{"trace_id": "TRACE_TEST", "timestamp": "2026-05-08T07:24:42.661022", "stage": "truth", "verdict": "SUCCESS", "hash": "97e1350a1b6bbfb4665b0b8766b7980a205217a4ac6c03bab9fff39c83504259"}
+{"trace_id": "TRACE_TEST2", "timestamp": "2026-05-08T08:24:26.839426", "stage": "truth", "verdict": "SUCCESS", "hash": "179f849cfd4e04cbc680a4c8db7255aad8cf1b71850e8072658c60300eac8b5b"}
+{"trace_id": "TRACE_REPLAY1", "timestamp": "2026-05-08T08:31:51.931279", "stage": "truth", "verdict": "SUCCESS", "hash": "7c0fd94da26c78984f90c42bafe6b2605d42691bf583410f42f9f0ca365b606d"}
+{"trace_id": "TRACE_REPLAY2", "timestamp": "2026-05-08T08:35:14.163434", "stage": "truth", "verdict": "SUCCESS", "hash": "ce7b5ce7144e017e2a6de336b9b3260d39bdb93332685ace2fa4e6c2f16a0d5e"}
+{"trace_id": "TRACE_REPLAY2", "timestamp": "2026-05-08T08:35:19.617939", "stage": "replay", "verdict": "SUCCESS", "hash": "ce7b5ce7144e017e2a6de336b9b3260d39bdb93332685ace2fa4e6c2f16a0d5e"}
+{"trace_id": "TRACE_REPLAY2", "timestamp": "2026-05-08T08:35:41.580344", "stage": "truth", "verdict": "SUCCESS", "hash": "ce7b5ce7144e017e2a6de336b9b3260d39bdb93332685ace2fa4e6c2f16a0d5e"}
+{"trace_id": "TRACE_REPLAY2", "timestamp": "2026-05-08T08:35:46.543469", "stage": "replay", "verdict": "SUCCESS", "hash": "ce7b5ce7144e017e2a6de336b9b3260d39bdb93332685ace2fa4e6c2f16a0d5e"}
+{"trace_id": "TRACE_TEST3", "timestamp": "2026-05-08T09:13:05.995148", "stage": "truth", "verdict": "SUCCESS", "hash": "35803c03d84b19ffdd415927c8be64c098624482af2795ba377df7c83a22fec6"}
+{"trace_id": "TRACE_TEST3", "timestamp": "2026-05-08T09:13:13.355939", "stage": "replay", "verdict": "SUCCESS", "hash": "35803c03d84b19ffdd415927c8be64c098624482af2795ba377df7c83a22fec6"}
+{"trace_id": "TRACE_TEST4", "timestamp": "2026-05-08T09:13:52.718018", "stage": "truth", "verdict": "SUCCESS", "hash": "827769be0d89f8c0620b005c05203e855ac1ec7d548d3615781db3c2d74d86ae"}
+{"trace_id": "TRACE_TEST4", "timestamp": "2026-05-08T09:13:58.353180", "stage": "replay", "verdict": "SUCCESS", "hash": "827769be0d89f8c0620b005c05203e855ac1ec7d548d3615781db3c2d74d86ae"}
+{"trace_id": "API_TEST", "timestamp": "2026-05-08T09:33:09.778953", "stage": "truth", "verdict": "SUCCESS", "hash": "315326509468db401eb6fe1158799c3be942924b5b76d999bbb4da5117bc4c80"}
+{"trace_id": "API_TEST", "timestamp": "2026-05-08T09:33:19.846614", "stage": "replay", "verdict": "SUCCESS", "hash": "315326509468db401eb6fe1158799c3be942924b5b76d999bbb4da5117bc4c80"}

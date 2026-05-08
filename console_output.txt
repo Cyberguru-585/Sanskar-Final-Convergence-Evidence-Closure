@@ -1,0 +1,347 @@
+
+======================================================================
+  TANTRA LIVE INTELLIGENCE CONSOLE
+======================================================================
+
+  Pipeline: Signal -> Intelligence -> Ranking -> Decision -> Enforcement -> Truth
+  Mode:     LIVE EXECUTION WITH FULL VISIBILITY
+
+
+  +------------------------------------------------------------------+
+  |  INPUT CONTRACT                                                  |
+  +------------------------------------------------------------------+
+
+    {
+        "trace_id": "TRACE_123",
+        "signal": {
+            "dataset": "crop_yield.csv"
+        }
+    }
+
+
+----------------------------------------------------------------------
+  STEP 1 -- INPUT RECEIVED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+  Dataset: crop_yield.csv
+
+----------------------------------------------------------------------
+  STEP 2 -- DATA NORMALIZED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+  Rows: 1000000
+  Columns: ['Region', 'Soil_Type', 'Crop', 'Rainfall_mm', 'Temperature_Celsius', 'Fertilizer_Used', 'Irrigation_Used', 'Weather_Condition', 'Days_to_Harvest', 'Yield_tons_per_hectare']
+
+----------------------------------------------------------------------
+  STEP 3 -- FEATURES GENERATED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+  Features: rainfall_score, temp_score, irrigation_score, fertilizer_score, yield_efficiency
+
+----------------------------------------------------------------------
+  STEP 4 -- SCORES COMPUTED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+
+  +------------------------------------------------------------------+
+  |  ALL ENTITY OUTPUTS                                              |
+  +------------------------------------------------------------------+
+
+  [1] North
+      Score: 0.593
+      Confidence: 0.693
+      Top Factors:
+        rainfall             weight=0.25  raw=0.6605  contribution=0.165  [################....]
+        temperature          weight=0.2  raw=0.7398  contribution=0.148  [##############......]
+        irrigation           weight=0.2  raw=0.7498  contribution=0.15  [###############.....]
+        fertilizer           weight=0.15  raw=0.7998  contribution=0.12  [############........]
+        yield_efficiency     weight=0.2  raw=0.0477  contribution=0.01  [#...................]
+      Explanation: North achieved score 0.593 due to balanced rainfall, temperature, irrigation and yield efficiency
+
+  [2] East
+      Score: 0.592
+      Confidence: 0.692
+      Top Factors:
+        rainfall             weight=0.25  raw=0.6589  contribution=0.165  [################....]
+        temperature          weight=0.2  raw=0.7399  contribution=0.148  [##############......]
+        irrigation           weight=0.2  raw=0.7497  contribution=0.15  [###############.....]
+        fertilizer           weight=0.15  raw=0.7999  contribution=0.12  [############........]
+        yield_efficiency     weight=0.2  raw=0.0475  contribution=0.01  [#...................]
+      Explanation: East achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency
+
+  [3] South
+      Score: 0.592
+      Confidence: 0.692
+      Top Factors:
+        rainfall             weight=0.25  raw=0.6597  contribution=0.165  [################....]
+        temperature          weight=0.2  raw=0.7401  contribution=0.148  [##############......]
+        irrigation           weight=0.2  raw=0.7494  contribution=0.15  [###############.....]
+        fertilizer           weight=0.15  raw=0.8002  contribution=0.12  [############........]
+        yield_efficiency     weight=0.2  raw=0.0476  contribution=0.01  [#...................]
+      Explanation: South achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency
+
+  [4] West
+      Score: 0.592
+      Confidence: 0.692
+      Top Factors:
+        rainfall             weight=0.25  raw=0.6597  contribution=0.165  [################....]
+        temperature          weight=0.2  raw=0.7393  contribution=0.148  [##############......]
+        irrigation           weight=0.2  raw=0.75  contribution=0.15  [###############.....]
+        fertilizer           weight=0.15  raw=0.8001  contribution=0.12  [############........]
+        yield_efficiency     weight=0.2  raw=0.0476  contribution=0.01  [#...................]
+      Explanation: West achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency
+
+
+----------------------------------------------------------------------
+  STEP 5 -- RANKING GENERATED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+
+  +------------------------------------------------------------------+
+  |  RANKING BOARD                                                   |
+  +------------------------------------------------------------------+
+
+    1. North        -- 0.593 <-- HIGHEST
+    2. East         -- 0.592
+    3. South        -- 0.592
+    4. West         -- 0.592 <-- LOWEST
+
+
+  +------------------------------------------------------------------+
+  |  COMPARATIVE EXPLANATION                                         |
+  +------------------------------------------------------------------+
+
+    BEST:  North (score=0.593)
+    Strengths: marginal overall advantage across all factors
+
+    WORST: West (score=0.592)
+
+    WHY: North ranks highest due to marginal overall advantage.
+    WHY: West ranks lowest due to marginally lower scores across all factors.
+
+
+  +------------------------------------------------------------------+
+  |  SCENARIO SIMULATION                                             |
+  +------------------------------------------------------------------+
+
+    Scenario: Scenario A: +10% Rainfall
+    Description: Simulate 10% increase in rainfall across all regions
+
+    BEFORE                         AFTER                         
+    ----------------------------   ----------------------------
+    1. North                       1. East                        <-- CHANGED
+    2. East                        2. North                       <-- CHANGED
+    3. South                       3. South                      
+    4. West                        4. West                       
+
+
+    Scenario: Scenario B: -2°C Temperature
+    Description: Simulate 2C decrease in temperature across all regions
+
+    BEFORE                         AFTER                         
+    ----------------------------   ----------------------------
+    1. North                       1. East                        <-- CHANGED
+    2. East                        2. North                       <-- CHANGED
+    3. South                       3. South                      
+    4. West                        4. West                       
+
+
+----------------------------------------------------------------------
+  STEP 6 -- CORE DECISION GENERATED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+
+  +------------------------------------------------------------------+
+  |  CORE DECISION LOGIC                                             |
+  +------------------------------------------------------------------+
+
+    Selection Rule:      highest_ranked_region_selected
+    Selected Entity:     North
+    Selected Score:      0.593
+    Selected Confidence: 0.693
+    Priority:            medium
+    Priority Reason:     Score >= 0.4: medium priority — schedule for next cycle
+    Runner-up:           East
+    Margin:              0.001
+
+    All Candidates:
+      North        score=0.593  confidence=0.693 <-- SELECTED
+      East         score=0.592  confidence=0.692
+      South        score=0.592  confidence=0.692
+      West         score=0.592  confidence=0.692
+
+    Reasoning: Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.593. Runner-up is East with score 0.592 (margin: 0.001). Assigned priority: medium.
+
+
+----------------------------------------------------------------------
+  STEP 7 -- ENFORCEMENT ACTION GENERATED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+
+  +------------------------------------------------------------------+
+  |  ENFORCEMENT ACTION                                              |
+  +------------------------------------------------------------------+
+
+    Action:           prioritize_irrigation
+    Target:           North
+    Enforcement Type: scheduled_allocation
+    Priority:         medium
+    Urgency:          next_cycle
+
+    Directives:
+      [DIR-001-North] prioritize_irrigation -> North (status: pending)
+      [DIR-002-North] allocate_fertilizer -> North (status: pending)
+      [DIR-003-North] deploy_monitoring -> North (status: pending)
+
+    Rationale: Based on core decision: North selected with priority 'medium'. Enforcement type: scheduled_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.
+
+
+----------------------------------------------------------------------
+  STEP 8 -- FINAL TRUTH OUTPUT STORED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_123
+
+  +------------------------------------------------------------------+
+  |  FINAL TRUTH RECORD                                              |
+  +------------------------------------------------------------------+
+
+    {
+      "verdict": "PIPELINE_COMPLETE",
+      "selected_entity": "North",
+      "selected_score": 0.593,
+      "enforcement_action": "prioritize_irrigation",
+      "enforcement_target": "North",
+      "pipeline_hash": "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+      "chain_integrity": "VERIFIED \u2014 SHA-256 hash computed over full chain",
+      "trace_continuity": "PASS \u2014 trace_id identical across all stages",
+      "stages_completed": [
+        "input",
+        "sanskar",
+        "core",
+        "enforcement",
+        "truth"
+      ],
+      "summary": "TANTRA pipeline completed successfully. Entity 'North' selected with score 0.593. Enforcement action 'prioritize_irrigation' issued targeting 'North' region. Trace TRACE_123 preserved across all 5 stages."
+    }
+
+  [SAVED] full_chain_output.json
+  [SAVED] stage_sanskar.json
+  [SAVED] stage_core.json
+  [SAVED] stage_enforcement.json
+  [SAVED] stage_truth.json
+  [SAVED] trace_continuity_proof.json
+
+======================================================================
+  TRACE CONTINUITY VERIFICATION
+======================================================================
+
+  Expected trace_id: TRACE_123
+  Stage 'input': trace_id=TRACE_123 -> MATCH
+  Stage 'sanskar': trace_id=TRACE_123 -> MATCH
+  Stage 'core': trace_id=TRACE_123 -> MATCH
+  Stage 'enforcement': trace_id=TRACE_123 -> MATCH
+
+  Verdict: PASS — trace_id identical across all stages
+
+======================================================================
+  FAILURE DEMONSTRATION
+======================================================================
+
+  Testing pipeline resilience with invalid input.
+  System must: NOT crash, print structured error, preserve trace_id.
+
+  -- Test A: Missing signal --
+
+----------------------------------------------------------------------
+  STEP 1 -- INPUT RECEIVED
+----------------------------------------------------------------------
+  TRACE_ID: TRACE_FAIL_001
+  Status: FAILED — signal missing
+
+  +------------------------------------------------------------------+
+  |  FAILURE -- STRUCTURED ERROR                                     |
+  +------------------------------------------------------------------+
+
+    Stage:           tantra-input
+    Code:            INVALID_SIGNAL
+    Message:         Signal missing in input contract
+    Trace Preserved: True
+
+  Trace ID in output: TRACE_FAIL_001
+  Trace matches input: True
+
+  -- Test B: Empty signal (no dataset) --
+
+  +------------------------------------------------------------------+
+  |  FAILURE -- STRUCTURED ERROR                                     |
+  +------------------------------------------------------------------+
+
+    Stage:           sanskar
+    Code:            MISSING_DATASET
+    Message:         Signal present but dataset path missing
+    Trace Preserved: True
+
+  Trace ID in output: TRACE_FAIL_002
+  Trace matches input: True
+
+  -- Test C: Missing trace_id --
+
+----------------------------------------------------------------------
+  STEP 1 -- INPUT RECEIVED
+----------------------------------------------------------------------
+  Status: FAILED — missing trace_id
+
+  +------------------------------------------------------------------+
+  |  FAILURE -- STRUCTURED ERROR                                     |
+  +------------------------------------------------------------------+
+
+    Stage:           tantra-input
+    Code:            MISSING_TRACE_ID
+    Message:         trace_id missing from input contract
+    Trace Preserved: False
+
+  Trace ID in output: UNKNOWN
+  Handled gracefully: True
+  [SAVED] failure_proof.json
+
+  +------------------------------------------------------------------+
+  |  FAILURE DEMO RESULTS                                            |
+  +------------------------------------------------------------------+
+
+    missing_signal: PASS
+    empty_signal: PASS
+    missing_trace_id: PASS — handled gracefully
+
+    Overall: PASS
+
+
+======================================================================
+  DETERMINISM PROOF
+======================================================================
+
+  Running pipeline 5 times silently...
+    Run 1: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
+    Run 2: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
+    Run 3: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
+    Run 4: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
+    Run 5: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
+  [SAVED] determinism_proof.json
+
+  All hashes identical: True
+  Verdict: PASS — all outputs identical
+
+======================================================================
+  ALL TESTS COMPLETE
+======================================================================
+
+  Output files generated:
+    1. full_chain_output.json       — Complete pipeline output
+    2. stage_sanskar.json            — Sanskar stage output
+    3. stage_core.json              — Core decision output
+    4. stage_enforcement.json       — Enforcement action output
+    5. stage_truth.json             — Truth/verification output
+    6. trace_continuity_proof.json  — Trace ID continuity proof
+    7. failure_proof.json           — Failure handling proof
+    8. determinism_proof.json       — Determinism proof
+    9. console_output.txt           — Full console recording
+    

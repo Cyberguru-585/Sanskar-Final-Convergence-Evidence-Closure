@@ -1,0 +1,36 @@
+{
+  "trace_id": "TRACE_123",
+  "stage": "enforcement",
+  "action": "prioritize_irrigation",
+  "target": "North",
+  "enforcement_type": "scheduled_allocation",
+  "priority": "medium",
+  "urgency": "next_cycle",
+  "enforcement_score": 0.593,
+  "directives": [
+    {
+      "directive_id": "DIR-001-North",
+      "action": "prioritize_irrigation",
+      "target": "North",
+      "description": "Allocate priority irrigation resources to North region",
+      "status": "pending"
+    },
+    {
+      "directive_id": "DIR-002-North",
+      "action": "allocate_fertilizer",
+      "target": "North",
+      "description": "Increase fertilizer supply allocation to North region",
+      "status": "pending"
+    },
+    {
+      "directive_id": "DIR-003-North",
+      "action": "deploy_monitoring",
+      "target": "North",
+      "description": "Deploy enhanced crop monitoring sensors in North region",
+      "status": "pending"
+    }
+  ],
+  "enforcement_rationale": "Based on core decision: North selected with priority 'medium'. Enforcement type: scheduled_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.",
+  "core_reasoning_reference": "Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.593. Runner-up is East with score 0.592 (margin: 0.001). Assigned priority: medium.",
+  "contract_version": "v1"
+}

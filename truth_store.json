@@ -1,0 +1,58 @@
+[
+  {
+    "trace_id": "TRACE_TEST",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "97e1350a1b6bbfb4665b0b8766b7980a205217a4ac6c03bab9fff39c83504259",
+    "timestamp": "2026-05-08T07:24:42.657309",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "TRACE_TEST2",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "179f849cfd4e04cbc680a4c8db7255aad8cf1b71850e8072658c60300eac8b5b",
+    "timestamp": "2026-05-08T08:24:26.828720",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "TRACE_REPLAY1",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "7c0fd94da26c78984f90c42bafe6b2605d42691bf583410f42f9f0ca365b606d",
+    "timestamp": "2026-05-08T08:31:51.925678",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "TRACE_REPLAY2",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "ce7b5ce7144e017e2a6de336b9b3260d39bdb93332685ace2fa4e6c2f16a0d5e",
+    "timestamp": "2026-05-08T08:35:14.158413",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "TRACE_REPLAY2",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "ce7b5ce7144e017e2a6de336b9b3260d39bdb93332685ace2fa4e6c2f16a0d5e",
+    "timestamp": "2026-05-08T08:35:41.576753",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "TRACE_TEST3",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "35803c03d84b19ffdd415927c8be64c098624482af2795ba377df7c83a22fec6",
+    "timestamp": "2026-05-08T09:13:05.975661",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "TRACE_TEST4",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "827769be0d89f8c0620b005c05203e855ac1ec7d548d3615781db3c2d74d86ae",
+    "timestamp": "2026-05-08T09:13:52.713313",
+    "contract_version": "v1"
+  },
+  {
+    "trace_id": "API_TEST",
+    "verdict": "PIPELINE_COMPLETE",
+    "pipeline_hash": "315326509468db401eb6fe1158799c3be942924b5b76d999bbb4da5117bc4c80",
+    "timestamp": "2026-05-08T09:33:09.768771",
+    "contract_version": "v1"
+  }
+]

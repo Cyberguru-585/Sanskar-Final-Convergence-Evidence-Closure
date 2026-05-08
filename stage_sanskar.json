@@ -1,0 +1,212 @@
+{
+  "trace_id": "TRACE_123",
+  "stage": "sanskar",
+  "entities": [
+    {
+      "entity_id": "North",
+      "score": 0.593,
+      "factors": [
+        {
+          "name": "rainfall",
+          "weight": 0.25,
+          "raw_value": 0.6605,
+          "contribution": 0.165
+        },
+        {
+          "name": "temperature",
+          "weight": 0.2,
+          "raw_value": 0.7398,
+          "contribution": 0.148
+        },
+        {
+          "name": "irrigation",
+          "weight": 0.2,
+          "raw_value": 0.7498,
+          "contribution": 0.15
+        },
+        {
+          "name": "fertilizer",
+          "weight": 0.15,
+          "raw_value": 0.7998,
+          "contribution": 0.12
+        },
+        {
+          "name": "yield_efficiency",
+          "weight": 0.2,
+          "raw_value": 0.0477,
+          "contribution": 0.01
+        }
+      ],
+      "confidence": 0.693,
+      "explanation": "North achieved score 0.593 due to balanced rainfall, temperature, irrigation and yield efficiency"
+    },
+    {
+      "entity_id": "East",
+      "score": 0.592,
+      "factors": [
+        {
+          "name": "rainfall",
+          "weight": 0.25,
+          "raw_value": 0.6589,
+          "contribution": 0.165
+        },
+        {
+          "name": "temperature",
+          "weight": 0.2,
+          "raw_value": 0.7399,
+          "contribution": 0.148
+        },
+        {
+          "name": "irrigation",
+          "weight": 0.2,
+          "raw_value": 0.7497,
+          "contribution": 0.15
+        },
+        {
+          "name": "fertilizer",
+          "weight": 0.15,
+          "raw_value": 0.7999,
+          "contribution": 0.12
+        },
+        {
+          "name": "yield_efficiency",
+          "weight": 0.2,
+          "raw_value": 0.0475,
+          "contribution": 0.01
+        }
+      ],
+      "confidence": 0.692,
+      "explanation": "East achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency"
+    },
+    {
+      "entity_id": "South",
+      "score": 0.592,
+      "factors": [
+        {
+          "name": "rainfall",
+          "weight": 0.25,
+          "raw_value": 0.6597,
+          "contribution": 0.165
+        },
+        {
+          "name": "temperature",
+          "weight": 0.2,
+          "raw_value": 0.7401,
+          "contribution": 0.148
+        },
+        {
+          "name": "irrigation",
+          "weight": 0.2,
+          "raw_value": 0.7494,
+          "contribution": 0.15
+        },
+        {
+          "name": "fertilizer",
+          "weight": 0.15,
+          "raw_value": 0.8002,
+          "contribution": 0.12
+        },
+        {
+          "name": "yield_efficiency",
+          "weight": 0.2,
+          "raw_value": 0.0476,
+          "contribution": 0.01
+        }
+      ],
+      "confidence": 0.692,
+      "explanation": "South achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency"
+    },
+    {
+      "entity_id": "West",
+      "score": 0.592,
+      "factors": [
+        {
+          "name": "rainfall",
+          "weight": 0.25,
+          "raw_value": 0.6597,
+          "contribution": 0.165
+        },
+        {
+          "name": "temperature",
+          "weight": 0.2,
+          "raw_value": 0.7393,
+          "contribution": 0.148
+        },
+        {
+          "name": "irrigation",
+          "weight": 0.2,
+          "raw_value": 0.75,
+          "contribution": 0.15
+        },
+        {
+          "name": "fertilizer",
+          "weight": 0.15,
+          "raw_value": 0.8001,
+          "contribution": 0.12
+        },
+        {
+          "name": "yield_efficiency",
+          "weight": 0.2,
+          "raw_value": 0.0476,
+          "contribution": 0.01
+        }
+      ],
+      "confidence": 0.692,
+      "explanation": "West achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency"
+    }
+  ],
+  "ranking": [
+    "North",
+    "East",
+    "South",
+    "West"
+  ],
+  "comparative_explanation": "North (score=0.593) ranks higher than East (score=0.592) due to advantages in: marginal overall advantage. Score difference: 0.001",
+  "scenario_analysis": [
+    {
+      "scenario": "increase_rainfall_10%",
+      "description": "Simulate 10% increase in rainfall across all regions",
+      "original_ranking": [
+        "North",
+        "East",
+        "South",
+        "West"
+      ],
+      "updated_ranking": [
+        "East",
+        "North",
+        "South",
+        "West"
+      ],
+      "impact": "Tests sensitivity of rankings to rainfall changes"
+    },
+    {
+      "scenario": "decrease_temperature_2C",
+      "description": "Simulate 2C decrease in temperature across all regions",
+      "original_ranking": [
+        "North",
+        "East",
+        "South",
+        "West"
+      ],
+      "updated_ranking": [
+        "East",
+        "North",
+        "South",
+        "West"
+      ],
+      "impact": "Tests sensitivity of rankings to temperature changes"
+    }
+  ],
+  "downstream_decision": {
+    "recommended_action": "prioritize_resource_allocation",
+    "primary_target": "North",
+    "primary_target_score": 0.593,
+    "deprioritized_target": "West",
+    "deprioritized_target_score": 0.592,
+    "score_spread": 0.001,
+    "rationale": "Region North has the highest composite score (0.593) and should receive priority resource allocation. Region West has the lowest score (0.592) and may need intervention to improve yield efficiency.",
+    "confidence_level": 0.693
+  },
+  "contract_version": "v1"
+}

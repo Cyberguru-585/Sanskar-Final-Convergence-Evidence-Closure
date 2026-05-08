@@ -1,0 +1,352 @@
+{
+  "trace_id": "TRACE_123",
+  "pipeline_status": "SUCCESS",
+  "input": {
+    "trace_id": "TRACE_123",
+    "signal": {
+      "dataset": "crop_yield.csv"
+    }
+  },
+  "sanskar_output": {
+    "trace_id": "TRACE_123",
+    "stage": "sanskar",
+    "entities": [
+      {
+        "entity_id": "North",
+        "score": 0.593,
+        "factors": [
+          {
+            "name": "rainfall",
+            "weight": 0.25,
+            "raw_value": 0.6605,
+            "contribution": 0.165
+          },
+          {
+            "name": "temperature",
+            "weight": 0.2,
+            "raw_value": 0.7398,
+            "contribution": 0.148
+          },
+          {
+            "name": "irrigation",
+            "weight": 0.2,
+            "raw_value": 0.7498,
+            "contribution": 0.15
+          },
+          {
+            "name": "fertilizer",
+            "weight": 0.15,
+            "raw_value": 0.7998,
+            "contribution": 0.12
+          },
+          {
+            "name": "yield_efficiency",
+            "weight": 0.2,
+            "raw_value": 0.0477,
+            "contribution": 0.01
+          }
+        ],
+        "confidence": 0.693,
+        "explanation": "North achieved score 0.593 due to balanced rainfall, temperature, irrigation and yield efficiency"
+      },
+      {
+        "entity_id": "East",
+        "score": 0.592,
+        "factors": [
+          {
+            "name": "rainfall",
+            "weight": 0.25,
+            "raw_value": 0.6589,
+            "contribution": 0.165
+          },
+          {
+            "name": "temperature",
+            "weight": 0.2,
+            "raw_value": 0.7399,
+            "contribution": 0.148
+          },
+          {
+            "name": "irrigation",
+            "weight": 0.2,
+            "raw_value": 0.7497,
+            "contribution": 0.15
+          },
+          {
+            "name": "fertilizer",
+            "weight": 0.15,
+            "raw_value": 0.7999,
+            "contribution": 0.12
+          },
+          {
+            "name": "yield_efficiency",
+            "weight": 0.2,
+            "raw_value": 0.0475,
+            "contribution": 0.01
+          }
+        ],
+        "confidence": 0.692,
+        "explanation": "East achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency"
+      },
+      {
+        "entity_id": "South",
+        "score": 0.592,
+        "factors": [
+          {
+            "name": "rainfall",
+            "weight": 0.25,
+            "raw_value": 0.6597,
+            "contribution": 0.165
+          },
+          {
+            "name": "temperature",
+            "weight": 0.2,
+            "raw_value": 0.7401,
+            "contribution": 0.148
+          },
+          {
+            "name": "irrigation",
+            "weight": 0.2,
+            "raw_value": 0.7494,
+            "contribution": 0.15
+          },
+          {
+            "name": "fertilizer",
+            "weight": 0.15,
+            "raw_value": 0.8002,
+            "contribution": 0.12
+          },
+          {
+            "name": "yield_efficiency",
+            "weight": 0.2,
+            "raw_value": 0.0476,
+            "contribution": 0.01
+          }
+        ],
+        "confidence": 0.692,
+        "explanation": "South achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency"
+      },
+      {
+        "entity_id": "West",
+        "score": 0.592,
+        "factors": [
+          {
+            "name": "rainfall",
+            "weight": 0.25,
+            "raw_value": 0.6597,
+            "contribution": 0.165
+          },
+          {
+            "name": "temperature",
+            "weight": 0.2,
+            "raw_value": 0.7393,
+            "contribution": 0.148
+          },
+          {
+            "name": "irrigation",
+            "weight": 0.2,
+            "raw_value": 0.75,
+            "contribution": 0.15
+          },
+          {
+            "name": "fertilizer",
+            "weight": 0.15,
+            "raw_value": 0.8001,
+            "contribution": 0.12
+          },
+          {
+            "name": "yield_efficiency",
+            "weight": 0.2,
+            "raw_value": 0.0476,
+            "contribution": 0.01
+          }
+        ],
+        "confidence": 0.692,
+        "explanation": "West achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency"
+      }
+    ],
+    "ranking": [
+      "North",
+      "East",
+      "South",
+      "West"
+    ],
+    "comparative_explanation": "North (score=0.593) ranks higher than East (score=0.592) due to advantages in: marginal overall advantage. Score difference: 0.001",
+    "scenario_analysis": [
+      {
+        "scenario": "increase_rainfall_10%",
+        "description": "Simulate 10% increase in rainfall across all regions",
+        "original_ranking": [
+          "North",
+          "East",
+          "South",
+          "West"
+        ],
+        "updated_ranking": [
+          "East",
+          "North",
+          "South",
+          "West"
+        ],
+        "impact": "Tests sensitivity of rankings to rainfall changes"
+      },
+      {
+        "scenario": "decrease_temperature_2C",
+        "description": "Simulate 2C decrease in temperature across all regions",
+        "original_ranking": [
+          "North",
+          "East",
+          "South",
+          "West"
+        ],
+        "updated_ranking": [
+          "East",
+          "North",
+          "South",
+          "West"
+        ],
+        "impact": "Tests sensitivity of rankings to temperature changes"
+      }
+    ],
+    "downstream_decision": {
+      "recommended_action": "prioritize_resource_allocation",
+      "primary_target": "North",
+      "primary_target_score": 0.593,
+      "deprioritized_target": "West",
+      "deprioritized_target_score": 0.592,
+      "score_spread": 0.001,
+      "rationale": "Region North has the highest composite score (0.593) and should receive priority resource allocation. Region West has the lowest score (0.592) and may need intervention to improve yield efficiency.",
+      "confidence_level": 0.693
+    },
+    "contract_version": "v1"
+  },
+  "core_decision": {
+    "trace_id": "TRACE_123",
+    "stage": "core",
+    "decision": "prioritize region North",
+    "selected_entity": "North",
+    "selected_score": 0.593,
+    "selected_confidence": 0.693,
+    "priority": "medium",
+    "priority_reason": "Score >= 0.4: medium priority \u2014 schedule for next cycle",
+    "selection_criteria": "highest_ranked_region_selected",
+    "logic": "highest_ranked_region_selected",
+    "all_candidates": [
+      {
+        "entity_id": "North",
+        "score": 0.593,
+        "confidence": 0.693
+      },
+      {
+        "entity_id": "East",
+        "score": 0.592,
+        "confidence": 0.692
+      },
+      {
+        "entity_id": "South",
+        "score": 0.592,
+        "confidence": 0.692
+      },
+      {
+        "entity_id": "West",
+        "score": 0.592,
+        "confidence": 0.692
+      }
+    ],
+    "margin_over_runner_up": 0.001,
+    "runner_up": "East",
+    "reasoning": "Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.593. Runner-up is East with score 0.592 (margin: 0.001). Assigned priority: medium.",
+    "downstream_recommendation": {
+      "recommended_action": "prioritize_resource_allocation",
+      "primary_target": "North",
+      "primary_target_score": 0.593,
+      "deprioritized_target": "West",
+      "deprioritized_target_score": 0.592,
+      "score_spread": 0.001,
+      "rationale": "Region North has the highest composite score (0.593) and should receive priority resource allocation. Region West has the lowest score (0.592) and may need intervention to improve yield efficiency.",
+      "confidence_level": 0.693
+    },
+    "contract_version": "v1"
+  },
+  "enforcement": {
+    "trace_id": "TRACE_123",
+    "stage": "enforcement",
+    "action": "prioritize_irrigation",
+    "target": "North",
+    "enforcement_type": "scheduled_allocation",
+    "priority": "medium",
+    "urgency": "next_cycle",
+    "enforcement_score": 0.593,
+    "directives": [
+      {
+        "directive_id": "DIR-001-North",
+        "action": "prioritize_irrigation",
+        "target": "North",
+        "description": "Allocate priority irrigation resources to North region",
+        "status": "pending"
+      },
+      {
+        "directive_id": "DIR-002-North",
+        "action": "allocate_fertilizer",
+        "target": "North",
+        "description": "Increase fertilizer supply allocation to North region",
+        "status": "pending"
+      },
+      {
+        "directive_id": "DIR-003-North",
+        "action": "deploy_monitoring",
+        "target": "North",
+        "description": "Deploy enhanced crop monitoring sensors in North region",
+        "status": "pending"
+      }
+    ],
+    "enforcement_rationale": "Based on core decision: North selected with priority 'medium'. Enforcement type: scheduled_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.",
+    "core_reasoning_reference": "Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.593. Runner-up is East with score 0.592 (margin: 0.001). Assigned priority: medium.",
+    "contract_version": "v1"
+  },
+  "truth": {
+    "verdict": "PIPELINE_COMPLETE",
+    "selected_entity": "North",
+    "selected_score": 0.593,
+    "enforcement_action": "prioritize_irrigation",
+    "enforcement_target": "North",
+    "pipeline_hash": "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+    "chain_integrity": "VERIFIED \u2014 SHA-256 hash computed over full chain",
+    "trace_continuity": "PASS \u2014 trace_id identical across all stages",
+    "stages_completed": [
+      "input",
+      "sanskar",
+      "core",
+      "enforcement",
+      "truth"
+    ],
+    "summary": "TANTRA pipeline completed successfully. Entity 'North' selected with score 0.593. Enforcement action 'prioritize_irrigation' issued targeting 'North' region. Trace TRACE_123 preserved across all 5 stages."
+  },
+  "trace_continuity_proof": {
+    "expected_trace_id": "TRACE_123",
+    "stages_checked": [
+      {
+        "stage": "input",
+        "trace_id_found": "TRACE_123",
+        "matches_expected": true
+      },
+      {
+        "stage": "sanskar",
+        "trace_id_found": "TRACE_123",
+        "matches_expected": true
+      },
+      {
+        "stage": "core",
+        "trace_id_found": "TRACE_123",
+        "matches_expected": true
+      },
+      {
+        "stage": "enforcement",
+        "trace_id_found": "TRACE_123",
+        "matches_expected": true
+      }
+    ],
+    "all_match": true,
+    "verdict": "PASS \u2014 trace_id identical across all stages"
+  },
+  "contract_version": "v1"
+}

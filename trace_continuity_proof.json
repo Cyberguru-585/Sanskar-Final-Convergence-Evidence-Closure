@@ -1,0 +1,27 @@
+{
+  "expected_trace_id": "TRACE_123",
+  "stages_checked": [
+    {
+      "stage": "input",
+      "trace_id_found": "TRACE_123",
+      "matches_expected": true
+    },
+    {
+      "stage": "sanskar",
+      "trace_id_found": "TRACE_123",
+      "matches_expected": true
+    },
+    {
+      "stage": "core",
+      "trace_id_found": "TRACE_123",
+      "matches_expected": true
+    },
+    {
+      "stage": "enforcement",
+      "trace_id_found": "TRACE_123",
+      "matches_expected": true
+    }
+  ],
+  "all_match": true,
+  "verdict": "PASS \u2014 trace_id identical across all stages"
+}

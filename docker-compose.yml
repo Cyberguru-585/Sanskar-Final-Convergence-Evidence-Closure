@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  sanskar:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SERVICE_NAME=Sanskar
+      - VERSION=v1
+    volumes:
+      - ./truth_store.json:/app/truth_store.json
+      - ./observability.log:/app/observability.log
+    restart: unless-stopped

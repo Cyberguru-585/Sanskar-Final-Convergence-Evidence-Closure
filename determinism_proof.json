@@ -1,0 +1,20 @@
+{
+  "description": "Determinism proof \u2014 repeated execution produces identical outputs",
+  "input": {
+    "trace_id": "TRACE_123",
+    "signal": {
+      "dataset": "crop_yield.csv"
+    }
+  },
+  "num_runs": 5,
+  "pipeline_hashes": [
+    "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+    "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+    "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+    "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+    "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042"
+  ],
+  "all_hashes_identical": true,
+  "reference_hash": "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+  "verdict": "PASS \u2014 all outputs identical"
+}
