@@ -29,7 +29,8 @@ def run_core(sanskar_output):
         {
             "entity_id": e["entity_id"],
             "score": e["score"],
-            "confidence": e["confidence"]
+            "confidence": e["confidence"],
+            "decision_state": e.get("decision_state", "CONFIDENT")
         }
         for e in entities
     ]
@@ -37,6 +38,7 @@ def run_core(sanskar_output):
     selected_entity = ranking[0]
     selected_score = next(e["score"] for e in entities if e["entity_id"] == selected_entity)
     selected_confidence = next(e["confidence"] for e in entities if e["entity_id"] == selected_entity)
+    selected_decision_state = next(e.get("decision_state", "CONFIDENT") for e in entities if e["entity_id"] == selected_entity)
 
     if selected_score >= 0.8:
         priority = "critical"
@@ -57,7 +59,8 @@ def run_core(sanskar_output):
 
     reasoning = (
         f"Selection rule: 'highest_ranked_region_selected'. "
-        f"{selected_entity} is the top-ranked entity with score {selected_score}. "
+        f"{selected_entity} is the top-ranked entity with score {selected_score} "
+        f"(decision_state: {selected_decision_state}). "
     )
     if runner_up and margin is not None:
         reasoning += (
@@ -73,6 +76,7 @@ def run_core(sanskar_output):
         "selected_entity": selected_entity,
         "selected_score": selected_score,
         "selected_confidence": selected_confidence,
+        "selected_decision_state": selected_decision_state,
         "priority": priority,
         "priority_reason": priority_reason,
         "selection_criteria": "highest_ranked_region_selected",

@@ -36,7 +36,7 @@
   STEP 3 -- FEATURES GENERATED
 ----------------------------------------------------------------------
   TRACE_ID: TRACE_123
-  Features: rainfall_score, temp_score, irrigation_score, fertilizer_score, yield_efficiency
+  Features: rainfall_score, temp_score, irrigation_score, fertilizer_score, yield_efficiency_score, soil_quality_score, weather_score
 
 ----------------------------------------------------------------------
   STEP 4 -- SCORES COMPUTED
@@ -48,48 +48,56 @@
   +------------------------------------------------------------------+
 
   [1] North
-      Score: 0.593
-      Confidence: 0.693
+      Score: 0.653
+      Confidence: 0.695
       Top Factors:
-        rainfall             weight=0.25  raw=0.6605  contribution=0.165  [################....]
-        temperature          weight=0.2  raw=0.7398  contribution=0.148  [##############......]
-        irrigation           weight=0.2  raw=0.7498  contribution=0.15  [###############.....]
-        fertilizer           weight=0.15  raw=0.7998  contribution=0.12  [############........]
-        yield_efficiency     weight=0.2  raw=0.0477  contribution=0.01  [#...................]
-      Explanation: North achieved score 0.593 due to balanced rainfall, temperature, irrigation and yield efficiency
+        rainfall             weight=0.15  raw=0.5009  contribution=0.0751  [#######.............]
+        temperature          weight=0.12  raw=0.5663  contribution=0.068  [######..............]
+        irrigation           weight=0.18  raw=0.6748  contribution=0.1215  [############........]
+        fertilizer           weight=0.08  raw=0.6746  contribution=0.054  [#####...............]
+        yield_efficiency     weight=0.28  raw=0.5793  contribution=0.1622  [################....]
+        soil_quality         weight=0.1  raw=0.8967  contribution=0.0897  [########............]
+        weather              weight=0.09  raw=0.9167  contribution=0.0825  [########............]
+      Explanation: North achieved score 0.6529 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.
 
-  [2] East
-      Score: 0.592
-      Confidence: 0.692
+  [2] West
+      Score: 0.653
+      Confidence: 0.695
       Top Factors:
-        rainfall             weight=0.25  raw=0.6589  contribution=0.165  [################....]
-        temperature          weight=0.2  raw=0.7399  contribution=0.148  [##############......]
-        irrigation           weight=0.2  raw=0.7497  contribution=0.15  [###############.....]
-        fertilizer           weight=0.15  raw=0.7999  contribution=0.12  [############........]
-        yield_efficiency     weight=0.2  raw=0.0475  contribution=0.01  [#...................]
-      Explanation: East achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency
+        rainfall             weight=0.15  raw=0.4999  contribution=0.075  [#######.............]
+        temperature          weight=0.12  raw=0.5656  contribution=0.0679  [######..............]
+        irrigation           weight=0.18  raw=0.675  contribution=0.1215  [############........]
+        fertilizer           weight=0.08  raw=0.6751  contribution=0.054  [#####...............]
+        yield_efficiency     weight=0.28  raw=0.579  contribution=0.1621  [################....]
+        soil_quality         weight=0.1  raw=0.8966  contribution=0.0897  [########............]
+        weather              weight=0.09  raw=0.9166  contribution=0.0825  [########............]
+      Explanation: West achieved score 0.6526 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.
 
   [3] South
-      Score: 0.592
-      Confidence: 0.692
+      Score: 0.652
+      Confidence: 0.695
       Top Factors:
-        rainfall             weight=0.25  raw=0.6597  contribution=0.165  [################....]
-        temperature          weight=0.2  raw=0.7401  contribution=0.148  [##############......]
-        irrigation           weight=0.2  raw=0.7494  contribution=0.15  [###############.....]
-        fertilizer           weight=0.15  raw=0.8002  contribution=0.12  [############........]
-        yield_efficiency     weight=0.2  raw=0.0476  contribution=0.01  [#...................]
-      Explanation: South achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency
+        rainfall             weight=0.15  raw=0.5  contribution=0.075  [#######.............]
+        temperature          weight=0.12  raw=0.5669  contribution=0.068  [######..............]
+        irrigation           weight=0.18  raw=0.6742  contribution=0.1214  [############........]
+        fertilizer           weight=0.08  raw=0.6753  contribution=0.054  [#####...............]
+        yield_efficiency     weight=0.28  raw=0.5784  contribution=0.162  [################....]
+        soil_quality         weight=0.1  raw=0.8966  contribution=0.0897  [########............]
+        weather              weight=0.09  raw=0.9167  contribution=0.0825  [########............]
+      Explanation: South achieved score 0.6525 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.
 
-  [4] West
-      Score: 0.592
-      Confidence: 0.692
+  [4] East
+      Score: 0.652
+      Confidence: 0.694
       Top Factors:
-        rainfall             weight=0.25  raw=0.6597  contribution=0.165  [################....]
-        temperature          weight=0.2  raw=0.7393  contribution=0.148  [##############......]
-        irrigation           weight=0.2  raw=0.75  contribution=0.15  [###############.....]
-        fertilizer           weight=0.15  raw=0.8001  contribution=0.12  [############........]
-        yield_efficiency     weight=0.2  raw=0.0476  contribution=0.01  [#...................]
-      Explanation: West achieved score 0.592 due to balanced rainfall, temperature, irrigation and yield efficiency
+        rainfall             weight=0.15  raw=0.4992  contribution=0.0749  [#######.............]
+        temperature          weight=0.12  raw=0.5665  contribution=0.068  [######..............]
+        irrigation           weight=0.18  raw=0.6746  contribution=0.1214  [############........]
+        fertilizer           weight=0.08  raw=0.6748  contribution=0.054  [#####...............]
+        yield_efficiency     weight=0.28  raw=0.5779  contribution=0.1618  [################....]
+        soil_quality         weight=0.1  raw=0.8966  contribution=0.0897  [########............]
+        weather              weight=0.09  raw=0.9167  contribution=0.0825  [########............]
+      Explanation: East achieved score 0.6523 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.
 
 
 ----------------------------------------------------------------------
@@ -101,23 +109,24 @@
   |  RANKING BOARD                                                   |
   +------------------------------------------------------------------+
 
-    1. North        -- 0.593 <-- HIGHEST
-    2. East         -- 0.592
-    3. South        -- 0.592
-    4. West         -- 0.592 <-- LOWEST
+    1. North        -- 0.653 <-- HIGHEST
+    2. West         -- 0.653
+    3. South        -- 0.652
+    4. East         -- 0.652 <-- LOWEST
 
 
   +------------------------------------------------------------------+
   |  COMPARATIVE EXPLANATION                                         |
   +------------------------------------------------------------------+
 
-    BEST:  North (score=0.593)
-    Strengths: marginal overall advantage across all factors
+    BEST:  North (score=0.653)
+    Strengths: rainfall (+0.0002), irrigation (+0.0001), yield_efficiency (+0.0004)
 
-    WORST: West (score=0.592)
+    WORST: East (score=0.652)
+    Weaknesses: rainfall (-0.0002), irrigation (-0.0001), yield_efficiency (-0.0004)
 
-    WHY: North ranks highest due to marginal overall advantage.
-    WHY: West ranks lowest due to marginally lower scores across all factors.
+    WHY: North ranks highest due to rainfall and irrigation and yield_efficiency strength.
+    WHY: East ranks lowest due to weaker rainfall and irrigation and yield_efficiency performance.
 
 
   +------------------------------------------------------------------+
@@ -129,10 +138,10 @@
 
     BEFORE                         AFTER                         
     ----------------------------   ----------------------------
-    1. North                       1. East                        <-- CHANGED
-    2. East                        2. North                       <-- CHANGED
+    1. North                       1. North                      
+    2. West                        2. West                       
     3. South                       3. South                      
-    4. West                        4. West                       
+    4. East                        4. East                       
 
 
     Scenario: Scenario B: -2°C Temperature
@@ -140,10 +149,10 @@
 
     BEFORE                         AFTER                         
     ----------------------------   ----------------------------
-    1. North                       1. East                        <-- CHANGED
-    2. East                        2. North                       <-- CHANGED
+    1. North                       1. North                      
+    2. West                        2. West                       
     3. South                       3. South                      
-    4. West                        4. West                       
+    4. East                        4. East                       
 
 
 ----------------------------------------------------------------------
@@ -157,20 +166,20 @@
 
     Selection Rule:      highest_ranked_region_selected
     Selected Entity:     North
-    Selected Score:      0.593
-    Selected Confidence: 0.693
-    Priority:            medium
-    Priority Reason:     Score >= 0.4: medium priority — schedule for next cycle
-    Runner-up:           East
-    Margin:              0.001
+    Selected Score:      0.653
+    Selected Confidence: 0.695
+    Priority:            high
+    Priority Reason:     Score >= 0.6: high priority — action recommended within current cycle
+    Runner-up:           West
+    Margin:              0.0
 
     All Candidates:
-      North        score=0.593  confidence=0.693 <-- SELECTED
-      East         score=0.592  confidence=0.692
-      South        score=0.592  confidence=0.692
-      West         score=0.592  confidence=0.692
+      North        score=0.653  confidence=0.695 <-- SELECTED
+      West         score=0.653  confidence=0.695
+      South        score=0.652  confidence=0.695
+      East         score=0.652  confidence=0.694
 
-    Reasoning: Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.593. Runner-up is East with score 0.592 (margin: 0.001). Assigned priority: medium.
+    Reasoning: Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.653 (decision_state: AMBIGUOUS). Runner-up is West with score 0.653 (margin: 0.0). Assigned priority: high.
 
 
 ----------------------------------------------------------------------
@@ -184,16 +193,16 @@
 
     Action:           prioritize_irrigation
     Target:           North
-    Enforcement Type: scheduled_allocation
-    Priority:         medium
-    Urgency:          next_cycle
+    Enforcement Type: resource_allocation
+    Priority:         high
+    Urgency:          current_cycle
 
     Directives:
       [DIR-001-North] prioritize_irrigation -> North (status: pending)
       [DIR-002-North] allocate_fertilizer -> North (status: pending)
       [DIR-003-North] deploy_monitoring -> North (status: pending)
 
-    Rationale: Based on core decision: North selected with priority 'medium'. Enforcement type: scheduled_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.
+    Rationale: Based on core decision: North selected with priority 'high' (decision_state: AMBIGUOUS). Enforcement type: resource_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.
 
 
 ----------------------------------------------------------------------
@@ -208,10 +217,10 @@
     {
       "verdict": "PIPELINE_COMPLETE",
       "selected_entity": "North",
-      "selected_score": 0.593,
+      "selected_score": 0.653,
       "enforcement_action": "prioritize_irrigation",
       "enforcement_target": "North",
-      "pipeline_hash": "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+      "pipeline_hash": "5148460d5c36b4c36e9cf51733a959e528dd94898ddb3e008d3d1c4edff5eb23",
       "chain_integrity": "VERIFIED \u2014 SHA-256 hash computed over full chain",
       "trace_continuity": "PASS \u2014 trace_id identical across all stages",
       "stages_completed": [
@@ -221,7 +230,7 @@
         "enforcement",
         "truth"
       ],
-      "summary": "TANTRA pipeline completed successfully. Entity 'North' selected with score 0.593. Enforcement action 'prioritize_irrigation' issued targeting 'North' region. Trace TRACE_123 preserved across all 5 stages."
+      "summary": "TANTRA pipeline completed successfully. Entity 'North' selected with score 0.653. Enforcement action 'prioritize_irrigation' issued targeting 'North' region. Trace TRACE_123 preserved across all 5 stages."
     }
 
   [SAVED] full_chain_output.json
@@ -320,15 +329,15 @@
 ======================================================================
 
   Running pipeline 5 times silently...
-    Run 1: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
-    Run 2: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
-    Run 3: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
-    Run 4: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
-    Run 5: 5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042
+    Run 1: 76e9da80969faf2e86c8f498f6666c855c96b4a125cee366a8377ef8e78c5575
+    Run 2: b513c39489b58efc2de3520bc084921bb571b054c6e1512489d647c632d59ca9
+    Run 3: 7643a053e6b32ba2593797ed87e4c0a25c4c442ef748e69cdfb6747537829474
+    Run 4: cfa334b096ad5d273923af368ac25e3626eefbb6071627b0deb2f4440ba9e6b0
+    Run 5: 249cbba2060d9db299b083daef9d3978f02f898e51bd940caac0e7a337627d19
   [SAVED] determinism_proof.json
 
-  All hashes identical: True
-  Verdict: PASS — all outputs identical
+  All hashes identical: False
+  Verdict: FAIL — outputs differ
 
 ======================================================================
   ALL TESTS COMPLETE

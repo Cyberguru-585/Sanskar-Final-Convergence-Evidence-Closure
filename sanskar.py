@@ -12,24 +12,61 @@ def normalize_data(df):
     return df
 
 
+def parse_boolean(flag):
+    return str(flag).strip().upper() in {"TRUE", "YES", "1"}
+
+
+def normalize_category(value):
+    if pd.isna(value):
+        return ""
+    return str(value).strip().title()
+
+
 def create_features(df):
     df = df.copy()
-    df["rainfall_score"] = df["Rainfall_mm"].apply(lambda x: min(x / 800, 1))
-    df["temp_score"] = df["Temperature_Celsius"].apply(lambda x: 1 - abs(x - 25)/25)
-    df["irrigation_score"] = df["Irrigation_Used"].apply(lambda x: 1 if x else 0.5)
-    df["fertilizer_score"] = df["Fertilizer_Used"].apply(lambda x: 1 if x else 0.6)
-    df["yield_efficiency"] = df["Yield_tons_per_hectare"] / df["Days_to_Harvest"]
+    df["Rainfall_mm"] = df["Rainfall_mm"].astype(float)
+    df["Temperature_Celsius"] = df["Temperature_Celsius"].astype(float)
+    df["Irrigation_Used"] = df["Irrigation_Used"].apply(parse_boolean)
+    df["Fertilizer_Used"] = df["Fertilizer_Used"].apply(parse_boolean)
+    df["Soil_Type"] = df["Soil_Type"].apply(normalize_category)
+    df["Weather_Condition"] = df["Weather_Condition"].apply(normalize_category)
+
+    df["rainfall_score"] = df["Rainfall_mm"].apply(lambda x: min(max((x - 100) / 900, 0), 1))
+    df["temp_score"] = df["Temperature_Celsius"].apply(lambda x: max(0, 1 - abs(x - 25) / 15))
+    df["irrigation_score"] = df["Irrigation_Used"].apply(lambda x: 1.0 if x else 0.35)
+    df["fertilizer_score"] = df["Fertilizer_Used"].apply(lambda x: 1.0 if x else 0.35)
+    df["yield_efficiency"] = df["Yield_tons_per_hectare"].astype(float) / df["Days_to_Harvest"].astype(float)
+    df["yield_efficiency_score"] = df["yield_efficiency"].apply(lambda x: min(max(x / 0.08, 0), 1))
+
+    soil_quality_map = {
+        "Loam": 0.98,
+        "Silt": 0.95,
+        "Clay": 0.90,
+        "Peaty": 0.88,
+        "Sandy": 0.85,
+        "Chalky": 0.82
+    }
+    df["soil_quality_score"] = df["Soil_Type"].map(soil_quality_map).fillna(0.80)
+
+    weather_quality_map = {
+        "Sunny": 0.95,
+        "Cloudy": 0.92,
+        "Rainy": 0.88
+    }
+    df["weather_score"] = df["Weather_Condition"].map(weather_quality_map).fillna(0.85)
     return df
 
 
 def compute_scores(df):
     df = df.copy()
     df["score"] = (
-        0.25 * df["rainfall_score"] +
-        0.20 * df["temp_score"] +
-        0.20 * df["irrigation_score"] +
-        0.15 * df["fertilizer_score"] +
-        0.20 * df["yield_efficiency"]
+        0.15 * df["rainfall_score"] +
+        0.12 * df["temp_score"] +
+        0.18 * df["irrigation_score"] +
+        0.08 * df["fertilizer_score"] +
+        0.28 * df["yield_efficiency_score"] +
+        0.10 * df["soil_quality_score"] +
+        0.09 * df["weather_score"]
     )
     return df
 
@@ -39,78 +76,235 @@ def aggregate_entities(df):
 
 
 def build_entity_output(row):
-    score = round(row["score"], 3)
+    score = round(row["score"], 4)
+    factor_weights = {
+        "rainfall": 0.15,
+        "temperature": 0.12,
+        "irrigation": 0.18,
+        "fertilizer": 0.08,
+        "yield_efficiency": 0.28,
+        "soil_quality": 0.10,
+        "weather": 0.09
+    }
+    factors = [
+        {
+            "name": "rainfall",
+            "weight": factor_weights["rainfall"],
+            "raw_value": round(row["rainfall_score"], 4),
+            "contribution": round(factor_weights["rainfall"] * row["rainfall_score"], 4)
+        },
+        {
+            "name": "temperature",
+            "weight": factor_weights["temperature"],
+            "raw_value": round(row["temp_score"], 4),
+            "contribution": round(factor_weights["temperature"] * row["temp_score"], 4)
+        },
+        {
+            "name": "irrigation",
+            "weight": factor_weights["irrigation"],
+            "raw_value": round(row["irrigation_score"], 4),
+            "contribution": round(factor_weights["irrigation"] * row["irrigation_score"], 4)
+        },
+        {
+            "name": "fertilizer",
+            "weight": factor_weights["fertilizer"],
+            "raw_value": round(row["fertilizer_score"], 4),
+            "contribution": round(factor_weights["fertilizer"] * row["fertilizer_score"], 4)
+        },
+        {
+            "name": "yield_efficiency",
+            "weight": factor_weights["yield_efficiency"],
+            "raw_value": round(row["yield_efficiency_score"], 4),
+            "contribution": round(factor_weights["yield_efficiency"] * row["yield_efficiency_score"], 4)
+        },
+        {
+            "name": "soil_quality",
+            "weight": factor_weights["soil_quality"],
+            "raw_value": round(row["soil_quality_score"], 4),
+            "contribution": round(factor_weights["soil_quality"] * row["soil_quality_score"], 4)
+        },
+        {
+            "name": "weather",
+            "weight": factor_weights["weather"],
+            "raw_value": round(row["weather_score"], 4),
+            "contribution": round(factor_weights["weather"] * row["weather_score"], 4)
+        }
+    ]
+
+    # Enhanced confidence calculation
+    avg_feature_quality = (
+        row["rainfall_score"] + row["temp_score"] + row["irrigation_score"] +
+        row["fertilizer_score"] + row["yield_efficiency_score"] +
+        row["soil_quality_score"] + row["weather_score"]
+    ) / 7.0
+    
+    # Calculate feature stability (lower variance = higher stability)
+    feature_values = [
+        row["rainfall_score"], row["temp_score"], row["irrigation_score"],
+        row["fertilizer_score"], row["yield_efficiency_score"],
+        row["soil_quality_score"], row["weather_score"]
+    ]
+    feature_variance = sum((f - avg_feature_quality) ** 2 for f in feature_values) / len(feature_values)
+    feature_stability = max(0, 1.0 - feature_variance)  # Normalize: lower variance = higher stability
+    
+    # Count missing values (checking for zero or NaN patterns)
+    missing_count = sum(1 for f in feature_values if f < 0.1)
+    missing_penalty = min(0.2, missing_count * 0.05)
+    
+    # Confidence formula considers: score, feature quality, stability, and missing data
+    confidence = round(
+        min(1.0, 
+            0.50 * score +  # Score contribution
+            0.25 * avg_feature_quality +  # Feature quality
+            0.15 * feature_stability +  # Feature stability
+            0.10 * (1.0 - missing_penalty)  # Missing data penalty
+        ),
+        4
+    )
+
+    tie_breaker = (
+        0.20 * row["yield_efficiency_score"] +
+        0.18 * row["irrigation_score"] +
+        0.12 * row["temp_score"] +
+        0.10 * row["fertilizer_score"] +
+        0.12 * row["rainfall_score"] +
+        0.14 * row["soil_quality_score"] +
+        0.14 * row["weather_score"]
+    )
+
     return {
         "entity_id": row["Region"],
         "score": score,
-        "factors": [
-            {
-                "name": "rainfall",
-                "weight": 0.25,
-                "raw_value": round(row["rainfall_score"], 4),
-                "contribution": round(0.25 * row["rainfall_score"], 3)
-            },
-            {
-                "name": "temperature",
-                "weight": 0.20,
-                "raw_value": round(row["temp_score"], 4),
-                "contribution": round(0.20 * row["temp_score"], 3)
-            },
-            {
-                "name": "irrigation",
-                "weight": 0.20,
-                "raw_value": round(row["irrigation_score"], 4),
-                "contribution": round(0.20 * row["irrigation_score"], 3)
-            },
-            {
-                "name": "fertilizer",
-                "weight": 0.15,
-                "raw_value": round(row["fertilizer_score"], 4),
-                "contribution": round(0.15 * row["fertilizer_score"], 3)
-            },
-            {
-                "name": "yield_efficiency",
-                "weight": 0.20,
-                "raw_value": round(row["yield_efficiency"], 4),
-                "contribution": round(0.20 * row["yield_efficiency"], 3)
-            }
-        ],
-        "confidence": round(min(1.0, score + 0.1), 3),
+        "raw_score": round(row["score"], 6),
+        "tie_breaker": round(tie_breaker, 6),
+        "factors": factors,
+        "confidence": confidence,
+        "confidence_factors": {
+            "score_contribution": round(0.50 * score, 4),
+            "feature_quality": round(avg_feature_quality, 4),
+            "feature_stability": round(feature_stability, 4),
+            "missing_penalty": round(missing_penalty, 4)
+        },
         "explanation": (
-            f"{row['Region']} achieved score {score} due to balanced rainfall, "
-            f"temperature, irrigation and yield efficiency"
+            f"{row['Region']} achieved score {score} based on yield efficiency dominance, strong irrigation, "
+            f"good soil quality and consistent weather support."
         )
     }
 
 
+def detect_uncertainty_state(spread):
+    """
+    Determine decision state based on score spread.
+    
+    Rules:
+    - spread < 0.01 → AMBIGUOUS (extremely weak separation)
+    - spread < 0.03 → LOW_CONFIDENCE (weak separation)
+    - otherwise → CONFIDENT (strong separation)
+    """
+    if spread < 0.01:
+        return "AMBIGUOUS"
+    elif spread < 0.03:
+        return "LOW_CONFIDENCE"
+    else:
+        return "CONFIDENT"
+
+
+def adjust_confidence_for_margin(ranked_entities):
+    if len(ranked_entities) < 2:
+        return ranked_entities
+
+    margin = ranked_entities[0]["raw_score"] - ranked_entities[1]["raw_score"]
+    
+    # Add decision_state based on margin (spread)
+    decision_state = detect_uncertainty_state(margin)
+    for entity in ranked_entities:
+        entity["decision_state"] = decision_state
+    
+    # Adjust confidence based on spread
+    if margin < 0.01:
+        penalty = 0.05 if margin < 0.005 else 0.03
+        for entity in ranked_entities:
+            entity["confidence"] = round(max(0.35, entity["confidence"] - penalty), 3)
+    elif margin < 0.03:
+        penalty = 0.02
+        for entity in ranked_entities:
+            entity["confidence"] = round(max(0.40, entity["confidence"] - penalty), 3)
+
+    return ranked_entities
+
+
 def rank_entities(entities):
-    ranked = sorted(entities, key=lambda x: x["score"], reverse=True)
+    ranked = sorted(
+        entities,
+        key=lambda x: (x["raw_score"], x["tie_breaker"], x["confidence"]),
+        reverse=True
+    )
     ranking = [e["entity_id"] for e in ranked]
+    ranked = adjust_confidence_for_margin(ranked)
     return ranked, ranking
 
 
 def comparative_explanation(entities):
+    """
+    Generate factor-specific comparative explanation.
+    Replace vague language with actual factor contributions and deltas.
+    """
     top = entities[0]
     second = entities[1]
 
-    top_factors = {f["name"]: f["contribution"] for f in top["factors"]}
-    second_factors = {f["name"]: f["contribution"] for f in second["factors"]}
+    top_factors = {f["name"]: f for f in top["factors"]}
+    second_factors = {f["name"]: f for f in second["factors"]}
 
     advantages = []
+    disadvantages = []
+    
     for name in top_factors:
-        diff = top_factors[name] - second_factors[name]
-        if diff > 0:
-            advantages.append(f"{name} (+{round(diff, 4)})")
+        top_contrib = top_factors[name]["contribution"]
+        second_contrib = second_factors[name]["contribution"]
+        delta = round(top_contrib - second_contrib, 4)
+        
+        if delta > 0.001:
+            advantages.append({
+                "factor": name,
+                "delta": delta,
+                "top_value": round(top_factors[name]["raw_value"], 4),
+                "second_value": round(second_factors[name]["raw_value"], 4),
+                "description": f"{name} (+{delta})"
+            })
+        elif delta < -0.001:
+            disadvantages.append({
+                "factor": name,
+                "delta": delta,
+                "top_value": round(top_factors[name]["raw_value"], 4),
+                "second_value": round(second_factors[name]["raw_value"], 4),
+                "description": f"{name} ({delta})"
+            })
 
-    if not advantages:
-        advantages = ["marginal overall advantage"]
+    
+    advantages.sort(key=lambda x: x["delta"], reverse=True)
+    disadvantages.sort(key=lambda x: x["delta"])
 
-    return (
-        f"{top['entity_id']} (score={top['score']}) ranks higher than "
-        f"{second['entity_id']} (score={second['score']}) due to advantages in: "
-        f"{', '.join(advantages)}. "
-        f"Score difference: {round(top['score'] - second['score'], 4)}"
-    )
+    
+    if advantages:
+        top_3_advantages = advantages[:3]
+        advantage_text = ", ".join([f"{a['factor']} (+{a['delta']})" for a in top_3_advantages])
+        explanation = (
+            f"{top['entity_id']} ranks above {second['entity_id']} due to stronger "
+            f"{advantage_text}."
+        )
+    else:
+        explanation = f"{top['entity_id']} has marginal advantage over {second['entity_id']}."
+    
+    score_diff = round(top["score"] - second["score"], 4)
+    explanation += f" Score difference: {score_diff}."
+
+    return {
+        "summary": explanation,
+        "advantages": advantages,
+        "disadvantages": disadvantages,
+        "score_delta": score_diff,
+        "confidence_delta": round(top["confidence"] - second["confidence"], 4)
+    }
 
 
 def simulate_scenarios(df, original_ranking):
@@ -226,15 +420,23 @@ def run_sanskar(input_contract):
     console.step(3, "FEATURES GENERATED")
     console.trace(trace_id)
     df = create_features(df)
-    console.info("Features", "rainfall_score, temp_score, irrigation_score, fertilizer_score, yield_efficiency")
+    console.info(
+        "Features",
+        "rainfall_score, temp_score, irrigation_score, fertilizer_score, yield_efficiency_score, soil_quality_score, weather_score"
+    )
 
     console.step(4, "SCORES COMPUTED")
     console.trace(trace_id)
-    df = compute_scores(df)
-    df = aggregate_entities(df)
+    scored_df = compute_scores(df)
+    aggregated_df = aggregate_entities(scored_df)
 
-    entities = [build_entity_output(r) for _, r in df.iterrows()]
+    entities = [build_entity_output(r) for _, r in aggregated_df.iterrows()]
     ranked, ranking = rank_entities(entities)
+
+    
+    for entity in ranked:
+        entity["score"] = round(entity["score"], 3)
+
 
     console.section("ALL ENTITY OUTPUTS")
     print()
@@ -246,7 +448,7 @@ def run_sanskar(input_contract):
     console.ranking_board(ranked)
     console.comparison_panel(ranked[0], ranked[-1])
 
-    scenarios = simulate_scenarios(df, ranking)
+    scenarios = simulate_scenarios(scored_df, ranking)
 
     downstream = build_downstream_decision(ranked, ranking)
 

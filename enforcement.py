@@ -1,4 +1,5 @@
 import console
+from datetime import datetime
 
 
 def run_enforcement(core_output):
@@ -24,6 +25,7 @@ def run_enforcement(core_output):
     entity = core_output["selected_entity"]
     priority = core_output.get("priority", "medium")
     score = core_output.get("selected_score", 0)
+    decision_state = core_output.get("selected_decision_state", "CONFIDENT")
     reasoning = core_output.get("reasoning", "")
 
     if priority == "critical":
@@ -39,27 +41,39 @@ def run_enforcement(core_output):
         enforcement_type = "monitoring_only"
         urgency = "passive"
 
+    
+    ack_timestamp = datetime.utcnow().isoformat() + "Z"
+
     directives = [
         {
             "directive_id": f"DIR-001-{entity}",
             "action": "prioritize_irrigation",
             "target": entity,
             "description": f"Allocate priority irrigation resources to {entity} region",
-            "status": "pending"
+            "status": "pending",
+            "acknowledged": False,
+            "ack_timestamp": None,
+            "execution_status": "PENDING"
         },
         {
             "directive_id": f"DIR-002-{entity}",
             "action": "allocate_fertilizer",
             "target": entity,
             "description": f"Increase fertilizer supply allocation to {entity} region",
-            "status": "pending"
+            "status": "pending",
+            "acknowledged": False,
+            "ack_timestamp": None,
+            "execution_status": "PENDING"
         },
         {
             "directive_id": f"DIR-003-{entity}",
             "action": "deploy_monitoring",
             "target": entity,
             "description": f"Deploy enhanced crop monitoring sensors in {entity} region",
-            "status": "pending"
+            "status": "pending",
+            "acknowledged": False,
+            "ack_timestamp": None,
+            "execution_status": "PENDING"
         }
     ]
 
@@ -70,15 +84,23 @@ def run_enforcement(core_output):
         "target": entity,
         "enforcement_type": enforcement_type,
         "priority": priority,
+        "decision_state": decision_state,
         "urgency": urgency,
         "enforcement_score": score,
         "directives": directives,
         "enforcement_rationale": (
-            f"Based on core decision: {entity} selected with priority '{priority}'. "
+            f"Based on core decision: {entity} selected with priority '{priority}' "
+            f"(decision_state: {decision_state}). "
             f"Enforcement type: {enforcement_type}. "
             f"Three directives issued covering irrigation, fertilizer, and monitoring."
         ),
         "core_reasoning_reference": reasoning,
+        "acknowledgment": {
+            "acknowledged": False,
+            "ack_timestamp": None,
+            "execution_status": "PENDING",
+            "status_updated_at": ack_timestamp
+        },
         "contract_version": "v1"
     }
 

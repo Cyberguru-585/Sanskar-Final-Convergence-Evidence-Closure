@@ -1,9 +1,12 @@
 import hashlib
 import json
+import time
 import console
 from sanskar import run_sanskar
 from core import run_core
 from enforcement import run_enforcement
+from event_sourcing import store_event, replay_from_event, verify_replay_determinism, compute_event_hash
+from observability import get_tracker
 
 
 
@@ -43,8 +46,29 @@ def strip_contract_version(data):
         return data
 
 
-def run_tantra(input_contract):
+def run_tantra(input_contract, replay_mode=False):
     trace_id = input_contract.get("trace_id", "UNKNOWN")
+    tracker = get_tracker()
+    
+    
+    if replay_mode and "trace_id" in input_contract:
+        replayed_input, is_valid = replay_from_event(trace_id)
+        if replayed_input and is_valid:
+            input_contract = replayed_input
+        else:
+            tracker.record_error(trace_id, "tantra-replay", "REPLAY_VERIFICATION_FAILED",
+                                "Replay verification failed - event corrupted or not found")
+            return {
+                "trace_id": trace_id,
+                "pipeline_status": "FAILED",
+                "failure": {
+                    "stage": "tantra-replay",
+                    "code": "REPLAY_VERIFICATION_FAILED",
+                    "message": "Replay verification failed - event corrupted or not found",
+                    "trace_preserved": False
+                },
+                "contract_version": "v1"
+            }
 
     if "trace_id" not in input_contract:
         console.step(1, "INPUT RECEIVED")
@@ -55,6 +79,8 @@ def run_tantra(input_contract):
             "message": "trace_id missing from input contract",
             "trace_preserved": False
         })
+        tracker.record_error("UNKNOWN", "tantra-input", "MISSING_TRACE_ID",
+                            "trace_id missing from input contract")
         return {
             "trace_id": "UNKNOWN",
             "pipeline_status": "FAILED",
@@ -89,6 +115,9 @@ def run_tantra(input_contract):
             ("tantra-validation", failure_output)
         ])
 
+        tracker.record_error(trace_id, "tantra-input", "INVALID_SIGNAL",
+                            "Signal missing in input contract")
+
         return {
             "trace_id": trace_id,
             "pipeline_status": "FAILED",
@@ -98,10 +127,22 @@ def run_tantra(input_contract):
             "contract_version": "v1"
         }
 
+    
+    store_event(trace_id, "INPUT", input_contract)
+
+    
+    sanskar_start = time.time()
     sanskar_output = run_sanskar(input_contract)
+    sanskar_decision_state = sanskar_output.get("entities", [{}])[0].get("decision_state", "CONFIDENT") if sanskar_output.get("entities") else "UNKNOWN"
+    tracker.record_stage_exit(trace_id, "sanskar", sanskar_start, 
+                             decision_state=sanskar_decision_state, 
+                             success="failure" not in sanskar_output,
+                             replay_mode=replay_mode)
 
     if "failure" in sanskar_output:
         console.failure_display(sanskar_output["failure"])
+        tracker.record_error(trace_id, "sanskar", sanskar_output["failure"].get("code", "UNKNOWN"),
+                            sanskar_output["failure"].get("message", "Unknown error"))
         trace_proof = verify_trace_continuity(trace_id, [
             ("input", input_contract),
             ("sanskar", sanskar_output)
@@ -115,8 +156,24 @@ def run_tantra(input_contract):
             "contract_version": "v1"
         }
 
+    
+    core_start = time.time()
     core_output = run_core(sanskar_output)
+    core_decision_state = core_output.get("selected_decision_state", "CONFIDENT")
+    core_confidence = core_output.get("selected_confidence", 0)
+    tracker.record_stage_exit(trace_id, "core", core_start,
+                             decision_state=core_decision_state,
+                             success="failure" not in core_output,
+                             replay_mode=replay_mode)
+
+    # Track enforcement stage
+    enforcement_start = time.time()
     enforcement_output = run_enforcement(core_output)
+    enforcement_decision_state = enforcement_output.get("decision_state", "CONFIDENT")
+    tracker.record_stage_exit(trace_id, "enforcement", enforcement_start,
+                             decision_state=enforcement_decision_state,
+                             success="failure" not in enforcement_output,
+                             replay_mode=replay_mode)
 
     if "failure" in enforcement_output:
         trace_proof = verify_trace_continuity(trace_id, [
@@ -157,6 +214,9 @@ def run_tantra(input_contract):
     console.step(8, "FINAL TRUTH OUTPUT STORED")
     console.trace(trace_id)
 
+    
+    stage_latencies = tracker.get_stage_latencies(trace_id)
+
     truth_output = {
         "verdict": "PIPELINE_COMPLETE",
         "selected_entity": core_output["selected_entity"],
@@ -188,5 +248,12 @@ def run_tantra(input_contract):
         "enforcement": enforcement_output,
         "truth": truth_output,
         "trace_continuity_proof": trace_proof,
+        "replay_mode": replay_mode,
+        "event_sourced": True,
+        "observability": {
+            "stage_latencies": stage_latencies,
+            "contract_version": "v1",
+            "decision_state": core_decision_state
+        },
         "contract_version": "v1"
     }

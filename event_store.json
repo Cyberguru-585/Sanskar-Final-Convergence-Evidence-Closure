@@ -1,0 +1,224 @@
+[
+  {
+    "event_id": "EVT-DEMO-UNCERTAINTY-001-1",
+    "trace_id": "DEMO-UNCERTAINTY-001",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T10:30:00Z",
+    "data": {
+      "trace_id": "DEMO-UNCERTAINTY-001",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "abc123def456abc123def456abc123def456abc123def456abc123def456abc1",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-REPLAY-004-1",
+    "trace_id": "DEMO-REPLAY-004",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T10:30:05Z",
+    "data": {
+      "trace_id": "DEMO-REPLAY-004",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "def789ghi012def789ghi012def789ghi012def789ghi012def789ghi012def7",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DETERMINISM-TEST-001-1",
+    "trace_id": "DETERMINISM-TEST-001",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T10:30:10Z",
+    "data": {
+      "trace_id": "DETERMINISM-TEST-001",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "ghi345jkl678ghi345jkl678ghi345jkl678ghi345jkl678ghi345jkl678ghi3",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_123-4",
+    "trace_id": "TRACE_123",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:41:51.542633Z",
+    "data": {
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_FAIL_002-5",
+    "trace_id": "TRACE_FAIL_002",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:42:35.640145Z",
+    "data": {
+      "trace_id": "TRACE_FAIL_002",
+      "signal": {}
+    },
+    "event_hash": "c6fb3fa29f24cd94e19bd0c91507f5f49f320f04a2e302299abf448b1d0291e5",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_123-6",
+    "trace_id": "TRACE_123",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:42:35.668022Z",
+    "data": {
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-UNCERTAINTY-001-7",
+    "trace_id": "DEMO-UNCERTAINTY-001",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:42:55.731891Z",
+    "data": {
+      "trace_id": "DEMO-UNCERTAINTY-001",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "ca068305f4caf4474b34699ae1def871fdd874351445efeb1088b91127e68173",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_123-8",
+    "trace_id": "TRACE_123",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:43:21.245835Z",
+    "data": {
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-CONFIDENCE-002-9",
+    "trace_id": "DEMO-CONFIDENCE-002",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:43:51.416693Z",
+    "data": {
+      "trace_id": "DEMO-CONFIDENCE-002",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "a3b812e28316d567b7fcb7b8f0641f6c61ca3800f3fb13c5eeaa2be459df1242",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_123-10",
+    "trace_id": "TRACE_123",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:44:26.463978Z",
+    "data": {
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-COMPARATIVE-003-11",
+    "trace_id": "DEMO-COMPARATIVE-003",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:44:52.028061Z",
+    "data": {
+      "trace_id": "DEMO-COMPARATIVE-003",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "15b302e3097183aa21b6087869bd204520c8920b0d71636183f089af995503f1",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_123-12",
+    "trace_id": "TRACE_123",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:45:05.995200Z",
+    "data": {
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-REPLAY-004-13",
+    "trace_id": "DEMO-REPLAY-004",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:45:23.360142Z",
+    "data": {
+      "trace_id": "DEMO-REPLAY-004",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "f373eccad9d0a6f024f672e807db6c67ad3b1462d7b6810c980645fd024c3323",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-TRACE_123-14",
+    "trace_id": "TRACE_123",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:45:38.907805Z",
+    "data": {
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-ACK-005-15",
+    "trace_id": "DEMO-ACK-005",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:45:52.128658Z",
+    "data": {
+      "trace_id": "DEMO-ACK-005",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "c719eea8264c4f12015781abe357a3064039546d0b67a104e8ff2cf84d55d7e0",
+    "immutable": true
+  },
+  {
+    "event_id": "EVT-DEMO-OBSERVABILITY-006-16",
+    "trace_id": "DEMO-OBSERVABILITY-006",
+    "event_type": "INPUT",
+    "timestamp": "2026-05-11T18:46:18.049152Z",
+    "data": {
+      "trace_id": "DEMO-OBSERVABILITY-006",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
+    },
+    "event_hash": "cfe6ed07b8125d2e0d688a0d71414a8c1bf0567297837daf43dcdefdbc3c7931",
+    "immutable": true
+  }
+]

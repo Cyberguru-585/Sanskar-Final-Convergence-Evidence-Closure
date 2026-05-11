@@ -1,10 +1,10 @@
 {
   "verdict": "PIPELINE_COMPLETE",
   "selected_entity": "North",
-  "selected_score": 0.593,
+  "selected_score": 0.653,
   "enforcement_action": "prioritize_irrigation",
   "enforcement_target": "North",
-  "pipeline_hash": "5444405ce0d96e845be5add2a4b08868426bbaa18cf88ab1fdf3ac99bba8f042",
+  "pipeline_hash": "5148460d5c36b4c36e9cf51733a959e528dd94898ddb3e008d3d1c4edff5eb23",
   "chain_integrity": "VERIFIED \u2014 SHA-256 hash computed over full chain",
   "trace_continuity": "PASS \u2014 trace_id identical across all stages",
   "stages_completed": [
@@ -14,5 +14,5 @@
     "enforcement",
     "truth"
   ],
-  "summary": "TANTRA pipeline completed successfully. Entity 'North' selected with score 0.593. Enforcement action 'prioritize_irrigation' issued targeting 'North' region. Trace TRACE_123 preserved across all 5 stages."
+  "summary": "TANTRA pipeline completed successfully. Entity 'North' selected with score 0.653. Enforcement action 'prioritize_irrigation' issued targeting 'North' region. Trace TRACE_123 preserved across all 5 stages."
 }

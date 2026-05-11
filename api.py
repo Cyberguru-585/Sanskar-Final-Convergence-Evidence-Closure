@@ -12,10 +12,10 @@ from tantra import compute_chain_hash, verify_trace_continuity
 
 app = FastAPI(title="Sanskar Intelligence Service", version="v1")
 
-# In-memory storage for traces (for simplicity; in production, use database)
+
 traces: Dict[str, Dict[str, Any]] = {}
 
-# Truth store file
+
 TRUTH_STORE = "truth_store.json"
 OBSERVABILITY_LOG = "observability.log"
 
@@ -77,7 +77,7 @@ async def signal_endpoint(input_data: SignalInput):
     
     trace_id = input_data.trace_id
     
-    # Run the full pipeline
+    
     sanskar_output = run_sanskar(input_data.dict())
     if "failure" in sanskar_output:
         log_observability(trace_id, "sanskar", "FAILURE")
@@ -94,7 +94,7 @@ async def signal_endpoint(input_data: SignalInput):
         traces[trace_id] = add_contract_version(failure_payload)
         return add_contract_version(failure_payload)
     
-    # Compute chain hash
+    
     chain_data = {
         "input": strip_contract_version(input_data.dict()),
         "sanskar": sanskar_output,
@@ -109,7 +109,7 @@ async def signal_endpoint(input_data: SignalInput):
         ("enforcement", enforcement_output)
     ])
 
-    # Truth output
+    
     truth_output = {
         "verdict": "PIPELINE_COMPLETE",
         "selected_entity": core_output["selected_entity"],

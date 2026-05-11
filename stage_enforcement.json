@@ -3,34 +3,50 @@
   "stage": "enforcement",
   "action": "prioritize_irrigation",
   "target": "North",
-  "enforcement_type": "scheduled_allocation",
-  "priority": "medium",
-  "urgency": "next_cycle",
-  "enforcement_score": 0.593,
+  "enforcement_type": "resource_allocation",
+  "priority": "high",
+  "decision_state": "AMBIGUOUS",
+  "urgency": "current_cycle",
+  "enforcement_score": 0.653,
   "directives": [
     {
       "directive_id": "DIR-001-North",
       "action": "prioritize_irrigation",
       "target": "North",
       "description": "Allocate priority irrigation resources to North region",
-      "status": "pending"
+      "status": "pending",
+      "acknowledged": false,
+      "ack_timestamp": null,
+      "execution_status": "PENDING"
     },
     {
       "directive_id": "DIR-002-North",
       "action": "allocate_fertilizer",
       "target": "North",
       "description": "Increase fertilizer supply allocation to North region",
-      "status": "pending"
+      "status": "pending",
+      "acknowledged": false,
+      "ack_timestamp": null,
+      "execution_status": "PENDING"
     },
     {
       "directive_id": "DIR-003-North",
       "action": "deploy_monitoring",
       "target": "North",
       "description": "Deploy enhanced crop monitoring sensors in North region",
-      "status": "pending"
+      "status": "pending",
+      "acknowledged": false,
+      "ack_timestamp": null,
+      "execution_status": "PENDING"
     }
   ],
-  "enforcement_rationale": "Based on core decision: North selected with priority 'medium'. Enforcement type: scheduled_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.",
-  "core_reasoning_reference": "Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.593. Runner-up is East with score 0.592 (margin: 0.001). Assigned priority: medium.",
+  "enforcement_rationale": "Based on core decision: North selected with priority 'high' (decision_state: AMBIGUOUS). Enforcement type: resource_allocation. Three directives issued covering irrigation, fertilizer, and monitoring.",
+  "core_reasoning_reference": "Selection rule: 'highest_ranked_region_selected'. North is the top-ranked entity with score 0.653 (decision_state: AMBIGUOUS). Runner-up is West with score 0.653 (margin: 0.0). Assigned priority: high.",
+  "acknowledgment": {
+    "acknowledged": false,
+    "ack_timestamp": null,
+    "execution_status": "PENDING",
+    "status_updated_at": "2026-05-11T18:42:35.581151Z"
+  },
   "contract_version": "v1"
 }
