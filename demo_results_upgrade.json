@@ -1,0 +1,1490 @@
+{
+  "1_lineage": {
+    "demo_name": "append_only_lineage",
+    "trace_id": "TRACE-LINEAGE-001",
+    "events_stored": 2,
+    "lineage_proof": {
+      "trace_id": "TRACE-LINEAGE-001",
+      "status": "VERIFIED",
+      "events_verified": 14,
+      "chain_valid": true,
+      "mutations_detected": [],
+      "deletions_detected": [],
+      "corruption_detected": false,
+      "lineage_chain": [
+        {
+          "sequence": 1,
+          "event_id": "EVT-TRACE-LINEAGE-001-1",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "current_event_hash": "e05b712d64b220d886cb9c70ce2e4768b4b079201c1acfd889ec5be88cc3ec6a",
+          "timestamp": "2026-05-15T12:21:07.772881Z"
+        },
+        {
+          "sequence": 2,
+          "event_id": "EVT-TRACE-LINEAGE-001-2",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "e05b712d64b220d886cb9c70ce2e4768b4b079201c1acfd889ec5be88cc3ec6a",
+          "current_event_hash": "e498a34c76d913395a7093f1780aa9c618f151fd6bf4aa47e6129074948ccbfb",
+          "timestamp": "2026-05-15T12:21:07.777946Z"
+        },
+        {
+          "sequence": 3,
+          "event_id": "EVT-TRACE-LINEAGE-001-3",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "e498a34c76d913395a7093f1780aa9c618f151fd6bf4aa47e6129074948ccbfb",
+          "current_event_hash": "99b87317706130a29598ea45a65cee9bac70222b9fffd33e7c7c0327a5366b07",
+          "timestamp": "2026-05-15T12:21:53.476846Z"
+        },
+        {
+          "sequence": 4,
+          "event_id": "EVT-TRACE-LINEAGE-001-4",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "99b87317706130a29598ea45a65cee9bac70222b9fffd33e7c7c0327a5366b07",
+          "current_event_hash": "4efc94caa5964a3220cddd0e940787418f64ad4f2be066de5af0aa63359f0794",
+          "timestamp": "2026-05-15T12:21:53.480810Z"
+        },
+        {
+          "sequence": 5,
+          "event_id": "EVT-TRACE-LINEAGE-001-5",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "4efc94caa5964a3220cddd0e940787418f64ad4f2be066de5af0aa63359f0794",
+          "current_event_hash": "c28d31b408a72de97c39f42b0f8bed60fee1c0c766757faa7a34491305129ce3",
+          "timestamp": "2026-05-15T12:22:24.785538Z"
+        },
+        {
+          "sequence": 6,
+          "event_id": "EVT-TRACE-LINEAGE-001-6",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "c28d31b408a72de97c39f42b0f8bed60fee1c0c766757faa7a34491305129ce3",
+          "current_event_hash": "54ee538a1357ec1deae03963aed8000f508a33a5b2287f47202052b370ad9956",
+          "timestamp": "2026-05-15T12:22:24.790642Z"
+        },
+        {
+          "sequence": 7,
+          "event_id": "EVT-TRACE-LINEAGE-001-7",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "54ee538a1357ec1deae03963aed8000f508a33a5b2287f47202052b370ad9956",
+          "current_event_hash": "1de0e4849e7a8fa1adefde6cb1b71b5b3d9fd3146121f1f4fabaf1783d3e8ee0",
+          "timestamp": "2026-05-15T12:24:03.084806Z"
+        },
+        {
+          "sequence": 8,
+          "event_id": "EVT-TRACE-LINEAGE-001-8",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "1de0e4849e7a8fa1adefde6cb1b71b5b3d9fd3146121f1f4fabaf1783d3e8ee0",
+          "current_event_hash": "2a82c0db81445b3fe1530a22f4b1ab97676f2f6b4b6485a92f650cc5b42cc33d",
+          "timestamp": "2026-05-15T12:24:03.094636Z"
+        },
+        {
+          "sequence": 9,
+          "event_id": "EVT-TRACE-LINEAGE-001-9",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "2a82c0db81445b3fe1530a22f4b1ab97676f2f6b4b6485a92f650cc5b42cc33d",
+          "current_event_hash": "4249a74f1cbbdcbab502224408aae4536dccfc5710e1b143de0508b9d2cab87d",
+          "timestamp": "2026-05-15T12:24:55.981197Z"
+        },
+        {
+          "sequence": 10,
+          "event_id": "EVT-TRACE-LINEAGE-001-10",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "4249a74f1cbbdcbab502224408aae4536dccfc5710e1b143de0508b9d2cab87d",
+          "current_event_hash": "64310797cac6045f22ebf4cbaf6bf05bfcf5899e1f4e120ad64946e0616f12a0",
+          "timestamp": "2026-05-15T12:24:55.984109Z"
+        },
+        {
+          "sequence": 11,
+          "event_id": "EVT-TRACE-LINEAGE-001-11",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "64310797cac6045f22ebf4cbaf6bf05bfcf5899e1f4e120ad64946e0616f12a0",
+          "current_event_hash": "5e494132a819e8263c1538e03fe1f9bfb6f7ff629c47dbf92c814522509eb266",
+          "timestamp": "2026-05-15T12:25:47.306184Z"
+        },
+        {
+          "sequence": 12,
+          "event_id": "EVT-TRACE-LINEAGE-001-12",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "5e494132a819e8263c1538e03fe1f9bfb6f7ff629c47dbf92c814522509eb266",
+          "current_event_hash": "01dd4372458f915035218de2f0017e3ccf5381d0440703564944f22c2698d3cb",
+          "timestamp": "2026-05-15T12:25:47.308818Z"
+        },
+        {
+          "sequence": 13,
+          "event_id": "EVT-TRACE-LINEAGE-001-13",
+          "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+          "previous_event_hash": "01dd4372458f915035218de2f0017e3ccf5381d0440703564944f22c2698d3cb",
+          "current_event_hash": "fdb69a0917a57c1f8b7a5978e46e4dfe1226664577c6e0cdd08eeaeff84803c5",
+          "timestamp": "2026-05-15T12:26:16.946704Z"
+        },
+        {
+          "sequence": 14,
+          "event_id": "EVT-TRACE-LINEAGE-001-14",
+          "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
+          "previous_event_hash": "fdb69a0917a57c1f8b7a5978e46e4dfe1226664577c6e0cdd08eeaeff84803c5",
+          "current_event_hash": "8bdc2fa3e5454b906d8a45e6016dd9505e1e30455a990770400a7ef9036c6fac",
+          "timestamp": "2026-05-15T12:26:16.956681Z"
+        }
+      ],
+      "verdict": "PASS \u2014 lineage chain integrity verified"
+    }
+  },
+  "2_replay": {
+    "demo_name": "distributed_replay_validation",
+    "trace_id": "TRACE-REPLAY-001",
+    "original_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
+    "all_replays_match": true,
+    "verdict": "PASS \u2014 distributed replay integrity verified"
+  },
+  "3_async": {
+    "demo_name": "async_execution_simulation",
+    "trace_id": "TRACE-ASYNC-001",
+    "execution_contexts": 1,
+    "replay_safety": {
+      "total_executions": 1,
+      "replay_safe": true,
+      "idempotency_verified": true,
+      "issues": [],
+      "execution_states": {
+        "COMPLETED": 1
+      },
+      "verdict": "PASS \u2014 replay safety verified"
+    }
+  },
+  "4_external": {
+    "demo_name": "external_execution_verification",
+    "trace_id": "TRACE-EXT-VERIFY-001",
+    "separation_of_concerns": {
+      "separation_verified": true,
+      "issuance": {
+        "exists": true,
+        "issued_by": "enforcement",
+        "timestamp": "2026-05-15T12:26:17.528085Z"
+      },
+      "verification": {
+        "exists": true,
+        "verified_by": "EXECUTOR-001",
+        "timestamp": "2026-05-15T12:26:17.528103Z"
+      },
+      "issues": [],
+      "verdict": "PASS \u2014 clear separation of concerns"
+    }
+  },
+  "5_observability": {
+    "demo_name": "observability_correlation",
+    "trace_id": "TRACE-OBS-001",
+    "correlation_report": {
+      "trace_id": "TRACE-OBS-001",
+      "correlation_context": {
+        "trace_id": "TRACE-OBS-001",
+        "parent_trace_id": "TRACE-PARENT-001",
+        "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+        "established_at": "2026-05-15T12:26:17.529295Z"
+      },
+      "total_events": 13,
+      "events_by_type": {
+        "orchestration_transition": [
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+            "event": "orchestration_transition",
+            "timestamp": "2026-05-15T12:21:08.385586Z",
+            "from_stage": "input",
+            "to_stage": "sanskar",
+            "transition_type": "normal"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+            "event": "orchestration_transition",
+            "timestamp": "2026-05-15T12:24:03.716549Z",
+            "from_stage": "input",
+            "to_stage": "sanskar",
+            "transition_type": "normal"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "d316f921-9575-4d82-a41f-798d277260dc",
+            "event": "orchestration_transition",
+            "timestamp": "2026-05-15T12:24:56.567182Z",
+            "from_stage": "input",
+            "to_stage": "sanskar",
+            "transition_type": "normal"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+            "event": "orchestration_transition",
+            "timestamp": "2026-05-15T12:25:47.873849Z",
+            "from_stage": "input",
+            "to_stage": "sanskar",
+            "transition_type": "normal"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+            "event": "orchestration_transition",
+            "timestamp": "2026-05-15T12:26:17.529382Z",
+            "from_stage": "input",
+            "to_stage": "sanskar",
+            "transition_type": "normal"
+          }
+        ],
+        "dependency_status": [
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+            "event": "dependency_status",
+            "timestamp": "2026-05-15T12:21:08.388816Z",
+            "dependency_name": "database",
+            "status": "healthy",
+            "details": {
+              "latency_ms": 45
+            }
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+            "event": "dependency_status",
+            "timestamp": "2026-05-15T12:24:03.718421Z",
+            "dependency_name": "database",
+            "status": "healthy",
+            "details": {
+              "latency_ms": 45
+            }
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+            "event": "dependency_status",
+            "timestamp": "2026-05-15T12:25:47.874474Z",
+            "dependency_name": "database",
+            "status": "healthy",
+            "details": {
+              "latency_ms": 45
+            }
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+            "event": "dependency_status",
+            "timestamp": "2026-05-15T12:26:17.530192Z",
+            "dependency_name": "database",
+            "status": "healthy",
+            "details": {
+              "latency_ms": 45
+            }
+          }
+        ],
+        "stage_exit": [
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+            "parent_trace_id": "TRACE-PARENT-001",
+            "stage": "sanskar",
+            "event": "stage_exit",
+            "timestamp": "2026-05-15T12:21:08.491117Z",
+            "latency_ms": 106.07,
+            "contract_version": "v1",
+            "replay_mode": false,
+            "decision_state": "CONFIDENT",
+            "success": true,
+            "dependency_status": "healthy"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+            "parent_trace_id": "TRACE-PARENT-001",
+            "stage": "sanskar",
+            "event": "stage_exit",
+            "timestamp": "2026-05-15T12:24:03.821256Z",
+            "latency_ms": 104.75,
+            "contract_version": "v1",
+            "replay_mode": false,
+            "decision_state": "CONFIDENT",
+            "success": true,
+            "dependency_status": "healthy"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+            "parent_trace_id": "TRACE-PARENT-001",
+            "stage": "sanskar",
+            "event": "stage_exit",
+            "timestamp": "2026-05-15T12:25:47.976549Z",
+            "latency_ms": 101.96,
+            "contract_version": "v1",
+            "replay_mode": false,
+            "decision_state": "CONFIDENT",
+            "success": true,
+            "dependency_status": "healthy"
+          },
+          {
+            "trace_id": "TRACE-OBS-001",
+            "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+            "parent_trace_id": "TRACE-PARENT-001",
+            "stage": "sanskar",
+            "event": "stage_exit",
+            "timestamp": "2026-05-15T12:26:17.631229Z",
+            "latency_ms": 101.82,
+            "contract_version": "v1",
+            "replay_mode": false,
+            "decision_state": "CONFIDENT",
+            "success": true,
+            "dependency_status": "healthy"
+          }
+        ]
+      },
+      "stage_latencies": {
+        "sanskar": 101.82
+      },
+      "dependency_statuses": [
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:21:08.388816Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:24:03.718421Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:25:47.874474Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:26:17.530192Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        }
+      ],
+      "events": [
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+          "event": "orchestration_transition",
+          "timestamp": "2026-05-15T12:21:08.385586Z",
+          "from_stage": "input",
+          "to_stage": "sanskar",
+          "transition_type": "normal"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:21:08.388816Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "04cd80ac-2a5e-40fb-b7d3-9d31f9ea0766",
+          "parent_trace_id": "TRACE-PARENT-001",
+          "stage": "sanskar",
+          "event": "stage_exit",
+          "timestamp": "2026-05-15T12:21:08.491117Z",
+          "latency_ms": 106.07,
+          "contract_version": "v1",
+          "replay_mode": false,
+          "decision_state": "CONFIDENT",
+          "success": true,
+          "dependency_status": "healthy"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+          "event": "orchestration_transition",
+          "timestamp": "2026-05-15T12:24:03.716549Z",
+          "from_stage": "input",
+          "to_stage": "sanskar",
+          "transition_type": "normal"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:24:03.718421Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "a2d626bd-89d1-4d18-ab97-f8eb95ea5b30",
+          "parent_trace_id": "TRACE-PARENT-001",
+          "stage": "sanskar",
+          "event": "stage_exit",
+          "timestamp": "2026-05-15T12:24:03.821256Z",
+          "latency_ms": 104.75,
+          "contract_version": "v1",
+          "replay_mode": false,
+          "decision_state": "CONFIDENT",
+          "success": true,
+          "dependency_status": "healthy"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "d316f921-9575-4d82-a41f-798d277260dc",
+          "event": "orchestration_transition",
+          "timestamp": "2026-05-15T12:24:56.567182Z",
+          "from_stage": "input",
+          "to_stage": "sanskar",
+          "transition_type": "normal"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+          "event": "orchestration_transition",
+          "timestamp": "2026-05-15T12:25:47.873849Z",
+          "from_stage": "input",
+          "to_stage": "sanskar",
+          "transition_type": "normal"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:25:47.874474Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "d2c28eea-076d-497a-aa68-4a4b24656c49",
+          "parent_trace_id": "TRACE-PARENT-001",
+          "stage": "sanskar",
+          "event": "stage_exit",
+          "timestamp": "2026-05-15T12:25:47.976549Z",
+          "latency_ms": 101.96,
+          "contract_version": "v1",
+          "replay_mode": false,
+          "decision_state": "CONFIDENT",
+          "success": true,
+          "dependency_status": "healthy"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+          "event": "orchestration_transition",
+          "timestamp": "2026-05-15T12:26:17.529382Z",
+          "from_stage": "input",
+          "to_stage": "sanskar",
+          "transition_type": "normal"
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+          "event": "dependency_status",
+          "timestamp": "2026-05-15T12:26:17.530192Z",
+          "dependency_name": "database",
+          "status": "healthy",
+          "details": {
+            "latency_ms": 45
+          }
+        },
+        {
+          "trace_id": "TRACE-OBS-001",
+          "correlation_id": "565065f1-9f9e-488b-b9aa-7284ef95b26f",
+          "parent_trace_id": "TRACE-PARENT-001",
+          "stage": "sanskar",
+          "event": "stage_exit",
+          "timestamp": "2026-05-15T12:26:17.631229Z",
+          "latency_ms": 101.82,
+          "contract_version": "v1",
+          "replay_mode": false,
+          "decision_state": "CONFIDENT",
+          "success": true,
+          "dependency_status": "healthy"
+        }
+      ]
+    }
+  },
+  "6_schema": {
+    "demo_name": "schema_evolution",
+    "v1_valid": true,
+    "v11_valid": true,
+    "compatibility": {
+      "v1": {
+        "v1": true,
+        "v1.1": true,
+        "v1.2": true
+      },
+      "v1.1": {
+        "v1": false,
+        "v1.1": true,
+        "v1.2": true
+      },
+      "v1.2": {
+        "v1": false,
+        "v1.1": false,
+        "v1.2": true
+      }
+    }
+  },
+  "7_concurrency": {
+    "demo_name": "concurrency_determinism",
+    "replay_proof": {
+      "test_type": "concurrent_replay",
+      "total_traces": 3,
+      "concurrent_rounds": 3,
+      "total_executions": 9,
+      "all_outputs": [
+        {
+          "trace_id": "TRACE-001",
+          "input": {
+            "signal": "test1",
+            "value": 100
+          },
+          "output": {
+            "signal": "test1",
+            "value": 100
+          },
+          "computation": 1000
+        },
+        {
+          "trace_id": "TRACE-002",
+          "input": {
+            "signal": "test2",
+            "value": 200
+          },
+          "output": {
+            "signal": "test2",
+            "value": 200
+          },
+          "computation": 2000
+        },
+        {
+          "trace_id": "TRACE-003",
+          "input": {
+            "signal": "test3",
+            "value": 300
+          },
+          "output": {
+            "signal": "test3",
+            "value": 300
+          },
+          "computation": 3000
+        },
+        {
+          "trace_id": "TRACE-001",
+          "input": {
+            "signal": "test1",
+            "value": 100
+          },
+          "output": {
+            "signal": "test1",
+            "value": 100
+          },
+          "computation": 1000
+        },
+        {
+          "trace_id": "TRACE-002",
+          "input": {
+            "signal": "test2",
+            "value": 200
+          },
+          "output": {
+            "signal": "test2",
+            "value": 200
+          },
+          "computation": 2000
+        },
+        {
+          "trace_id": "TRACE-003",
+          "input": {
+            "signal": "test3",
+            "value": 300
+          },
+          "output": {
+            "signal": "test3",
+            "value": 300
+          },
+          "computation": 3000
+        },
+        {
+          "trace_id": "TRACE-001",
+          "input": {
+            "signal": "test1",
+            "value": 100
+          },
+          "output": {
+            "signal": "test1",
+            "value": 100
+          },
+          "computation": 1000
+        },
+        {
+          "trace_id": "TRACE-002",
+          "input": {
+            "signal": "test2",
+            "value": 200
+          },
+          "output": {
+            "signal": "test2",
+            "value": 200
+          },
+          "computation": 2000
+        },
+        {
+          "trace_id": "TRACE-003",
+          "input": {
+            "signal": "test3",
+            "value": 300
+          },
+          "output": {
+            "signal": "test3",
+            "value": 300
+          },
+          "computation": 3000
+        }
+      ],
+      "output_hashes": [
+        "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+        "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+        "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+        "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+        "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+        "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+        "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+        "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+        "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58"
+      ],
+      "unique_hashes": 3,
+      "is_deterministic": false,
+      "consensus_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+      "execution_details": [
+        {
+          "round": 0,
+          "results": [
+            {
+              "trace_id": "TRACE-001",
+              "round": 0,
+              "result_hash": "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+              "result": {
+                "trace_id": "TRACE-001",
+                "input": {
+                  "signal": "test1",
+                  "value": 100
+                },
+                "output": {
+                  "signal": "test1",
+                  "value": 100
+                },
+                "computation": 1000
+              }
+            },
+            {
+              "trace_id": "TRACE-002",
+              "round": 0,
+              "result_hash": "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+              "result": {
+                "trace_id": "TRACE-002",
+                "input": {
+                  "signal": "test2",
+                  "value": 200
+                },
+                "output": {
+                  "signal": "test2",
+                  "value": 200
+                },
+                "computation": 2000
+              }
+            },
+            {
+              "trace_id": "TRACE-003",
+              "round": 0,
+              "result_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+              "result": {
+                "trace_id": "TRACE-003",
+                "input": {
+                  "signal": "test3",
+                  "value": 300
+                },
+                "output": {
+                  "signal": "test3",
+                  "value": 300
+                },
+                "computation": 3000
+              }
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "results": [
+            {
+              "trace_id": "TRACE-001",
+              "round": 1,
+              "result_hash": "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+              "result": {
+                "trace_id": "TRACE-001",
+                "input": {
+                  "signal": "test1",
+                  "value": 100
+                },
+                "output": {
+                  "signal": "test1",
+                  "value": 100
+                },
+                "computation": 1000
+              }
+            },
+            {
+              "trace_id": "TRACE-002",
+              "round": 1,
+              "result_hash": "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+              "result": {
+                "trace_id": "TRACE-002",
+                "input": {
+                  "signal": "test2",
+                  "value": 200
+                },
+                "output": {
+                  "signal": "test2",
+                  "value": 200
+                },
+                "computation": 2000
+              }
+            },
+            {
+              "trace_id": "TRACE-003",
+              "round": 1,
+              "result_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+              "result": {
+                "trace_id": "TRACE-003",
+                "input": {
+                  "signal": "test3",
+                  "value": 300
+                },
+                "output": {
+                  "signal": "test3",
+                  "value": 300
+                },
+                "computation": 3000
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "results": [
+            {
+              "trace_id": "TRACE-001",
+              "round": 2,
+              "result_hash": "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+              "result": {
+                "trace_id": "TRACE-001",
+                "input": {
+                  "signal": "test1",
+                  "value": 100
+                },
+                "output": {
+                  "signal": "test1",
+                  "value": 100
+                },
+                "computation": 1000
+              }
+            },
+            {
+              "trace_id": "TRACE-002",
+              "round": 2,
+              "result_hash": "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+              "result": {
+                "trace_id": "TRACE-002",
+                "input": {
+                  "signal": "test2",
+                  "value": 200
+                },
+                "output": {
+                  "signal": "test2",
+                  "value": 200
+                },
+                "computation": 2000
+              }
+            },
+            {
+              "trace_id": "TRACE-003",
+              "round": 2,
+              "result_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+              "result": {
+                "trace_id": "TRACE-003",
+                "input": {
+                  "signal": "test3",
+                  "value": 300
+                },
+                "output": {
+                  "signal": "test3",
+                  "value": 300
+                },
+                "computation": 3000
+              }
+            }
+          ]
+        }
+      ],
+      "verdict": "FAIL \u2014 determinism violated under concurrency"
+    },
+    "parallel_proof": {
+      "test_type": "parallel_execution",
+      "num_parallel": 4,
+      "iterations": 3,
+      "total_executions": 12,
+      "execution_results": [
+        {
+          "iteration": 0,
+          "parallel_id": 0,
+          "result_hash": "cfd1651394baf51e3186f95c9c5e496e034e008feb67d444a13c4ad5eb1b3324",
+          "result": {
+            "iteration": 0,
+            "parallel_id": 0,
+            "result": 0
+          }
+        },
+        {
+          "iteration": 0,
+          "parallel_id": 1,
+          "result_hash": "a091b70eb1a4f75cb702ace2c6717866adc06bd1313f1c4c73ef4b948336a321",
+          "result": {
+            "iteration": 0,
+            "parallel_id": 1,
+            "result": 100
+          }
+        },
+        {
+          "iteration": 0,
+          "parallel_id": 2,
+          "result_hash": "43ee6458b829c0dd572b867b36583941b4b29d6bf57e4b21f4c137e89a9e0ff1",
+          "result": {
+            "iteration": 0,
+            "parallel_id": 2,
+            "result": 200
+          }
+        },
+        {
+          "iteration": 0,
+          "parallel_id": 3,
+          "result_hash": "f437c9c070d3b57e42e30f9532fa255736adce182fbe4a6eb6e64b39578fcf33",
+          "result": {
+            "iteration": 0,
+            "parallel_id": 3,
+            "result": 300
+          }
+        },
+        {
+          "iteration": 1,
+          "parallel_id": 0,
+          "result_hash": "9ab0262259598cd146cd1c03b4c2fe81fd02bf46d6773c5708f77f4dc793da97",
+          "result": {
+            "iteration": 1,
+            "parallel_id": 0,
+            "result": 100
+          }
+        },
+        {
+          "iteration": 1,
+          "parallel_id": 1,
+          "result_hash": "d6f17218d19a1802759fda5b0da2dd5132733a1aef290df1be14e4f8580d4a1b",
+          "result": {
+            "iteration": 1,
+            "parallel_id": 1,
+            "result": 200
+          }
+        },
+        {
+          "iteration": 1,
+          "parallel_id": 2,
+          "result_hash": "8c456ca3bdfde55f3e8746fef746ecacca0210d880f76a176f44cf13d562583d",
+          "result": {
+            "iteration": 1,
+            "parallel_id": 2,
+            "result": 300
+          }
+        },
+        {
+          "iteration": 1,
+          "parallel_id": 3,
+          "result_hash": "5c8bb150b143303d1f81ba5bbe11a6775ddc10f7429f6ce93d9ae68079094d86",
+          "result": {
+            "iteration": 1,
+            "parallel_id": 3,
+            "result": 400
+          }
+        },
+        {
+          "iteration": 2,
+          "parallel_id": 0,
+          "result_hash": "378a26224d29240c45cc158a851f55c9c81ab283ba8d3e54928ace9be484fa51",
+          "result": {
+            "iteration": 2,
+            "parallel_id": 0,
+            "result": 200
+          }
+        },
+        {
+          "iteration": 2,
+          "parallel_id": 1,
+          "result_hash": "7ee38f75702d487b23a76245593d4dd917b1d88e60fb17dcd007f4f302b87c41",
+          "result": {
+            "iteration": 2,
+            "parallel_id": 1,
+            "result": 300
+          }
+        },
+        {
+          "iteration": 2,
+          "parallel_id": 2,
+          "result_hash": "5fa20dff318db2ccdf3f6edf704c951afcad57d2f06a46877ea9c97e07801d7b",
+          "result": {
+            "iteration": 2,
+            "parallel_id": 2,
+            "result": 400
+          }
+        },
+        {
+          "iteration": 2,
+          "parallel_id": 3,
+          "result_hash": "c0f94d7d2e4d1409f19411c6e4c8f99313626c8ab42c9798e6a2104c3dd74568",
+          "result": {
+            "iteration": 2,
+            "parallel_id": 3,
+            "result": 500
+          }
+        }
+      ],
+      "execution_hashes": [
+        "cfd1651394baf51e3186f95c9c5e496e034e008feb67d444a13c4ad5eb1b3324",
+        "a091b70eb1a4f75cb702ace2c6717866adc06bd1313f1c4c73ef4b948336a321",
+        "43ee6458b829c0dd572b867b36583941b4b29d6bf57e4b21f4c137e89a9e0ff1",
+        "f437c9c070d3b57e42e30f9532fa255736adce182fbe4a6eb6e64b39578fcf33",
+        "9ab0262259598cd146cd1c03b4c2fe81fd02bf46d6773c5708f77f4dc793da97",
+        "d6f17218d19a1802759fda5b0da2dd5132733a1aef290df1be14e4f8580d4a1b",
+        "8c456ca3bdfde55f3e8746fef746ecacca0210d880f76a176f44cf13d562583d",
+        "5c8bb150b143303d1f81ba5bbe11a6775ddc10f7429f6ce93d9ae68079094d86",
+        "378a26224d29240c45cc158a851f55c9c81ab283ba8d3e54928ace9be484fa51",
+        "7ee38f75702d487b23a76245593d4dd917b1d88e60fb17dcd007f4f302b87c41",
+        "5fa20dff318db2ccdf3f6edf704c951afcad57d2f06a46877ea9c97e07801d7b",
+        "c0f94d7d2e4d1409f19411c6e4c8f99313626c8ab42c9798e6a2104c3dd74568"
+      ],
+      "unique_hashes": 12,
+      "is_deterministic": false,
+      "consensus_hash": "a091b70eb1a4f75cb702ace2c6717866adc06bd1313f1c4c73ef4b948336a321",
+      "verdict": "FAIL \u2014 determinism violated under parallelism"
+    },
+    "summary": {
+      "total_tests": 2,
+      "passed": 0,
+      "failed": 2,
+      "all_tests_passed": false,
+      "test_types": [
+        "parallel_execution",
+        "concurrent_replay"
+      ],
+      "test_results": [
+        {
+          "test_type": "concurrent_replay",
+          "total_traces": 3,
+          "concurrent_rounds": 3,
+          "total_executions": 9,
+          "all_outputs": [
+            {
+              "trace_id": "TRACE-001",
+              "input": {
+                "signal": "test1",
+                "value": 100
+              },
+              "output": {
+                "signal": "test1",
+                "value": 100
+              },
+              "computation": 1000
+            },
+            {
+              "trace_id": "TRACE-002",
+              "input": {
+                "signal": "test2",
+                "value": 200
+              },
+              "output": {
+                "signal": "test2",
+                "value": 200
+              },
+              "computation": 2000
+            },
+            {
+              "trace_id": "TRACE-003",
+              "input": {
+                "signal": "test3",
+                "value": 300
+              },
+              "output": {
+                "signal": "test3",
+                "value": 300
+              },
+              "computation": 3000
+            },
+            {
+              "trace_id": "TRACE-001",
+              "input": {
+                "signal": "test1",
+                "value": 100
+              },
+              "output": {
+                "signal": "test1",
+                "value": 100
+              },
+              "computation": 1000
+            },
+            {
+              "trace_id": "TRACE-002",
+              "input": {
+                "signal": "test2",
+                "value": 200
+              },
+              "output": {
+                "signal": "test2",
+                "value": 200
+              },
+              "computation": 2000
+            },
+            {
+              "trace_id": "TRACE-003",
+              "input": {
+                "signal": "test3",
+                "value": 300
+              },
+              "output": {
+                "signal": "test3",
+                "value": 300
+              },
+              "computation": 3000
+            },
+            {
+              "trace_id": "TRACE-001",
+              "input": {
+                "signal": "test1",
+                "value": 100
+              },
+              "output": {
+                "signal": "test1",
+                "value": 100
+              },
+              "computation": 1000
+            },
+            {
+              "trace_id": "TRACE-002",
+              "input": {
+                "signal": "test2",
+                "value": 200
+              },
+              "output": {
+                "signal": "test2",
+                "value": 200
+              },
+              "computation": 2000
+            },
+            {
+              "trace_id": "TRACE-003",
+              "input": {
+                "signal": "test3",
+                "value": 300
+              },
+              "output": {
+                "signal": "test3",
+                "value": 300
+              },
+              "computation": 3000
+            }
+          ],
+          "output_hashes": [
+            "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+            "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+            "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+            "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+            "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+            "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+            "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+            "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+            "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58"
+          ],
+          "unique_hashes": 3,
+          "is_deterministic": false,
+          "consensus_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+          "execution_details": [
+            {
+              "round": 0,
+              "results": [
+                {
+                  "trace_id": "TRACE-001",
+                  "round": 0,
+                  "result_hash": "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+                  "result": {
+                    "trace_id": "TRACE-001",
+                    "input": {
+                      "signal": "test1",
+                      "value": 100
+                    },
+                    "output": {
+                      "signal": "test1",
+                      "value": 100
+                    },
+                    "computation": 1000
+                  }
+                },
+                {
+                  "trace_id": "TRACE-002",
+                  "round": 0,
+                  "result_hash": "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+                  "result": {
+                    "trace_id": "TRACE-002",
+                    "input": {
+                      "signal": "test2",
+                      "value": 200
+                    },
+                    "output": {
+                      "signal": "test2",
+                      "value": 200
+                    },
+                    "computation": 2000
+                  }
+                },
+                {
+                  "trace_id": "TRACE-003",
+                  "round": 0,
+                  "result_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+                  "result": {
+                    "trace_id": "TRACE-003",
+                    "input": {
+                      "signal": "test3",
+                      "value": 300
+                    },
+                    "output": {
+                      "signal": "test3",
+                      "value": 300
+                    },
+                    "computation": 3000
+                  }
+                }
+              ]
+            },
+            {
+              "round": 1,
+              "results": [
+                {
+                  "trace_id": "TRACE-001",
+                  "round": 1,
+                  "result_hash": "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+                  "result": {
+                    "trace_id": "TRACE-001",
+                    "input": {
+                      "signal": "test1",
+                      "value": 100
+                    },
+                    "output": {
+                      "signal": "test1",
+                      "value": 100
+                    },
+                    "computation": 1000
+                  }
+                },
+                {
+                  "trace_id": "TRACE-002",
+                  "round": 1,
+                  "result_hash": "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+                  "result": {
+                    "trace_id": "TRACE-002",
+                    "input": {
+                      "signal": "test2",
+                      "value": 200
+                    },
+                    "output": {
+                      "signal": "test2",
+                      "value": 200
+                    },
+                    "computation": 2000
+                  }
+                },
+                {
+                  "trace_id": "TRACE-003",
+                  "round": 1,
+                  "result_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+                  "result": {
+                    "trace_id": "TRACE-003",
+                    "input": {
+                      "signal": "test3",
+                      "value": 300
+                    },
+                    "output": {
+                      "signal": "test3",
+                      "value": 300
+                    },
+                    "computation": 3000
+                  }
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "results": [
+                {
+                  "trace_id": "TRACE-001",
+                  "round": 2,
+                  "result_hash": "10b5eb024b4bbe3b8a74c34b20ce4362ec23b3c93d7c14cd45a1f5c043128655",
+                  "result": {
+                    "trace_id": "TRACE-001",
+                    "input": {
+                      "signal": "test1",
+                      "value": 100
+                    },
+                    "output": {
+                      "signal": "test1",
+                      "value": 100
+                    },
+                    "computation": 1000
+                  }
+                },
+                {
+                  "trace_id": "TRACE-002",
+                  "round": 2,
+                  "result_hash": "491bcb3fea3826d99d45dfa16ab75a0daa158bcf17ca65ae6552d354d1fe35d2",
+                  "result": {
+                    "trace_id": "TRACE-002",
+                    "input": {
+                      "signal": "test2",
+                      "value": 200
+                    },
+                    "output": {
+                      "signal": "test2",
+                      "value": 200
+                    },
+                    "computation": 2000
+                  }
+                },
+                {
+                  "trace_id": "TRACE-003",
+                  "round": 2,
+                  "result_hash": "5cc52a9bfd261ea18d50e7b6f81003cf7c9799d7324965c7ca610db979f2ee58",
+                  "result": {
+                    "trace_id": "TRACE-003",
+                    "input": {
+                      "signal": "test3",
+                      "value": 300
+                    },
+                    "output": {
+                      "signal": "test3",
+                      "value": 300
+                    },
+                    "computation": 3000
+                  }
+                }
+              ]
+            }
+          ],
+          "verdict": "FAIL \u2014 determinism violated under concurrency"
+        },
+        {
+          "test_type": "parallel_execution",
+          "num_parallel": 4,
+          "iterations": 3,
+          "total_executions": 12,
+          "execution_results": [
+            {
+              "iteration": 0,
+              "parallel_id": 0,
+              "result_hash": "cfd1651394baf51e3186f95c9c5e496e034e008feb67d444a13c4ad5eb1b3324",
+              "result": {
+                "iteration": 0,
+                "parallel_id": 0,
+                "result": 0
+              }
+            },
+            {
+              "iteration": 0,
+              "parallel_id": 1,
+              "result_hash": "a091b70eb1a4f75cb702ace2c6717866adc06bd1313f1c4c73ef4b948336a321",
+              "result": {
+                "iteration": 0,
+                "parallel_id": 1,
+                "result": 100
+              }
+            },
+            {
+              "iteration": 0,
+              "parallel_id": 2,
+              "result_hash": "43ee6458b829c0dd572b867b36583941b4b29d6bf57e4b21f4c137e89a9e0ff1",
+              "result": {
+                "iteration": 0,
+                "parallel_id": 2,
+                "result": 200
+              }
+            },
+            {
+              "iteration": 0,
+              "parallel_id": 3,
+              "result_hash": "f437c9c070d3b57e42e30f9532fa255736adce182fbe4a6eb6e64b39578fcf33",
+              "result": {
+                "iteration": 0,
+                "parallel_id": 3,
+                "result": 300
+              }
+            },
+            {
+              "iteration": 1,
+              "parallel_id": 0,
+              "result_hash": "9ab0262259598cd146cd1c03b4c2fe81fd02bf46d6773c5708f77f4dc793da97",
+              "result": {
+                "iteration": 1,
+                "parallel_id": 0,
+                "result": 100
+              }
+            },
+            {
+              "iteration": 1,
+              "parallel_id": 1,
+              "result_hash": "d6f17218d19a1802759fda5b0da2dd5132733a1aef290df1be14e4f8580d4a1b",
+              "result": {
+                "iteration": 1,
+                "parallel_id": 1,
+                "result": 200
+              }
+            },
+            {
+              "iteration": 1,
+              "parallel_id": 2,
+              "result_hash": "8c456ca3bdfde55f3e8746fef746ecacca0210d880f76a176f44cf13d562583d",
+              "result": {
+                "iteration": 1,
+                "parallel_id": 2,
+                "result": 300
+              }
+            },
+            {
+              "iteration": 1,
+              "parallel_id": 3,
+              "result_hash": "5c8bb150b143303d1f81ba5bbe11a6775ddc10f7429f6ce93d9ae68079094d86",
+              "result": {
+                "iteration": 1,
+                "parallel_id": 3,
+                "result": 400
+              }
+            },
+            {
+              "iteration": 2,
+              "parallel_id": 0,
+              "result_hash": "378a26224d29240c45cc158a851f55c9c81ab283ba8d3e54928ace9be484fa51",
+              "result": {
+                "iteration": 2,
+                "parallel_id": 0,
+                "result": 200
+              }
+            },
+            {
+              "iteration": 2,
+              "parallel_id": 1,
+              "result_hash": "7ee38f75702d487b23a76245593d4dd917b1d88e60fb17dcd007f4f302b87c41",
+              "result": {
+                "iteration": 2,
+                "parallel_id": 1,
+                "result": 300
+              }
+            },
+            {
+              "iteration": 2,
+              "parallel_id": 2,
+              "result_hash": "5fa20dff318db2ccdf3f6edf704c951afcad57d2f06a46877ea9c97e07801d7b",
+              "result": {
+                "iteration": 2,
+                "parallel_id": 2,
+                "result": 400
+              }
+            },
+            {
+              "iteration": 2,
+              "parallel_id": 3,
+              "result_hash": "c0f94d7d2e4d1409f19411c6e4c8f99313626c8ab42c9798e6a2104c3dd74568",
+              "result": {
+                "iteration": 2,
+                "parallel_id": 3,
+                "result": 500
+              }
+            }
+          ],
+          "execution_hashes": [
+            "cfd1651394baf51e3186f95c9c5e496e034e008feb67d444a13c4ad5eb1b3324",
+            "a091b70eb1a4f75cb702ace2c6717866adc06bd1313f1c4c73ef4b948336a321",
+            "43ee6458b829c0dd572b867b36583941b4b29d6bf57e4b21f4c137e89a9e0ff1",
+            "f437c9c070d3b57e42e30f9532fa255736adce182fbe4a6eb6e64b39578fcf33",
+            "9ab0262259598cd146cd1c03b4c2fe81fd02bf46d6773c5708f77f4dc793da97",
+            "d6f17218d19a1802759fda5b0da2dd5132733a1aef290df1be14e4f8580d4a1b",
+            "8c456ca3bdfde55f3e8746fef746ecacca0210d880f76a176f44cf13d562583d",
+            "5c8bb150b143303d1f81ba5bbe11a6775ddc10f7429f6ce93d9ae68079094d86",
+            "378a26224d29240c45cc158a851f55c9c81ab283ba8d3e54928ace9be484fa51",
+            "7ee38f75702d487b23a76245593d4dd917b1d88e60fb17dcd007f4f302b87c41",
+            "5fa20dff318db2ccdf3f6edf704c951afcad57d2f06a46877ea9c97e07801d7b",
+            "c0f94d7d2e4d1409f19411c6e4c8f99313626c8ab42c9798e6a2104c3dd74568"
+          ],
+          "unique_hashes": 12,
+          "is_deterministic": false,
+          "consensus_hash": "a091b70eb1a4f75cb702ace2c6717866adc06bd1313f1c4c73ef4b948336a321",
+          "verdict": "FAIL \u2014 determinism violated under parallelism"
+        }
+      ],
+      "overall_verdict": "FAIL \u2014 some tests failed"
+    }
+  },
+  "8_governance": {
+    "demo_name": "governance_uncertainty",
+    "propagations": [
+      {
+        "trace_id": "TRACE-UNC-001",
+        "decision_state": "CONFIDENT",
+        "governance_warning": null,
+        "enforcement_guidance": "Clear to proceed"
+      },
+      {
+        "trace_id": "TRACE-UNC-002",
+        "decision_state": "AMBIGUOUS",
+        "governance_warning": "low_confidence_execution_risk",
+        "enforcement_guidance": "Verify locally before deployment"
+      },
+      {
+        "trace_id": "TRACE-UNC-003",
+        "decision_state": "LOW_CONFIDENCE",
+        "governance_warning": "moderate_confidence_execution_risk",
+        "enforcement_guidance": "Verify locally before deployment"
+      }
+    ]
+  }
+}

@@ -1,8 +1,10 @@
 import console
 from datetime import datetime
+from async_orchestration import AsyncOrchestrator, ExecutionState
 
 
-def run_enforcement(core_output):
+def run_enforcement(core_output, async_simulation=False, enable_uncertainty_propagation=True):
+    
     trace_id = core_output["trace_id"]
 
     if "failure" in core_output:
@@ -42,6 +44,13 @@ def run_enforcement(core_output):
         urgency = "passive"
 
     
+    governance_warning = None
+    if enable_uncertainty_propagation:
+        if decision_state == "AMBIGUOUS":
+            governance_warning = "low_confidence_execution_risk"
+        elif decision_state == "LOW_CONFIDENCE":
+            governance_warning = "moderate_confidence_execution_risk"
+    
     ack_timestamp = datetime.utcnow().isoformat() + "Z"
 
     directives = [
@@ -76,6 +85,42 @@ def run_enforcement(core_output):
             "execution_status": "PENDING"
         }
     ]
+    
+    
+    async_contexts = None
+    if async_simulation:
+        orchestrator = AsyncOrchestrator()
+        async_contexts = []
+        
+        for directive in directives:
+            
+            exec_context = orchestrator.queue_async_directive(
+                directive, 
+                trace_id, 
+                stage="enforcement",
+                delay_ms=100
+            )
+            async_contexts.append(exec_context)
+    
+    
+    execution_verification_context = {
+        "executor_id": "EXECUTOR-001",
+        "execution_completed": False,
+        "completion_hash": None,
+        "verified_by": None,
+        "separation_of_concerns": {
+            "issuance": {
+                "issued_by": "enforcement",
+                "issuance_timestamp": ack_timestamp,
+                "directives_issued": len(directives)
+            },
+            "verification": {
+                "verified_by": "external_executor",
+                "verification_timestamp": None,
+                "result_hash": None
+            }
+        }
+    }
 
     enf_output = {
         "trace_id": trace_id,
@@ -100,6 +145,19 @@ def run_enforcement(core_output):
             "ack_timestamp": None,
             "execution_status": "PENDING",
             "status_updated_at": ack_timestamp
+        },
+        
+        "async_execution": {
+            "enabled": async_simulation,
+            "execution_contexts": async_contexts
+        } if async_simulation else None,
+        
+        "external_execution_verification": execution_verification_context,
+        
+        "governance": {
+            "decision_state": decision_state,
+            "governance_warning": governance_warning,
+            "uncertainty_propagated": enable_uncertainty_propagation
         },
         "contract_version": "v1"
     }
