@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-05-17T16:43:39.345994Z",
+  "total_nodes": 3,
+  "nodes": {
+    "NODE-A": {
+      "name": "Primary Node",
+      "location": "Datacenter-1",
+      "is_primary": true,
+      "sync_status": "synchronized"
+    },
+    "NODE-B": {
+      "name": "Replica Node",
+      "location": "Datacenter-2",
+      "is_primary": false,
+      "sync_status": "synchronized"
+    },
+    "NODE-C": {
+      "name": "Replica Node",
+      "location": "Datacenter-3",
+      "is_primary": false,
+      "sync_status": "synchronized"
+    }
+  },
+  "total_lineage_entries": 15,
+  "conflicts_detected": 1,
+  "conflict_log": [
+    {
+      "trace_id": "CONVERGE-FINAL-001",
+      "timestamp": "2026-05-17T16:43:39.345939Z",
+      "node_count": 3,
+      "node_hashes": {
+        "NODE-A": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+        "NODE-B": "53a87b9178683df6a536c9c2ac7a94d54258825421a6df315893cf9f1e6e9b57",
+        "NODE-C": "e91712f667b4c8b3e0207bfb5212898444c35bcf6ed74e4266c0a8852fe36198"
+      },
+      "unique_hashes": 3,
+      "conflicts_detected": true,
+      "conflicts": [
+        {
+          "conflict_id": "CONFLICT-CONVERGE-FINAL-001-0",
+          "divergent_nodes": [
+            "NODE-B"
+          ],
+          "divergent_hash": "53a87b9178683df6a536c9c2ac7a94d54258825421a6df315893cf9f1e6e9b57",
+          "primary_hash": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+          "recovery_required": true,
+          "recovery_strategy": "replay_from_primary"
+        },
+        {
+          "conflict_id": "CONFLICT-CONVERGE-FINAL-001-1",
+          "divergent_nodes": [
+            "NODE-C"
+          ],
+          "divergent_hash": "e91712f667b4c8b3e0207bfb5212898444c35bcf6ed74e4266c0a8852fe36198",
+          "primary_hash": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+          "recovery_required": true,
+          "recovery_strategy": "replay_from_primary"
+        }
+      ],
+      "consensus_hash": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+      "replay_safe": true
+    }
+  ],
+  "recoveries_performed": 0,
+  "reconciliation_log": [],
+  "federated_replay_safe": true,
+  "deterministic_recovery": true,
+  "multi_node_synchronization": "verified",
+  "reconciliation": {
+    "trace_id": "CONVERGE-FINAL-001",
+    "timestamp": "2026-05-17T16:43:39.345939Z",
+    "node_count": 3,
+    "node_hashes": {
+      "NODE-A": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+      "NODE-B": "53a87b9178683df6a536c9c2ac7a94d54258825421a6df315893cf9f1e6e9b57",
+      "NODE-C": "e91712f667b4c8b3e0207bfb5212898444c35bcf6ed74e4266c0a8852fe36198"
+    },
+    "unique_hashes": 3,
+    "conflicts_detected": true,
+    "conflicts": [
+      {
+        "conflict_id": "CONFLICT-CONVERGE-FINAL-001-0",
+        "divergent_nodes": [
+          "NODE-B"
+        ],
+        "divergent_hash": "53a87b9178683df6a536c9c2ac7a94d54258825421a6df315893cf9f1e6e9b57",
+        "primary_hash": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+        "recovery_required": true,
+        "recovery_strategy": "replay_from_primary"
+      },
+      {
+        "conflict_id": "CONFLICT-CONVERGE-FINAL-001-1",
+        "divergent_nodes": [
+          "NODE-C"
+        ],
+        "divergent_hash": "e91712f667b4c8b3e0207bfb5212898444c35bcf6ed74e4266c0a8852fe36198",
+        "primary_hash": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+        "recovery_required": true,
+        "recovery_strategy": "replay_from_primary"
+      }
+    ],
+    "consensus_hash": "7f1c6cb2533152c66fee1c4d04aed46678a98dcc59aaf6cfc2e5453c15bd70fd",
+    "replay_safe": true
+  }
+}

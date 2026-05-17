@@ -1,0 +1,64 @@
+{
+  "total_adjustments": 1,
+  "adjustments": [
+    {
+      "entity_id": "Region-A",
+      "original_score": 0.75,
+      "adjusted_score": 0.747,
+      "adjustment_delta": -0.003,
+      "final_confidence": 1.0,
+      "applied_adjustments": [
+        {
+          "feature_name": "rainfall_score",
+          "original_weight": 0.15,
+          "penalty": 0.02,
+          "quality_reason": "Signal reliability: 0.85",
+          "adjusted_weight": 0.147
+        }
+      ],
+      "feature_confidence_adjustments": {
+        "rainfall_score": {
+          "feature_name": "rainfall_score",
+          "original_weight": 0.15,
+          "penalty": 0.02,
+          "quality_reason": "Signal reliability: 0.85",
+          "adjusted_weight": 0.147
+        }
+      },
+      "observable": true,
+      "deterministic": true,
+      "replay_safe": true,
+      "timestamp": "2026-05-17T16:43:39.339255Z",
+      "recorded_at": "2026-05-17T16:43:39.339291Z",
+      "adjustment_id": "ADJ-1"
+    }
+  ],
+  "quality_assessments": {
+    "rainfall_score": {
+      "signal_name": "rainfall_score",
+      "completeness_ratio": 0.92,
+      "variance_coefficient": 0.35,
+      "outlier_count": 1,
+      "reliability_score": 0.85
+    },
+    "temp_score": {
+      "signal_name": "temp_score",
+      "completeness_ratio": 0.98,
+      "variance_coefficient": 0.12,
+      "outlier_count": 0,
+      "reliability_score": 0.95
+    },
+    "irrigation_score": {
+      "signal_name": "irrigation_score",
+      "completeness_ratio": 0.95,
+      "variance_coefficient": 0.25,
+      "outlier_count": 0,
+      "reliability_score": 0.9
+    }
+  },
+  "timestamp": "2026-05-17T16:43:39.339349Z",
+  "observable": true,
+  "deterministic": true,
+  "governance_boundary_respected": true,
+  "proof_certification": "ADAPTIVE_REFINEMENT_VERIFIED_SAFE"
+}

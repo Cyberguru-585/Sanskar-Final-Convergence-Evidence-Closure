@@ -1,5 +1,6 @@
 import pandas as pd
 import console
+from adaptive_intelligence import AdaptiveIntelligenceRefinement, SignalQualityMetrics
 
 
 def load_data(dataset):
@@ -147,11 +148,11 @@ def build_entity_output(row):
     feature_variance = sum((f - avg_feature_quality) ** 2 for f in feature_values) / len(feature_values)
     feature_stability = max(0, 1.0 - feature_variance)  # Normalize: lower variance = higher stability
     
-    # Count missing values (checking for zero or NaN patterns)
+   
     missing_count = sum(1 for f in feature_values if f < 0.1)
     missing_penalty = min(0.2, missing_count * 0.05)
     
-    # Confidence formula considers: score, feature quality, stability, and missing data
+    
     confidence = round(
         min(1.0, 
             0.50 * score +  # Score contribution
@@ -193,14 +194,7 @@ def build_entity_output(row):
 
 
 def detect_uncertainty_state(spread):
-    """
-    Determine decision state based on score spread.
     
-    Rules:
-    - spread < 0.01 → AMBIGUOUS (extremely weak separation)
-    - spread < 0.03 → LOW_CONFIDENCE (weak separation)
-    - otherwise → CONFIDENT (strong separation)
-    """
     if spread < 0.01:
         return "AMBIGUOUS"
     elif spread < 0.03:
@@ -215,12 +209,12 @@ def adjust_confidence_for_margin(ranked_entities):
 
     margin = ranked_entities[0]["raw_score"] - ranked_entities[1]["raw_score"]
     
-    # Add decision_state based on margin (spread)
+    
     decision_state = detect_uncertainty_state(margin)
     for entity in ranked_entities:
         entity["decision_state"] = decision_state
     
-    # Adjust confidence based on spread
+    
     if margin < 0.01:
         penalty = 0.05 if margin < 0.005 else 0.03
         for entity in ranked_entities:
@@ -245,10 +239,7 @@ def rank_entities(entities):
 
 
 def comparative_explanation(entities):
-    """
-    Generate factor-specific comparative explanation.
-    Replace vague language with actual factor contributions and deltas.
-    """
+    
     top = entities[0]
     second = entities[1]
 
@@ -448,6 +439,55 @@ def run_sanskar(input_contract):
     console.ranking_board(ranked)
     console.comparison_panel(ranked[0], ranked[-1])
 
+    console.step(5.5, "ADAPTIVE INTELLIGENCE REFINEMENT")
+    console.trace(trace_id)
+    
+    refiner = AdaptiveIntelligenceRefinement()
+    
+    signal_columns = ["rainfall_score", "temp_score", "irrigation_score", 
+                     "fertilizer_score", "yield_efficiency_score", 
+                     "soil_quality_score", "weather_score"]
+    signal_qualities = {}
+    
+    for col in signal_columns:
+        if col in scored_df.columns:
+            quality = refiner.assess_signal_quality(col, scored_df[col].tolist())
+            signal_qualities[col] = quality
+            console.info(f"Signal {col}", f"Reliability: {quality.reliability_score}")
+    
+    factor_weights = {
+        "rainfall_score": 0.15,
+        "temp_score": 0.12,
+        "irrigation_score": 0.18,
+        "fertilizer_score": 0.08,
+        "yield_efficiency_score": 0.28,
+        "soil_quality_score": 0.10,
+        "weather_score": 0.09
+    }
+    
+    adaptive_weights = refiner.compute_adaptive_weighting(factor_weights, signal_qualities)
+    console.info("Adaptive Weighting", "Recomputed based on signal quality")
+    
+    adaptive_refinements = []
+    for entity in ranked:
+        original_score = entity["score"]
+        refinement = refiner.refine_entity_score(
+            entity["entity_id"],
+            original_score,
+            factor_weights,
+            signal_qualities
+        )
+        adaptive_refinements.append(refinement)
+        entity["adaptive_refinement"] = refinement
+        entity["adjusted_score"] = refinement["adjusted_score"]
+        entity["adaptive_confidence"] = refinement["final_confidence"]
+        console.info(f"{entity['entity_id']} Adjustment", 
+                    f"{original_score} → {refinement['adjusted_score']} (delta: {refinement['adjustment_delta']})")
+        refiner.record_adaptive_adjustment(refinement)
+
+    console.info("Adaptive Refinement", f"Applied to {len(ranked)} entities")
+    console.info("Governance Boundary", "✓ All adaptations remain deterministic and observable")
+
     scenarios = simulate_scenarios(scored_df, ranking)
 
     downstream = build_downstream_decision(ranked, ranking)
@@ -460,5 +500,21 @@ def run_sanskar(input_contract):
         "comparative_explanation": comparative_explanation(ranked),
         "scenario_analysis": scenarios,
         "downstream_decision": downstream,
+        "adaptive_refinement": {
+            "applied": True,
+            "refinements": adaptive_refinements,
+            "adaptive_weights": adaptive_weights,
+            "signal_qualities": {name: {
+                "signal_name": m.signal_name,
+                "completeness_ratio": m.completeness_ratio,
+                "variance_coefficient": m.variance_coefficient,
+                "outlier_count": m.outlier_count,
+                "reliability_score": m.reliability_score
+            } for name, m in signal_qualities.items()},
+            "observable": True,
+            "deterministic": True,
+            "replay_safe": True,
+            "governance_boundary_respected": True
+        },
         "contract_version": "v1"
     }

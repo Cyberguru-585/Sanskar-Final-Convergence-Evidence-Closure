@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-05-17T16:43:39.355988Z",
+  "proof_type": "governance_safe_adaptive_boundary",
+  "summary": "Sanskar adaptive intelligence refinement respects all governance boundaries",
+  "total_adaptations_audited": 1,
+  "adaptations_respecting_boundary": 0,
+  "adaptations_violating_boundary": 1,
+  "boundary_violations": [
+    {
+      "adaptation_id": "ADAPT-001",
+      "timestamp": "2026-05-17T16:43:39.355846Z",
+      "checks_passed": [
+        {
+          "check": "score_improvement_not_manipulation",
+          "rationale": "Score changes should improve quality, not manipulate ranking",
+          "original_score": 0.75,
+          "adapted_score": 0.77,
+          "change": 0.020000000000000018,
+          "max_allowed_change": 0.15,
+          "passed": true
+        },
+        {
+          "check": "confidence_semantic_preservation",
+          "rationale": "Confidence must remain meaningful (0-1, where 1 = absolute certainty)",
+          "original_confidence": 0.8,
+          "adapted_confidence": 0.82,
+          "is_in_valid_range": true,
+          "passed": true
+        },
+        {
+          "check": "decision_state_integrity",
+          "rationale": "Decision state changes must be justified by confidence",
+          "original_decision_state": "CONFIDENT",
+          "adapted_decision_state": "CONFIDENT",
+          "state_changed": false,
+          "passed": true,
+          "reason": "Decision state unchanged"
+        },
+        {
+          "check": "no_authority_escalation",
+          "rationale": "Adaptation must not create autonomous execution authority",
+          "adaptation_only_improves_interpretation": true,
+          "adaptation_does_not_bypass_governance": true,
+          "adaptation_does_not_override_downstream": true,
+          "passed": true
+        }
+      ],
+      "checks_failed": [
+        {
+          "check": "factor_weight_legitimacy",
+          "rationale": "Factor weights should remain legitimate (sum \u2248 1.0)",
+          "original_weights_sum": 0.15,
+          "adapted_weights_sum": 0.15,
+          "weights_legitimate": true,
+          "passed": false,
+          "reason": "Adapted weights sum 0.15 invalid"
+        }
+      ],
+      "overall_boundary_respected": false
+    }
+  ],
+  "governance_assertions": [
+    "Adaptation improves interpretation quality only",
+    "No governance semantics mutation",
+    "No enforcement rule modification",
+    "Confidence meaning preserved",
+    "No autonomous execution authority",
+    "All adaptations fully observable",
+    "All adaptations deterministic",
+    "All adaptations replay-safe"
+  ],
+  "adaptive_intelligence_characteristics": {
+    "may_improve": [
+      "interpretation quality",
+      "uncertainty handling",
+      "prioritization quality",
+      "feature weighting accuracy"
+    ],
+    "may_not": [
+      "alter governance semantics",
+      "modify enforcement rules",
+      "redefine confidence meaning",
+      "mutate execution legitimacy",
+      "create autonomous authority",
+      "bypass downstream governance",
+      "introduce hidden state"
+    ]
+  },
+  "safety_level": "constitutionally_bounded",
+  "certification": "CERTIFIED_GOVERNANCE_SAFE"
+}

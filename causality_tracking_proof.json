@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-05-17T16:43:39.354657Z",
+  "total_events": 4,
+  "events": [
+    "EXIT-Sanskar-intelligence_derivation-CONVERGE-FINAL-001",
+    "ENTRY-RAJYA-decision_execution-CONVERGE-FINAL-001",
+    "EXIT-RAJYA-decision_execution-CONVERGE-FINAL-001",
+    "ENTRY-Enforcement-governance_validation-CONVERGE-FINAL-001"
+  ],
+  "total_relations": 2,
+  "relations": [
+    {
+      "id": "CAUSE-EXIT-Sanskar-intelligence_derivation-CONVERGE-FINAL-001-ENTRY-RAJYA-decision_execution-CONVERGE-FINAL-001",
+      "from": "EXIT-Sanskar-intelligence_derivation-CONVERGE-FINAL-001",
+      "to": "ENTRY-RAJYA-decision_execution-CONVERGE-FINAL-001",
+      "type": "direct",
+      "reason": "Sanskar output determines RAJYA input",
+      "recoverable": true
+    },
+    {
+      "id": "CAUSE-EXIT-RAJYA-decision_execution-CONVERGE-FINAL-001-ENTRY-Enforcement-governance_validation-CONVERGE-FINAL-001",
+      "from": "EXIT-RAJYA-decision_execution-CONVERGE-FINAL-001",
+      "to": "ENTRY-Enforcement-governance_validation-CONVERGE-FINAL-001",
+      "type": "direct",
+      "reason": "RAJYA output determines Enforcement input",
+      "recoverable": true
+    }
+  ],
+  "total_recovery_triggers": 0,
+  "recovery_triggers": [],
+  "consistency": {
+    "causality_graph_valid": true,
+    "has_cycles": false,
+    "cycle_path": [],
+    "total_events": 4,
+    "total_relations": 2,
+    "total_recovery_triggers": 0
+  },
+  "replay_causality_reconstructable": true,
+  "deterministic_recovery_possible": true
+}

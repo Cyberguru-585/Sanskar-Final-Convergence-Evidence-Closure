@@ -1,0 +1,164 @@
+{
+  "timestamp": "2026-05-17T16:43:39.352358Z",
+  "nodes": [
+    {
+      "id": "SIGNAL-CONVERGE-FINAL-001",
+      "service": "InputSignal",
+      "stage": "signal_intake",
+      "timestamp": "2026-05-17T16:43:39.337846Z",
+      "latency_ms": 0.0,
+      "status": "success",
+      "output_hash": "324853474f430874"
+    },
+    {
+      "id": "SANSKAR-CONVERGE-FINAL-001",
+      "service": "Sanskar",
+      "stage": "intelligence_derivation",
+      "timestamp": "2026-05-17T16:43:39.350801Z",
+      "latency_ms": 15.5,
+      "status": "success",
+      "output_hash": "43069d7e9d3f43c8"
+    },
+    {
+      "id": "SANSKAR-OUT-CONVERGE-FINAL-001",
+      "service": "Sanskar",
+      "stage": "output_finalization",
+      "timestamp": "2026-05-17T16:43:39.350801Z",
+      "latency_ms": 1.0,
+      "status": "success",
+      "output_hash": "b1d1078942ec5322"
+    },
+    {
+      "id": "RAJYA-CONVERGE-FINAL-001",
+      "service": "RAJYA",
+      "stage": "decision_execution",
+      "timestamp": "2026-05-17T16:43:39.351220Z",
+      "latency_ms": 8.2,
+      "status": "success",
+      "output_hash": "a70b289ac5d12dcd"
+    },
+    {
+      "id": "RAJYA-OUT-CONVERGE-FINAL-001",
+      "service": "RAJYA",
+      "stage": "decision_finalization",
+      "timestamp": "2026-05-17T16:43:39.351220Z",
+      "latency_ms": 0.5,
+      "status": "success",
+      "output_hash": "c7a26c4fce47f589"
+    },
+    {
+      "id": "ENFORCEMENT-CONVERGE-FINAL-001",
+      "service": "Enforcement",
+      "stage": "governance_validation",
+      "timestamp": "2026-05-17T16:43:39.351401Z",
+      "latency_ms": 3.1,
+      "status": "success",
+      "output_hash": "70ab47ec8fbd7502"
+    },
+    {
+      "id": "ENFORCEMENT-OUT-CONVERGE-FINAL-001",
+      "service": "Enforcement",
+      "stage": "verdict_finalization",
+      "timestamp": "2026-05-17T16:43:39.351401Z",
+      "latency_ms": 0.3,
+      "status": "success",
+      "output_hash": "7b0d8cf73311e113"
+    },
+    {
+      "id": "BUCKET-CONVERGE-FINAL-001",
+      "service": "Bucket Truth",
+      "stage": "truth_persistence",
+      "timestamp": "2026-05-17T16:43:39.351626Z",
+      "latency_ms": 4.5,
+      "status": "success",
+      "output_hash": "4e3792130390aead"
+    },
+    {
+      "id": "BUCKET-OUT-CONVERGE-FINAL-001",
+      "service": "Bucket Truth",
+      "stage": "persistence_confirmation",
+      "timestamp": "2026-05-17T16:43:39.351626Z",
+      "latency_ms": 0.2,
+      "status": "success",
+      "output_hash": "930dee35db2d16ff"
+    },
+    {
+      "id": "OBSERVABILITY-CONVERGE-FINAL-001",
+      "service": "Observability",
+      "stage": "event_logging",
+      "timestamp": "2026-05-17T16:43:39.352325Z",
+      "latency_ms": 2.1,
+      "status": "success",
+      "output_hash": "435d7ac3d7463258"
+    }
+  ],
+  "edges": [
+    {
+      "id": "EDGE-SIGNAL-CONVERGE-FINAL-001-SANSKAR-CONVERGE-FINAL-001",
+      "source": "SIGNAL-CONVERGE-FINAL-001",
+      "target": "SANSKAR-CONVERGE-FINAL-001",
+      "type": "direct",
+      "causality": "determines",
+      "latency_between": 12.96
+    },
+    {
+      "id": "EDGE-SANSKAR-OUT-CONVERGE-FINAL-001-RAJYA-CONVERGE-FINAL-001",
+      "source": "SANSKAR-OUT-CONVERGE-FINAL-001",
+      "target": "RAJYA-CONVERGE-FINAL-001",
+      "type": "direct",
+      "causality": "depends_on",
+      "latency_between": 0.42
+    },
+    {
+      "id": "EDGE-RAJYA-OUT-CONVERGE-FINAL-001-ENFORCEMENT-CONVERGE-FINAL-001",
+      "source": "RAJYA-OUT-CONVERGE-FINAL-001",
+      "target": "ENFORCEMENT-CONVERGE-FINAL-001",
+      "type": "direct",
+      "causality": "triggers",
+      "latency_between": 0.18
+    },
+    {
+      "id": "EDGE-ENFORCEMENT-OUT-CONVERGE-FINAL-001-BUCKET-CONVERGE-FINAL-001",
+      "source": "ENFORCEMENT-OUT-CONVERGE-FINAL-001",
+      "target": "BUCKET-CONVERGE-FINAL-001",
+      "type": "direct",
+      "causality": "depends_on",
+      "latency_between": 0.23
+    },
+    {
+      "id": "EDGE-BUCKET-OUT-CONVERGE-FINAL-001-OBSERVABILITY-CONVERGE-FINAL-001",
+      "source": "BUCKET-OUT-CONVERGE-FINAL-001",
+      "target": "OBSERVABILITY-CONVERGE-FINAL-001",
+      "type": "direct",
+      "causality": "triggers",
+      "latency_between": 0.7
+    }
+  ],
+  "execution_paths": [
+    [
+      "SIGNAL-CONVERGE-FINAL-001",
+      "SANSKAR-CONVERGE-FINAL-001",
+      "SANSKAR-OUT-CONVERGE-FINAL-001",
+      "RAJYA-CONVERGE-FINAL-001",
+      "RAJYA-OUT-CONVERGE-FINAL-001",
+      "ENFORCEMENT-CONVERGE-FINAL-001",
+      "ENFORCEMENT-OUT-CONVERGE-FINAL-001",
+      "BUCKET-CONVERGE-FINAL-001",
+      "BUCKET-OUT-CONVERGE-FINAL-001",
+      "OBSERVABILITY-CONVERGE-FINAL-001"
+    ]
+  ],
+  "total_nodes": 10,
+  "total_edges": 5,
+  "total_paths": 1,
+  "graph_completeness": "verified",
+  "trace_continuity": "maintained",
+  "causality_reconstructable": true,
+  "connectivity_verification": {
+    "is_valid_dag": true,
+    "has_cycles": false,
+    "total_nodes": 10,
+    "total_edges": 5,
+    "graph_type": "directed_acyclic_graph"
+  }
+}

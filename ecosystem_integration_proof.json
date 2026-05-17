@@ -1,0 +1,272 @@
+{
+  "timestamp": "2026-05-17T16:43:39.343333Z",
+  "total_rajya_requests": 1,
+  "total_insightbridge_requests": 1,
+  "total_bucket_truth_requests": 1,
+  "integration_log_entries": 3,
+  "integration_log": [
+    {
+      "integration": "RAJYA",
+      "event": "response_received",
+      "trace_id": "CONVERGE-FINAL-001",
+      "status": "success",
+      "timestamp": "2026-05-17T16:43:39.342896Z"
+    },
+    {
+      "integration": "InsightBridge",
+      "event": "telemetry_ingested",
+      "trace_id": "CONVERGE-FINAL-001",
+      "status": "success",
+      "timestamp": "2026-05-17T16:43:39.343195Z"
+    },
+    {
+      "integration": "Bucket Truth",
+      "event": "record_persisted",
+      "trace_id": "CONVERGE-FINAL-001",
+      "status": "success",
+      "timestamp": "2026-05-17T16:43:39.343305Z"
+    }
+  ],
+  "all_integrations_operational": true,
+  "ecosystem_interoperability": "verified",
+  "integration_results": {
+    "trace_id": "CONVERGE-FINAL-001",
+    "timestamp": "2026-05-17T16:43:39.340905Z",
+    "integrations": {
+      "rajya": {
+        "request": {
+          "request_id": "RAJYA-CONVERGE-FINAL-001-d512d1f4",
+          "trace_id": "CONVERGE-FINAL-001",
+          "timestamp": "2026-05-17T16:43:39.341591Z",
+          "service": "Sanskar",
+          "contract_version": "v1.1",
+          "intelligence_handoff": {
+            "ranking": [
+              "Region-A",
+              "Region-B",
+              "Region-C"
+            ],
+            "ranked_entities": [
+              {
+                "entity_id": "Region-A",
+                "score": 0.75,
+                "confidence": 0.82,
+                "factors": [],
+                "decision_state": "CONFIDENT",
+                "adaptive_refinements": {
+                  "entity_id": "Region-A",
+                  "original_score": 0.75,
+                  "adjusted_score": 0.747,
+                  "adjustment_delta": -0.003,
+                  "final_confidence": 1.0,
+                  "applied_adjustments": [
+                    {
+                      "feature_name": "rainfall_score",
+                      "original_weight": 0.15,
+                      "penalty": 0.02,
+                      "quality_reason": "Signal reliability: 0.85",
+                      "adjusted_weight": 0.147
+                    }
+                  ],
+                  "feature_confidence_adjustments": {
+                    "rainfall_score": {
+                      "feature_name": "rainfall_score",
+                      "original_weight": 0.15,
+                      "penalty": 0.02,
+                      "quality_reason": "Signal reliability: 0.85",
+                      "adjusted_weight": 0.147
+                    }
+                  },
+                  "observable": true,
+                  "deterministic": true,
+                  "replay_safe": true,
+                  "timestamp": "2026-05-17T16:43:39.339255Z",
+                  "recorded_at": "2026-05-17T16:43:39.339291Z",
+                  "adjustment_id": "ADJ-1"
+                }
+              },
+              {
+                "entity_id": "Region-B",
+                "score": 0.68,
+                "confidence": 0.75,
+                "factors": [],
+                "decision_state": "CONFIDENT",
+                "adaptive_refinements": {}
+              },
+              {
+                "entity_id": "Region-C",
+                "score": 0.52,
+                "confidence": 0.65,
+                "factors": [],
+                "decision_state": "LOW_CONFIDENCE",
+                "adaptive_refinements": {}
+              }
+            ],
+            "overall_confidence": 0.82,
+            "confidence_basis": {
+              "top_margin": 0.07,
+              "decision_state": "CONFIDENT"
+            }
+          },
+          "governance_boundary": {
+            "sanskar_authority": "intelligence_ranking_only",
+            "rajya_authority": "decision_execution",
+            "no_executive_override": true,
+            "contract_legally_binding": true
+          },
+          "trace_continuity": {
+            "parent_trace": "CONVERGE-FINAL-001",
+            "causality": "direct_handoff"
+          }
+        },
+        "response": {
+          "response_id": "RAJYA-ACK-ae4483a4",
+          "request_id": "RAJYA-CONVERGE-FINAL-001-d512d1f4",
+          "trace_id": "CONVERGE-FINAL-001",
+          "timestamp": "2026-05-17T16:43:39.341695Z",
+          "status": "success",
+          "acknowledgment": {
+            "contract_received": true,
+            "contract_validated": true,
+            "ranking_accepted": true,
+            "decision_committed": true
+          },
+          "execution_plan": {
+            "primary_target": "Region-A",
+            "execution_priority": "critical",
+            "downstream_enforcement_enabled": true
+          },
+          "contract_hash": "879dc646907fb3ca"
+        },
+        "status": "success"
+      },
+      "insightbridge": {
+        "telemetry": {
+          "telemetry_id": "IB-CONVERGE-FINAL-001-4987e312",
+          "trace_id": "CONVERGE-FINAL-001",
+          "timestamp": "2026-05-17T16:43:39.342960Z",
+          "service": "Sanskar",
+          "stage": "sanskar_output",
+          "execution_metrics": {
+            "latency_ms": 15.5,
+            "entity_count": 3,
+            "ranking_decisive": true
+          },
+          "replay_telemetry": {
+            "replay_safe": true,
+            "deterministic": true,
+            "lineage_hash": "4c512187e0e364d1"
+          },
+          "distributed_context": {
+            "correlation_id": "dff0c1fe-723c-4383-b25a-b3745e431183",
+            "parent_trace": "CONVERGE-FINAL-001",
+            "causality_root": "input_signal"
+          },
+          "entity_metrics": [
+            {
+              "entity_id": "Region-A",
+              "score": 0.75,
+              "confidence": 0.82,
+              "decision_state": "CONFIDENT"
+            },
+            {
+              "entity_id": "Region-B",
+              "score": 0.68,
+              "confidence": 0.75,
+              "decision_state": "CONFIDENT"
+            },
+            {
+              "entity_id": "Region-C",
+              "score": 0.52,
+              "confidence": 0.65,
+              "decision_state": "LOW_CONFIDENCE"
+            }
+          ]
+        },
+        "response": {
+          "ingest_id": "IB-INGEST-905bae7e",
+          "telemetry_id": "IB-CONVERGE-FINAL-001-4987e312",
+          "trace_id": "CONVERGE-FINAL-001",
+          "timestamp": "2026-05-17T16:43:39.343096Z",
+          "status": "success",
+          "ingestion_summary": {
+            "telemetry_stored": true,
+            "replay_lineage_recorded": true,
+            "distributed_trace_correlated": true
+          },
+          "stored_telemetry_hash": "9b48c067baf2c602"
+        },
+        "status": "success"
+      },
+      "bucket_truth": {
+        "record": {
+          "truth_record_id": "TRUTH-CONVERGE-FINAL-001",
+          "trace_id": "CONVERGE-FINAL-001",
+          "timestamp": "2026-05-17T16:43:39.343207Z",
+          "service": "Sanskar",
+          "execution_truth": {
+            "ranking": [
+              "Region-A",
+              "Region-B",
+              "Region-C"
+            ],
+            "entities": [
+              {
+                "entity_id": "Region-A",
+                "score": 0.75,
+                "confidence": 0.82,
+                "decision_state": "CONFIDENT"
+              },
+              {
+                "entity_id": "Region-B",
+                "score": 0.68,
+                "confidence": 0.75,
+                "decision_state": "CONFIDENT"
+              },
+              {
+                "entity_id": "Region-C",
+                "score": 0.52,
+                "confidence": 0.65,
+                "decision_state": "LOW_CONFIDENCE"
+              }
+            ],
+            "overall_confidence": 0.82,
+            "decision_state": "CONFIDENT"
+          },
+          "immutability_proof": {
+            "immutable": true,
+            "append_only": true,
+            "no_mutation_allowed": true,
+            "record_hash": "8195bdca1c065799f796dd964298d19283c37562228c05cabd37f6112ad15faa"
+          },
+          "replay_lineage": {
+            "source_service": "Sanskar",
+            "lineage_complete": true,
+            "lineage_immutable": true
+          },
+          "governance_attestation": {
+            "governance_safe": true,
+            "contract_respected": true,
+            "authority_bounded": true
+          }
+        },
+        "response": {
+          "persistence_id": "BUCKET-PERSIST-18acc02b",
+          "truth_record_id": "TRUTH-CONVERGE-FINAL-001",
+          "trace_id": "CONVERGE-FINAL-001",
+          "timestamp": "2026-05-17T16:43:39.343291Z",
+          "status": "success",
+          "persistence_proof": {
+            "stored": true,
+            "location": "bucket://sanskar/CONVERGE-FINAL-001/truth",
+            "append_only_verified": true,
+            "immutability_guaranteed": true
+          },
+          "verification_hash": "8195bdca1c065799f796dd964298d19283c37562228c05cabd37f6112ad15faa"
+        },
+        "status": "success"
+      }
+    },
+    "all_integrations_successful": true
+  }
+}
