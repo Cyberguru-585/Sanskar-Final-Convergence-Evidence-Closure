@@ -7,7 +7,7 @@
   "selected_confidence": 0.695,
   "selected_decision_state": "AMBIGUOUS",
   "priority": "high",
-  "priority_reason": "Score >= 0.6: high priority \u2014 action recommended within current cycle",
+  "priority_reason": "Score >= 0.6: high priority -- action recommended within current cycle",
   "selection_criteria": "highest_ranked_region_selected",
   "logic": "highest_ranked_region_selected",
   "all_candidates": [

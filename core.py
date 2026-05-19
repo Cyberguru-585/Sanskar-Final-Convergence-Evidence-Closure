@@ -42,16 +42,16 @@ def run_core(sanskar_output):
 
     if selected_score >= 0.8:
         priority = "critical"
-        priority_reason = "Score >= 0.8: critical priority — immediate action required"
+        priority_reason = "Score >= 0.8: critical priority -- immediate action required"
     elif selected_score >= 0.6:
         priority = "high"
-        priority_reason = "Score >= 0.6: high priority — action recommended within current cycle"
+        priority_reason = "Score >= 0.6: high priority -- action recommended within current cycle"
     elif selected_score >= 0.4:
         priority = "medium"
-        priority_reason = "Score >= 0.4: medium priority — schedule for next cycle"
+        priority_reason = "Score >= 0.4: medium priority -- schedule for next cycle"
     else:
         priority = "low"
-        priority_reason = "Score < 0.4: low priority — monitor only"
+        priority_reason = "Score < 0.4: low priority -- monitor only"
 
     runner_up = ranking[1] if len(ranking) > 1 else None
     runner_up_score = next((e["score"] for e in entities if e["entity_id"] == runner_up), None)

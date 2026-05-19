@@ -34,7 +34,8 @@ def store_event(trace_id, event_type, event_data, event_store_path="event_store.
     
     trace_events = [e for e in event_store if e["trace_id"] == trace_id]
     if trace_events:
-        previous_event_hash = trace_events[-1]["current_event_hash"]
+        
+        previous_event_hash = trace_events[-1].get("current_event_hash", trace_events[-1].get("event_hash", "0" * 64))
     else:
         previous_event_hash = "0" * 64  # Root hash (all zeros)
     
@@ -64,7 +65,7 @@ def store_event(trace_id, event_type, event_data, event_store_path="event_store.
 
 
 def get_event_by_trace_id(trace_id, event_store_path="event_store.json"):
-    """Retrieve input event for a given trace_id."""
+    
     if not Path(event_store_path).exists():
         return None
     
@@ -94,7 +95,7 @@ def replay_from_event(trace_id, event_store_path="event_store.json"):
 
 
 def verify_replay_determinism(original_hash, replayed_hash):
-    """Verify that replay produces identical hash."""
+    
     return {
         "original_hash": original_hash,
         "replayed_hash": replayed_hash,
@@ -137,7 +138,7 @@ def verify_lineage_integrity(trace_id, event_store_path="event_store.json"):
     mutations_detected = []
     corruption_detected = False
     
-    # Verify each event in lineage
+    
     for i, event in enumerate(trace_events):
         # Check mutation: verify hash integrity
         recomputed_hash = compute_event_hash(event["data"])

@@ -1,0 +1,30 @@
+{
+  "trace_id": "TRACE-be3909a6d4d4",
+  "timestamp": "2026-05-19T06:43:21.868151Z",
+  "total_messages": 4,
+  "message_sequence": [
+    {
+      "from": "signal_source",
+      "to": "sanskar"
+    },
+    {
+      "from": "sanskar",
+      "to": "core"
+    },
+    {
+      "from": "core",
+      "to": "enforcement"
+    },
+    {
+      "from": "enforcement",
+      "to": "truth"
+    }
+  ],
+  "service_lineage": [
+    "signal_source",
+    "sanskar",
+    "core",
+    "enforcement"
+  ],
+  "proof": "ALL_MESSAGES_QUEUED_AND_ORDERED"
+}

@@ -62,7 +62,7 @@ class ConcurrencyTestEngine:
             "is_deterministic": is_deterministic,
             "consensus_hash": list(unique_hashes)[0] if unique_hashes else None,
             "execution_details": self.concurrent_executions,
-            "verdict": "PASS — all concurrent executions produced identical output" if is_deterministic else "FAIL — determinism violated under concurrency"
+            "verdict": "PASS -- all concurrent executions produced identical output" if is_deterministic else "FAIL -- determinism violated under concurrency"
         }
         
         self.test_results.append(proof)
@@ -114,7 +114,7 @@ class ConcurrencyTestEngine:
             "unique_hashes": len(unique_hashes),
             "is_deterministic": is_deterministic,
             "consensus_hash": list(unique_hashes)[0] if unique_hashes else None,
-            "verdict": "PASS — all parallel executions produced identical output" if is_deterministic else "FAIL — determinism violated under parallelism"
+            "verdict": "PASS -- all parallel executions produced identical output" if is_deterministic else "FAIL -- determinism violated under parallelism"
         }
         
         self.test_results.append(proof)
@@ -157,7 +157,7 @@ class ConcurrencyTestEngine:
             "error_count": len(errors),
             "errors": errors,
             "execution_rate": execution_count / duration_seconds,
-            "verdict": "PASS — stress test: all executions produced identical output" if is_deterministic else "FAIL — determinism violated under stress"
+            "verdict": "PASS -- stress test: all executions produced identical output" if is_deterministic else "FAIL -- determinism violated under stress"
         }
         
         self.test_results.append(proof)
@@ -198,7 +198,7 @@ class ConcurrencyTestEngine:
             "unique_hashes": len(unique_hashes),
             "is_deterministic": is_deterministic,
             "consensus_hash": list(unique_hashes)[0] if unique_hashes else None,
-            "verdict": "PASS — order-independent determinism verified" if is_deterministic else "FAIL — execution order affects output"
+            "verdict": "PASS -- order-independent determinism verified" if is_deterministic else "FAIL -- execution order affects output"
         }
         
         self.test_results.append(proof)
@@ -214,7 +214,7 @@ class ConcurrencyTestEngine:
             "all_tests_passed": all_passed,
             "test_types": list(set(r.get("test_type", "unknown") for r in self.test_results)),
             "test_results": self.test_results,
-            "overall_verdict": "PASS — all concurrency tests passed" if all_passed else "FAIL — some tests failed"
+            "overall_verdict": "PASS -- all concurrency tests passed" if all_passed else "FAIL -- some tests failed"
         }
     
     def _compute_result_hash(self, result):

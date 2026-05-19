@@ -68,7 +68,40 @@
           "missing_penalty": 0.0
         },
         "explanation": "North achieved score 0.6529 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.",
-        "decision_state": "AMBIGUOUS"
+        "decision_state": "AMBIGUOUS",
+        "adaptive_refinement": {
+          "entity_id": "North",
+          "original_score": 0.653,
+          "adjusted_score": 0.65,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.473938Z",
+          "recorded_at": "2026-05-18T19:00:55.474473Z",
+          "adjustment_id": "ADJ-1"
+        },
+        "adjusted_score": 0.65,
+        "adaptive_confidence": 1.0
       },
       {
         "entity_id": "West",
@@ -127,7 +160,40 @@
           "missing_penalty": 0.0
         },
         "explanation": "West achieved score 0.6526 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.",
-        "decision_state": "AMBIGUOUS"
+        "decision_state": "AMBIGUOUS",
+        "adaptive_refinement": {
+          "entity_id": "West",
+          "original_score": 0.653,
+          "adjusted_score": 0.65,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.474563Z",
+          "recorded_at": "2026-05-18T19:00:55.474962Z",
+          "adjustment_id": "ADJ-2"
+        },
+        "adjusted_score": 0.65,
+        "adaptive_confidence": 1.0
       },
       {
         "entity_id": "South",
@@ -186,7 +252,40 @@
           "missing_penalty": 0.0
         },
         "explanation": "South achieved score 0.6525 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.",
-        "decision_state": "AMBIGUOUS"
+        "decision_state": "AMBIGUOUS",
+        "adaptive_refinement": {
+          "entity_id": "South",
+          "original_score": 0.652,
+          "adjusted_score": 0.649,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.475045Z",
+          "recorded_at": "2026-05-18T19:00:55.475301Z",
+          "adjustment_id": "ADJ-3"
+        },
+        "adjusted_score": 0.649,
+        "adaptive_confidence": 1.0
       },
       {
         "entity_id": "East",
@@ -245,7 +344,40 @@
           "missing_penalty": 0.0
         },
         "explanation": "East achieved score 0.6523 based on yield efficiency dominance, strong irrigation, good soil quality and consistent weather support.",
-        "decision_state": "AMBIGUOUS"
+        "decision_state": "AMBIGUOUS",
+        "adaptive_refinement": {
+          "entity_id": "East",
+          "original_score": 0.652,
+          "adjusted_score": 0.649,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.475354Z",
+          "recorded_at": "2026-05-18T19:00:55.475471Z",
+          "adjustment_id": "ADJ-4"
+        },
+        "adjusted_score": 0.649,
+        "adaptive_confidence": 1.0
       }
     ],
     "ranking": [
@@ -307,6 +439,224 @@
       "rationale": "Region North has the highest composite score (0.653) and should receive priority resource allocation. Region East has the lowest score (0.652) and may need intervention to improve yield efficiency.",
       "confidence_level": 0.695
     },
+    "adaptive_refinement": {
+      "applied": true,
+      "refinements": [
+        {
+          "entity_id": "North",
+          "original_score": 0.653,
+          "adjusted_score": 0.65,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.473938Z",
+          "recorded_at": "2026-05-18T19:00:55.474473Z",
+          "adjustment_id": "ADJ-1"
+        },
+        {
+          "entity_id": "West",
+          "original_score": 0.653,
+          "adjusted_score": 0.65,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.474563Z",
+          "recorded_at": "2026-05-18T19:00:55.474962Z",
+          "adjustment_id": "ADJ-2"
+        },
+        {
+          "entity_id": "South",
+          "original_score": 0.652,
+          "adjusted_score": 0.649,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.475045Z",
+          "recorded_at": "2026-05-18T19:00:55.475301Z",
+          "adjustment_id": "ADJ-3"
+        },
+        {
+          "entity_id": "East",
+          "original_score": 0.652,
+          "adjusted_score": 0.649,
+          "adjustment_delta": -0.003,
+          "final_confidence": 1.0,
+          "applied_adjustments": [
+            {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          ],
+          "feature_confidence_adjustments": {
+            "rainfall_score": {
+              "feature_name": "rainfall_score",
+              "original_weight": 0.15,
+              "penalty": 0.02,
+              "quality_reason": "Signal reliability: 0.8989",
+              "adjusted_weight": 0.147
+            }
+          },
+          "observable": true,
+          "deterministic": true,
+          "replay_safe": true,
+          "timestamp": "2026-05-18T19:00:55.475354Z",
+          "recorded_at": "2026-05-18T19:00:55.475471Z",
+          "adjustment_id": "ADJ-4"
+        }
+      ],
+      "adaptive_weights": {
+        "original_weights": {
+          "rainfall_score": 0.15,
+          "temp_score": 0.12,
+          "irrigation_score": 0.18,
+          "fertilizer_score": 0.08,
+          "yield_efficiency_score": 0.28,
+          "soil_quality_score": 0.1,
+          "weather_score": 0.09
+        },
+        "quality_multipliers": {
+          "rainfall_score": 0.9697,
+          "temp_score": 0.9752,
+          "irrigation_score": 0.9747,
+          "fertilizer_score": 0.9747,
+          "yield_efficiency_score": 0.9782,
+          "soil_quality_score": 0.9968,
+          "weather_score": 0.9983
+        },
+        "adapted_weights": {
+          "rainfall_score": 0.1485,
+          "temp_score": 0.1195,
+          "irrigation_score": 0.1792,
+          "fertilizer_score": 0.0796,
+          "yield_efficiency_score": 0.2797,
+          "soil_quality_score": 0.1018,
+          "weather_score": 0.0917
+        },
+        "weight_sum": 1.0,
+        "adaptation_reason": "signal-quality-aware feature reweighting",
+        "observable": true,
+        "deterministic": true,
+        "timestamp": "2026-05-18T19:00:55.473624Z"
+      },
+      "signal_qualities": {
+        "rainfall_score": {
+          "signal_name": "rainfall_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.5775,
+          "outlier_count": 0,
+          "reliability_score": 0.8989
+        },
+        "temp_score": {
+          "signal_name": "temp_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.4723,
+          "outlier_count": 0,
+          "reliability_score": 0.9173
+        },
+        "irrigation_score": {
+          "signal_name": "irrigation_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.4817,
+          "outlier_count": 0,
+          "reliability_score": 0.9157
+        },
+        "fertilizer_score": {
+          "signal_name": "fertilizer_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.4815,
+          "outlier_count": 0,
+          "reliability_score": 0.9157
+        },
+        "yield_efficiency_score": {
+          "signal_name": "yield_efficiency_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.4155,
+          "outlier_count": 0,
+          "reliability_score": 0.9273
+        },
+        "soil_quality_score": {
+          "signal_name": "soil_quality_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.0613,
+          "outlier_count": 0,
+          "reliability_score": 0.9893
+        },
+        "weather_score": {
+          "signal_name": "weather_score",
+          "completeness_ratio": 1.0,
+          "variance_coefficient": 0.0313,
+          "outlier_count": 0,
+          "reliability_score": 0.9945
+        }
+      },
+      "observable": true,
+      "deterministic": true,
+      "replay_safe": true,
+      "governance_boundary_respected": true
+    },
     "contract_version": "v1"
   },
   "core_decision": {
@@ -318,7 +668,7 @@
     "selected_confidence": 0.695,
     "selected_decision_state": "AMBIGUOUS",
     "priority": "high",
-    "priority_reason": "Score >= 0.6: high priority \u2014 action recommended within current cycle",
+    "priority_reason": "Score >= 0.6: high priority -- action recommended within current cycle",
     "selection_criteria": "highest_ranked_region_selected",
     "logic": "highest_ranked_region_selected",
     "all_candidates": [
@@ -410,7 +760,31 @@
       "acknowledged": false,
       "ack_timestamp": null,
       "execution_status": "PENDING",
-      "status_updated_at": "2026-05-11T18:42:35.581151Z"
+      "status_updated_at": "2026-05-18T19:01:04.400325Z"
+    },
+    "async_execution": null,
+    "external_execution_verification": {
+      "executor_id": "EXECUTOR-001",
+      "execution_completed": false,
+      "completion_hash": null,
+      "verified_by": null,
+      "separation_of_concerns": {
+        "issuance": {
+          "issued_by": "enforcement",
+          "issuance_timestamp": "2026-05-18T19:01:04.400325Z",
+          "directives_issued": 3
+        },
+        "verification": {
+          "verified_by": "external_executor",
+          "verification_timestamp": null,
+          "result_hash": null
+        }
+      }
+    },
+    "governance": {
+      "decision_state": "AMBIGUOUS",
+      "governance_warning": "low_confidence_execution_risk",
+      "uncertainty_propagated": true
     },
     "contract_version": "v1"
   },
@@ -420,7 +794,7 @@
     "selected_score": 0.653,
     "enforcement_action": "prioritize_irrigation",
     "enforcement_target": "North",
-    "pipeline_hash": "5148460d5c36b4c36e9cf51733a959e528dd94898ddb3e008d3d1c4edff5eb23",
+    "pipeline_hash": "e93337b0df91c196111536bb551f2f7be45eeef4746dceea395e234c33cef89d",
     "chain_integrity": "VERIFIED \u2014 SHA-256 hash computed over full chain",
     "trace_continuity": "PASS \u2014 trace_id identical across all stages",
     "stages_completed": [
@@ -463,9 +837,9 @@
   "event_sourced": true,
   "observability": {
     "stage_latencies": {
-      "sanskar": 44021.77,
-      "core": 5.92,
-      "enforcement": 5.98
+      "sanskar": 38293.43,
+      "core": 1.92,
+      "enforcement": 1.98
     },
     "contract_version": "v1",
     "decision_state": "AMBIGUOUS"

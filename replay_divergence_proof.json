@@ -1,0 +1,487 @@
+{
+  "trace_id": "TRACE-DIVERGENCE-TEST",
+  "timestamp": "2026-05-19T06:43:21.869175Z",
+  "total_events": 3,
+  "divergences_detected": 6,
+  "divergence_types": [
+    "duplicate_event",
+    "hash_mismatch",
+    "out_of_order_event"
+  ],
+  "replay_safe": false,
+  "critical_divergences": 5,
+  "reports": [
+    {
+      "divergence_id": "DIV-DUP-0",
+      "divergence_type": "duplicate_event",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868665Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868386Z",
+          "content_hash": "abc123",
+          "replay_mode": "LIVE",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        },
+        {
+          "event_id": "EVT-002",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868497Z",
+          "content_hash": "abc123",
+          "replay_mode": "REPLAY",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        }
+      ],
+      "expected_state": {
+        "event_count": 1
+      },
+      "actual_state": {
+        "event_count": 2
+      },
+      "severity": "HIGH",
+      "reconciliation_action": "REJECT_DUPLICATE",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-OOO-1",
+      "divergence_type": "out_of_order_event",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868725Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868386Z",
+          "content_hash": "abc123",
+          "replay_mode": "LIVE",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        },
+        {
+          "event_id": "EVT-002",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868497Z",
+          "content_hash": "abc123",
+          "replay_mode": "REPLAY",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        }
+      ],
+      "expected_state": {
+        "sequence_order": "ascending"
+      },
+      "actual_state": {
+        "sequence_order": "non_ascending"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REPLAY_RECONSTRUCTION",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-OOO-2",
+      "divergence_type": "out_of_order_event",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868755Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868386Z",
+          "content_hash": "abc123",
+          "replay_mode": "LIVE",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        },
+        {
+          "event_id": "EVT-003",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 0,
+          "payload": {
+            "data": "signal_0"
+          },
+          "timestamp": "2026-05-19T06:43:21.868585Z",
+          "content_hash": "def456",
+          "replay_mode": "REPLAY",
+          "lineage_path": [
+            "sanskar"
+          ]
+        }
+      ],
+      "expected_state": {
+        "sequence_order": "ascending"
+      },
+      "actual_state": {
+        "sequence_order": "non_ascending"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REPLAY_RECONSTRUCTION",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-HASH-3",
+      "divergence_type": "hash_mismatch",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868833Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "service": "sanskar",
+          "expected_hash": "abc123",
+          "computed_hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0",
+          "corruption_detected": true
+        }
+      ],
+      "expected_state": {
+        "hash": "abc123"
+      },
+      "actual_state": {
+        "hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REJECT_CORRUPTED_EVENT",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-HASH-4",
+      "divergence_type": "hash_mismatch",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868843Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-002",
+          "service": "sanskar",
+          "expected_hash": "abc123",
+          "computed_hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0",
+          "corruption_detected": true
+        }
+      ],
+      "expected_state": {
+        "hash": "abc123"
+      },
+      "actual_state": {
+        "hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REJECT_CORRUPTED_EVENT",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-HASH-5",
+      "divergence_type": "hash_mismatch",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868853Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-003",
+          "service": "sanskar",
+          "expected_hash": "def456",
+          "computed_hash": "d343575e8adab19568bed202546259c095973aee7a621f014706b65130e5cb9b",
+          "corruption_detected": true
+        }
+      ],
+      "expected_state": {
+        "hash": "def456"
+      },
+      "actual_state": {
+        "hash": "d343575e8adab19568bed202546259c095973aee7a621f014706b65130e5cb9b"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REJECT_CORRUPTED_EVENT",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-DUP-0",
+      "divergence_type": "duplicate_event",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.868964Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868386Z",
+          "content_hash": "abc123",
+          "replay_mode": "LIVE",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        },
+        {
+          "event_id": "EVT-002",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868497Z",
+          "content_hash": "abc123",
+          "replay_mode": "REPLAY",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        }
+      ],
+      "expected_state": {
+        "event_count": 1
+      },
+      "actual_state": {
+        "event_count": 2
+      },
+      "severity": "HIGH",
+      "reconciliation_action": "REJECT_DUPLICATE",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-OOO-1",
+      "divergence_type": "out_of_order_event",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.869001Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868386Z",
+          "content_hash": "abc123",
+          "replay_mode": "LIVE",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        },
+        {
+          "event_id": "EVT-002",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868497Z",
+          "content_hash": "abc123",
+          "replay_mode": "REPLAY",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        }
+      ],
+      "expected_state": {
+        "sequence_order": "ascending"
+      },
+      "actual_state": {
+        "sequence_order": "non_ascending"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REPLAY_RECONSTRUCTION",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-OOO-2",
+      "divergence_type": "out_of_order_event",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.869031Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 1,
+          "payload": {
+            "data": "signal_1"
+          },
+          "timestamp": "2026-05-19T06:43:21.868386Z",
+          "content_hash": "abc123",
+          "replay_mode": "LIVE",
+          "lineage_path": [
+            "sanskar",
+            "core"
+          ]
+        },
+        {
+          "event_id": "EVT-003",
+          "trace_id": "TRACE-DIVERGENCE-TEST",
+          "service": "sanskar",
+          "sequence_number": 0,
+          "payload": {
+            "data": "signal_0"
+          },
+          "timestamp": "2026-05-19T06:43:21.868585Z",
+          "content_hash": "def456",
+          "replay_mode": "REPLAY",
+          "lineage_path": [
+            "sanskar"
+          ]
+        }
+      ],
+      "expected_state": {
+        "sequence_order": "ascending"
+      },
+      "actual_state": {
+        "sequence_order": "non_ascending"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REPLAY_RECONSTRUCTION",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-HASH-3",
+      "divergence_type": "hash_mismatch",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.869085Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-001",
+          "service": "sanskar",
+          "expected_hash": "abc123",
+          "computed_hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0",
+          "corruption_detected": true
+        }
+      ],
+      "expected_state": {
+        "hash": "abc123"
+      },
+      "actual_state": {
+        "hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REJECT_CORRUPTED_EVENT",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-HASH-4",
+      "divergence_type": "hash_mismatch",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.869094Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-002",
+          "service": "sanskar",
+          "expected_hash": "abc123",
+          "computed_hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0",
+          "corruption_detected": true
+        }
+      ],
+      "expected_state": {
+        "hash": "abc123"
+      },
+      "actual_state": {
+        "hash": "7d0c8a82e191093dfbcf1f2652ac6388e4349aa913927468c9fc2d2007cfecc0"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REJECT_CORRUPTED_EVENT",
+      "reconciliation_required": true
+    },
+    {
+      "divergence_id": "DIV-HASH-5",
+      "divergence_type": "hash_mismatch",
+      "trace_id": "TRACE-DIVERGENCE-TEST",
+      "timestamp": "2026-05-19T06:43:21.869102Z",
+      "affected_services": [
+        "sanskar"
+      ],
+      "conflicting_events": [
+        {
+          "event_id": "EVT-003",
+          "service": "sanskar",
+          "expected_hash": "def456",
+          "computed_hash": "d343575e8adab19568bed202546259c095973aee7a621f014706b65130e5cb9b",
+          "corruption_detected": true
+        }
+      ],
+      "expected_state": {
+        "hash": "def456"
+      },
+      "actual_state": {
+        "hash": "d343575e8adab19568bed202546259c095973aee7a621f014706b65130e5cb9b"
+      },
+      "severity": "CRITICAL",
+      "reconciliation_action": "REJECT_CORRUPTED_EVENT",
+      "reconciliation_required": true
+    }
+  ]
+}

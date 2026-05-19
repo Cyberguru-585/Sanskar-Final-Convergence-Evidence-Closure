@@ -117,7 +117,7 @@ async def signal_endpoint(input_data: SignalInput):
         "enforcement_action": enforcement_output.get("action"),
         "enforcement_target": enforcement_output.get("target"),
         "pipeline_hash": pipeline_hash,
-        "chain_integrity": "VERIFIED — SHA-256 hash computed over full chain",
+        "chain_integrity": "VERIFIED -- SHA-256 hash computed over full chain",
         "trace_continuity": trace_proof["verdict"],
         "trace_continuity_proof": trace_proof,
         "stages_completed": ["input", "sanskar", "core", "enforcement", "truth"],
@@ -190,7 +190,7 @@ async def replay_endpoint(input_data: ReplayInput):
 
 @app.get("/ranking")
 async def get_ranking():
-    # Get latest ranking from traces
+    
     latest_trace = None
     for trace in traces.values():
         if "ranking" in trace.get("sanskar_output", {}):

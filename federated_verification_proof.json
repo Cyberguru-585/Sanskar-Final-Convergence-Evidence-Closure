@@ -1,0 +1,680 @@
+{
+  "proof_type": "Federated Verification Proof",
+  "generated_at": "2026-05-18T10:04:02.232936Z",
+  "description": "Federated verification across independent verifier nodes",
+  "data": {
+    "trace_id": "TRACE-3e8a01ce7f18",
+    "federated_verification_timestamp": "2026-05-18T10:04:02.170030Z",
+    "verifiers_count": 4,
+    "verifications_by_verifier": {
+      "VERIFIER-REPLAY-001": {
+        "verifications": [
+          {
+            "verification_id": "VERIFY-8b581372",
+            "verifier_id": "VERIFIER-REPLAY-001",
+            "verifier_type": "REPLAY_HASH_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "REPLAY_HASH",
+            "result": "FAIL",
+            "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+            "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+            "hash_match": false,
+            "verification_timestamp": "2026-05-18T10:04:02.170439Z"
+          },
+          {
+            "verification_id": "VERIFY-a96da59e",
+            "verifier_id": "VERIFIER-REPLAY-001",
+            "verifier_type": "REPLAY_HASH_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "TRACE_CONTINUITY",
+            "result": "PASS",
+            "stages_checked": 6,
+            "all_match": true,
+            "mismatches": [],
+            "verification_timestamp": "2026-05-18T10:04:02.170492Z"
+          },
+          {
+            "verification_id": "VERIFY-afe68ac7",
+            "verifier_id": "VERIFIER-REPLAY-001",
+            "verifier_type": "REPLAY_HASH_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.170531Z"
+          }
+        ],
+        "attestation": {
+          "attestation_id": "ATT-594a3533",
+          "verifier_id": "VERIFIER-REPLAY-001",
+          "verifier_type": "REPLAY_HASH_VERIFIER",
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "attestation_timestamp": "2026-05-18T10:04:02.170558Z",
+          "attestation_verdict": "FAIL",
+          "verifications_included": 3,
+          "verification_results": [
+            {
+              "verification_id": "VERIFY-8b581372",
+              "verifier_id": "VERIFIER-REPLAY-001",
+              "verifier_type": "REPLAY_HASH_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "REPLAY_HASH",
+              "result": "FAIL",
+              "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+              "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+              "hash_match": false,
+              "verification_timestamp": "2026-05-18T10:04:02.170439Z"
+            },
+            {
+              "verification_id": "VERIFY-a96da59e",
+              "verifier_id": "VERIFIER-REPLAY-001",
+              "verifier_type": "REPLAY_HASH_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "TRACE_CONTINUITY",
+              "result": "PASS",
+              "stages_checked": 6,
+              "all_match": true,
+              "mismatches": [],
+              "verification_timestamp": "2026-05-18T10:04:02.170492Z"
+            },
+            {
+              "verification_id": "VERIFY-afe68ac7",
+              "verifier_id": "VERIFIER-REPLAY-001",
+              "verifier_type": "REPLAY_HASH_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "GOVERNANCE_CONSTRAINT",
+              "result": "PASS",
+              "constraints_verified": [
+                {
+                  "constraint": "NO_AUTHORITY_ESCALATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_AUTHORITY_DELEGATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_CONFIDENCE_ESCALATION",
+                  "status": "VERIFIED",
+                  "note": "High confidence correctly bounded by governance"
+                }
+              ],
+              "constraints_violated": [],
+              "total_constraints_checked": 5,
+              "governance_status": "COMPLIANT",
+              "verification_timestamp": "2026-05-18T10:04:02.170531Z"
+            }
+          ],
+          "attestation_signature": "88f7a656e418584600f6cab8ff4b8ec7a865c3c40537cbc68f434eb9830a701c"
+        }
+      },
+      "VERIFIER-TRACE-001": {
+        "verifications": [
+          {
+            "verification_id": "VERIFY-8a939b54",
+            "verifier_id": "VERIFIER-TRACE-001",
+            "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "REPLAY_HASH",
+            "result": "FAIL",
+            "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+            "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+            "hash_match": false,
+            "verification_timestamp": "2026-05-18T10:04:02.170825Z"
+          },
+          {
+            "verification_id": "VERIFY-9aecff15",
+            "verifier_id": "VERIFIER-TRACE-001",
+            "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "TRACE_CONTINUITY",
+            "result": "PASS",
+            "stages_checked": 6,
+            "all_match": true,
+            "mismatches": [],
+            "verification_timestamp": "2026-05-18T10:04:02.170861Z"
+          },
+          {
+            "verification_id": "VERIFY-38a28410",
+            "verifier_id": "VERIFIER-TRACE-001",
+            "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.170898Z"
+          }
+        ],
+        "attestation": {
+          "attestation_id": "ATT-288afc52",
+          "verifier_id": "VERIFIER-TRACE-001",
+          "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "attestation_timestamp": "2026-05-18T10:04:02.170920Z",
+          "attestation_verdict": "FAIL",
+          "verifications_included": 3,
+          "verification_results": [
+            {
+              "verification_id": "VERIFY-8a939b54",
+              "verifier_id": "VERIFIER-TRACE-001",
+              "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "REPLAY_HASH",
+              "result": "FAIL",
+              "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+              "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+              "hash_match": false,
+              "verification_timestamp": "2026-05-18T10:04:02.170825Z"
+            },
+            {
+              "verification_id": "VERIFY-9aecff15",
+              "verifier_id": "VERIFIER-TRACE-001",
+              "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "TRACE_CONTINUITY",
+              "result": "PASS",
+              "stages_checked": 6,
+              "all_match": true,
+              "mismatches": [],
+              "verification_timestamp": "2026-05-18T10:04:02.170861Z"
+            },
+            {
+              "verification_id": "VERIFY-38a28410",
+              "verifier_id": "VERIFIER-TRACE-001",
+              "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "GOVERNANCE_CONSTRAINT",
+              "result": "PASS",
+              "constraints_verified": [
+                {
+                  "constraint": "NO_AUTHORITY_ESCALATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_AUTHORITY_DELEGATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_CONFIDENCE_ESCALATION",
+                  "status": "VERIFIED",
+                  "note": "High confidence correctly bounded by governance"
+                }
+              ],
+              "constraints_violated": [],
+              "total_constraints_checked": 5,
+              "governance_status": "COMPLIANT",
+              "verification_timestamp": "2026-05-18T10:04:02.170898Z"
+            }
+          ],
+          "attestation_signature": "2f1fe338aa3065db8256a2c97c305f837532e42d72e427183d396238f8d2ca58"
+        }
+      },
+      "VERIFIER-LINEAGE-001": {
+        "verifications": [
+          {
+            "verification_id": "VERIFY-0c0a0f28",
+            "verifier_id": "VERIFIER-LINEAGE-001",
+            "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "REPLAY_HASH",
+            "result": "FAIL",
+            "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+            "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+            "hash_match": false,
+            "verification_timestamp": "2026-05-18T10:04:02.171114Z"
+          },
+          {
+            "verification_id": "VERIFY-94e26fda",
+            "verifier_id": "VERIFIER-LINEAGE-001",
+            "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "TRACE_CONTINUITY",
+            "result": "PASS",
+            "stages_checked": 6,
+            "all_match": true,
+            "mismatches": [],
+            "verification_timestamp": "2026-05-18T10:04:02.171139Z"
+          },
+          {
+            "verification_id": "VERIFY-ec2933f9",
+            "verifier_id": "VERIFIER-LINEAGE-001",
+            "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.171166Z"
+          }
+        ],
+        "attestation": {
+          "attestation_id": "ATT-0b01e6ff",
+          "verifier_id": "VERIFIER-LINEAGE-001",
+          "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "attestation_timestamp": "2026-05-18T10:04:02.171183Z",
+          "attestation_verdict": "FAIL",
+          "verifications_included": 3,
+          "verification_results": [
+            {
+              "verification_id": "VERIFY-0c0a0f28",
+              "verifier_id": "VERIFIER-LINEAGE-001",
+              "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "REPLAY_HASH",
+              "result": "FAIL",
+              "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+              "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+              "hash_match": false,
+              "verification_timestamp": "2026-05-18T10:04:02.171114Z"
+            },
+            {
+              "verification_id": "VERIFY-94e26fda",
+              "verifier_id": "VERIFIER-LINEAGE-001",
+              "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "TRACE_CONTINUITY",
+              "result": "PASS",
+              "stages_checked": 6,
+              "all_match": true,
+              "mismatches": [],
+              "verification_timestamp": "2026-05-18T10:04:02.171139Z"
+            },
+            {
+              "verification_id": "VERIFY-ec2933f9",
+              "verifier_id": "VERIFIER-LINEAGE-001",
+              "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "GOVERNANCE_CONSTRAINT",
+              "result": "PASS",
+              "constraints_verified": [
+                {
+                  "constraint": "NO_AUTHORITY_ESCALATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_AUTHORITY_DELEGATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_CONFIDENCE_ESCALATION",
+                  "status": "VERIFIED",
+                  "note": "High confidence correctly bounded by governance"
+                }
+              ],
+              "constraints_violated": [],
+              "total_constraints_checked": 5,
+              "governance_status": "COMPLIANT",
+              "verification_timestamp": "2026-05-18T10:04:02.171166Z"
+            }
+          ],
+          "attestation_signature": "96054a0b7edc48755a33e6e717c8fa4565e65908d6b9cb67007152412af4c423"
+        }
+      },
+      "VERIFIER-GOV-001": {
+        "verifications": [
+          {
+            "verification_id": "VERIFY-9aceddba",
+            "verifier_id": "VERIFIER-GOV-001",
+            "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "REPLAY_HASH",
+            "result": "FAIL",
+            "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+            "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+            "hash_match": false,
+            "verification_timestamp": "2026-05-18T10:04:02.171351Z"
+          },
+          {
+            "verification_id": "VERIFY-7b7ae68c",
+            "verifier_id": "VERIFIER-GOV-001",
+            "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "TRACE_CONTINUITY",
+            "result": "PASS",
+            "stages_checked": 6,
+            "all_match": true,
+            "mismatches": [],
+            "verification_timestamp": "2026-05-18T10:04:02.171371Z"
+          },
+          {
+            "verification_id": "VERIFY-5c29d2ac",
+            "verifier_id": "VERIFIER-GOV-001",
+            "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.171393Z"
+          }
+        ],
+        "attestation": {
+          "attestation_id": "ATT-d2503ebc",
+          "verifier_id": "VERIFIER-GOV-001",
+          "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "attestation_timestamp": "2026-05-18T10:04:02.171408Z",
+          "attestation_verdict": "FAIL",
+          "verifications_included": 3,
+          "verification_results": [
+            {
+              "verification_id": "VERIFY-9aceddba",
+              "verifier_id": "VERIFIER-GOV-001",
+              "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "REPLAY_HASH",
+              "result": "FAIL",
+              "expected_hash": "99b48e07f26333cc4382cde9f84aaba851df76d02545168dade04d2b4cb1e894",
+              "computed_hash": "5ae937f54e392ef344669dac76231437eee4a09751ce1ab40210083696ea255c",
+              "hash_match": false,
+              "verification_timestamp": "2026-05-18T10:04:02.171351Z"
+            },
+            {
+              "verification_id": "VERIFY-7b7ae68c",
+              "verifier_id": "VERIFIER-GOV-001",
+              "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "TRACE_CONTINUITY",
+              "result": "PASS",
+              "stages_checked": 6,
+              "all_match": true,
+              "mismatches": [],
+              "verification_timestamp": "2026-05-18T10:04:02.171371Z"
+            },
+            {
+              "verification_id": "VERIFY-5c29d2ac",
+              "verifier_id": "VERIFIER-GOV-001",
+              "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "verification_type": "GOVERNANCE_CONSTRAINT",
+              "result": "PASS",
+              "constraints_verified": [
+                {
+                  "constraint": "NO_AUTHORITY_ESCALATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_AUTHORITY_DELEGATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                  "status": "VERIFIED"
+                },
+                {
+                  "constraint": "NO_CONFIDENCE_ESCALATION",
+                  "status": "VERIFIED",
+                  "note": "High confidence correctly bounded by governance"
+                }
+              ],
+              "constraints_violated": [],
+              "total_constraints_checked": 5,
+              "governance_status": "COMPLIANT",
+              "verification_timestamp": "2026-05-18T10:04:02.171393Z"
+            }
+          ],
+          "attestation_signature": "1df6399152eb76b0ec11daf302188c21accc3ed46b4fa36677f2ef8a4373430e"
+        }
+      }
+    },
+    "federated_consensus": {
+      "query_id": "CONSENSUS-3c641b1d",
+      "trace_id": "TRACE-3e8a01ce7f18",
+      "querying_verifier": "VERIFIER-REPLAY-001",
+      "consensus_timestamp": "2026-05-18T10:04:02.171491Z",
+      "verifiers_queried": 3,
+      "verifier_responses": [
+        {
+          "verifier_id": "VERIFIER-TRACE-001",
+          "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+          "last_verification": {
+            "verification_id": "VERIFY-38a28410",
+            "verifier_id": "VERIFIER-TRACE-001",
+            "verifier_type": "TRACE_CONTINUITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.170898Z"
+          }
+        },
+        {
+          "verifier_id": "VERIFIER-LINEAGE-001",
+          "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+          "last_verification": {
+            "verification_id": "VERIFY-ec2933f9",
+            "verifier_id": "VERIFIER-LINEAGE-001",
+            "verifier_type": "LINEAGE_INTEGRITY_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.171166Z"
+          }
+        },
+        {
+          "verifier_id": "VERIFIER-GOV-001",
+          "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+          "last_verification": {
+            "verification_id": "VERIFY-5c29d2ac",
+            "verifier_id": "VERIFIER-GOV-001",
+            "verifier_type": "GOVERNANCE_CONSTRAINT_VERIFIER",
+            "trace_id": "TRACE-3e8a01ce7f18",
+            "verification_type": "GOVERNANCE_CONSTRAINT",
+            "result": "PASS",
+            "constraints_verified": [
+              {
+                "constraint": "NO_AUTHORITY_ESCALATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "EXTERNAL_CONSTRAINT_MAINTAINED",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_AUTHORITY_DELEGATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "ENFORCEMENT_REQUIRES_AUTHORIZATION",
+                "status": "VERIFIED"
+              },
+              {
+                "constraint": "NO_CONFIDENCE_ESCALATION",
+                "status": "VERIFIED",
+                "note": "High confidence correctly bounded by governance"
+              }
+            ],
+            "constraints_violated": [],
+            "total_constraints_checked": 5,
+            "governance_status": "COMPLIANT",
+            "verification_timestamp": "2026-05-18T10:04:02.171393Z"
+          }
+        }
+      ],
+      "consensus_result": {
+        "verifiers_passed": 3,
+        "verifiers_total": 3,
+        "consensus_achieved": true,
+        "consensus_verdict": "PASS"
+      }
+    }
+  }
+}

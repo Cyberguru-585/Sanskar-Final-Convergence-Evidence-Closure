@@ -482,11 +482,11 @@ def run_sanskar(input_contract):
         entity["adjusted_score"] = refinement["adjusted_score"]
         entity["adaptive_confidence"] = refinement["final_confidence"]
         console.info(f"{entity['entity_id']} Adjustment", 
-                    f"{original_score} → {refinement['adjusted_score']} (delta: {refinement['adjustment_delta']})")
+                    f"{original_score} -> {refinement['adjusted_score']} (delta: {refinement['adjustment_delta']})")
         refiner.record_adaptive_adjustment(refinement)
 
     console.info("Adaptive Refinement", f"Applied to {len(ranked)} entities")
-    console.info("Governance Boundary", "✓ All adaptations remain deterministic and observable")
+    console.info("Governance Boundary", "[OK] All adaptations remain deterministic and observable")
 
     scenarios = simulate_scenarios(scored_df, ranking)
 

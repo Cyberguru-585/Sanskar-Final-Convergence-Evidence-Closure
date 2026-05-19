@@ -4,7 +4,7 @@
   "selected_score": 0.653,
   "enforcement_action": "prioritize_irrigation",
   "enforcement_target": "North",
-  "pipeline_hash": "5148460d5c36b4c36e9cf51733a959e528dd94898ddb3e008d3d1c4edff5eb23",
+  "pipeline_hash": "e93337b0df91c196111536bb551f2f7be45eeef4746dceea395e234c33cef89d",
   "chain_integrity": "VERIFIED \u2014 SHA-256 hash computed over full chain",
   "trace_continuity": "PASS \u2014 trace_id identical across all stages",
   "stages_completed": [

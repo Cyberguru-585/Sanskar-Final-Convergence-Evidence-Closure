@@ -1,0 +1,20 @@
+{
+  "trace_id": "TRACE-RECONSTRUCTION-TEST",
+  "timestamp": "2026-05-19T06:43:21.870149Z",
+  "total_services": 4,
+  "execution_order": [
+    "signal_source",
+    "sanskar",
+    "core",
+    "enforcement"
+  ],
+  "trace_continuity_verified": true,
+  "recovery_capability": {
+    "available_services": [
+      "sanskar",
+      "core"
+    ],
+    "recovery_percentage": 50.0,
+    "lineage_recoverable": true
+  }
+}

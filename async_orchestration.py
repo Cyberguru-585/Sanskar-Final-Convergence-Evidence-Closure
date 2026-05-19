@@ -165,7 +165,7 @@ class AsyncOrchestrator:
             if ctx["retry_count"] > 0:
                 if "original_execution_id" not in ctx:
                     pass
-        proof["verdict"] = "PASS — replay safety verified" if proof["replay_safe"] else "FAIL — replay safety issues detected"
+        proof["verdict"] = "PASS -- replay safety verified" if proof["replay_safe"] else "FAIL -- replay safety issues detected"
         
         return proof
     

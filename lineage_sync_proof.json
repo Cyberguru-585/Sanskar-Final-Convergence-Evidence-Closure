@@ -1,0 +1,152 @@
+{
+  "proof_type": "Lineage Sync Proof",
+  "generated_at": "2026-05-18T10:04:01.972291Z",
+  "description": "Replay lineage synchronization and conflict resolution proof",
+  "data": {
+    "synchronization_timestamp": "2026-05-18T10:04:01.972202Z",
+    "nodes_involved": 3,
+    "trace_id": "TRACE-3e8a01ce7f18",
+    "conflict_detection": {
+      "total_conflicts": 2,
+      "by_type": {
+        "HASH_DIVERGENCE": 1,
+        "DUPLICATE_EVENT": 1
+      },
+      "by_severity": {
+        "HIGH": 1,
+        "MEDIUM": 1
+      },
+      "conflicts": [
+        {
+          "conflict_id": "CONFLICT-b4c06779",
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "type": "HASH_DIVERGENCE",
+          "severity": "HIGH",
+          "local_hash": "bf55fde1ec557f7cbb1bb73f16031b6304a0ef1f5b7217dbb5cfe77d2a33a74e",
+          "peer_hash": "ff42c31c4ca4ff62cda84978c0eb242ce54156df428645f75d376316f03b3b5e",
+          "peer_node": "NODE-RECOVERY-001",
+          "detected_at": "2026-05-18T10:04:01.949316Z"
+        },
+        {
+          "conflict_id": "CONFLICT-4e82d3b6",
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "type": "DUPLICATE_EVENT",
+          "severity": "MEDIUM",
+          "duplicate_event_count": 2,
+          "peer_node": "NODE-RECOVERY-001",
+          "detected_at": "2026-05-18T10:04:01.949433Z"
+        }
+      ]
+    },
+    "reconciliation_attempts": {
+      "total_reconciliation_attempts": 1,
+      "successful": 1,
+      "failed": 0,
+      "reconciliations": [
+        {
+          "trace_id": "TRACE-3e8a01ce7f18",
+          "conflicts_count": 2,
+          "conflicts": [
+            {
+              "conflict_id": "CONFLICT-b4c06779",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "type": "HASH_DIVERGENCE",
+              "severity": "HIGH",
+              "local_hash": "bf55fde1ec557f7cbb1bb73f16031b6304a0ef1f5b7217dbb5cfe77d2a33a74e",
+              "peer_hash": "ff42c31c4ca4ff62cda84978c0eb242ce54156df428645f75d376316f03b3b5e",
+              "peer_node": "NODE-RECOVERY-001",
+              "detected_at": "2026-05-18T10:04:01.949316Z"
+            },
+            {
+              "conflict_id": "CONFLICT-4e82d3b6",
+              "trace_id": "TRACE-3e8a01ce7f18",
+              "type": "DUPLICATE_EVENT",
+              "severity": "MEDIUM",
+              "duplicate_event_count": 2,
+              "peer_node": "NODE-RECOVERY-001",
+              "detected_at": "2026-05-18T10:04:01.949433Z"
+            }
+          ],
+          "reconciliation_strategy": [
+            {
+              "conflict_type": "DUPLICATE_EVENT",
+              "action": "dedup_by_event_id",
+              "duplicate_count": 2
+            }
+          ],
+          "reconciliation_completed": true,
+          "peer_node": "NODE-RECOVERY-001",
+          "reconciliation_timestamp": "2026-05-18T10:04:01.949494Z",
+          "final_lineage_hash": "bf55fde1ec557f7cbb1bb73f16031b6304a0ef1f5b7217dbb5cfe77d2a33a74e"
+        }
+      ]
+    },
+    "primary_lineage": {
+      "trace_id": "TRACE-3e8a01ce7f18",
+      "node_id": "NODE-PRIMARY-001",
+      "node_role": "PRIMARY",
+      "status": "OK",
+      "event_count": 5,
+      "current_lineage_hash": "bf55fde1ec557f7cbb1bb73f16031b6304a0ef1f5b7217dbb5cfe77d2a33a74e",
+      "first_recorded_at": "2026-05-18T10:04:01.917432Z",
+      "last_updated_at": "2026-05-18T10:04:01.918695Z",
+      "events": [
+        {
+          "event_id": "EVENT-1",
+          "sequence": 1,
+          "event_type": "execution_stage",
+          "parent_event_id": null,
+          "event_data_hash": "889fdcd98dc8bc74b5feaf564c4904e4e313a757d701edf9864995832589e984",
+          "timestamp": "2026-05-18T10:04:01.917721Z",
+          "recorded_by_node": "NODE-PRIMARY-001",
+          "recorded_at": "2026-05-18T10:04:01.917748Z"
+        },
+        {
+          "event_id": "EVENT-2",
+          "sequence": 2,
+          "event_type": "execution_stage",
+          "parent_event_id": "EVENT-1",
+          "event_data_hash": "40cd41f4332ad954e6386dfc31254fd8d4138fa02e260c3f8c2d2596604022c3",
+          "timestamp": "2026-05-18T10:04:01.918069Z",
+          "recorded_by_node": "NODE-PRIMARY-001",
+          "recorded_at": "2026-05-18T10:04:01.918095Z"
+        },
+        {
+          "event_id": "EVENT-3",
+          "sequence": 3,
+          "event_type": "execution_stage",
+          "parent_event_id": "EVENT-2",
+          "event_data_hash": "66737012883dec046c248a7e56207d20073905d975b250f2d6ed3e9f6d190f78",
+          "timestamp": "2026-05-18T10:04:01.918299Z",
+          "recorded_by_node": "NODE-PRIMARY-001",
+          "recorded_at": "2026-05-18T10:04:01.918317Z"
+        },
+        {
+          "event_id": "EVENT-4",
+          "sequence": 4,
+          "event_type": "execution_stage",
+          "parent_event_id": "EVENT-3",
+          "event_data_hash": "8efde3ecd8d8fcbec606b8482931b1f6d95a0341dcc02ea5a788ceaaac822577",
+          "timestamp": "2026-05-18T10:04:01.918490Z",
+          "recorded_by_node": "NODE-PRIMARY-001",
+          "recorded_at": "2026-05-18T10:04:01.918506Z"
+        },
+        {
+          "event_id": "EVENT-5",
+          "sequence": 5,
+          "event_type": "execution_stage",
+          "parent_event_id": "EVENT-4",
+          "event_data_hash": "a087dc675ecf9b9794c80fb4384158a6cf3743a899cab0b1be6c8c17a53e0800",
+          "timestamp": "2026-05-18T10:04:01.918679Z",
+          "recorded_by_node": "NODE-PRIMARY-001",
+          "recorded_at": "2026-05-18T10:04:01.918695Z"
+        }
+      ]
+    },
+    "deterministic_properties": {
+      "lineage_hash_deterministic": true,
+      "replay_deterministic": true,
+      "conflict_resolution_deterministic": true
+    }
+  }
+}

@@ -46,7 +46,31 @@
     "acknowledged": false,
     "ack_timestamp": null,
     "execution_status": "PENDING",
-    "status_updated_at": "2026-05-11T18:42:35.581151Z"
+    "status_updated_at": "2026-05-18T19:01:04.400325Z"
+  },
+  "async_execution": null,
+  "external_execution_verification": {
+    "executor_id": "EXECUTOR-001",
+    "execution_completed": false,
+    "completion_hash": null,
+    "verified_by": null,
+    "separation_of_concerns": {
+      "issuance": {
+        "issued_by": "enforcement",
+        "issuance_timestamp": "2026-05-18T19:01:04.400325Z",
+        "directives_issued": 3
+      },
+      "verification": {
+        "verified_by": "external_executor",
+        "verification_timestamp": null,
+        "result_hash": null
+      }
+    }
+  },
+  "governance": {
+    "decision_state": "AMBIGUOUS",
+    "governance_warning": "low_confidence_execution_risk",
+    "uncertainty_propagated": true
   },
   "contract_version": "v1"
 }

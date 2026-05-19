@@ -3,89 +3,7 @@
     "event_id": "EVT-DEMO-UNCERTAINTY-001-1",
     "trace_id": "DEMO-UNCERTAINTY-001",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T10:30:00Z",
-    "data": {
-      "trace_id": "DEMO-UNCERTAINTY-001",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "abc123def456abc123def456abc123def456abc123def456abc123def456abc1",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-DEMO-REPLAY-004-1",
-    "trace_id": "DEMO-REPLAY-004",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T10:30:05Z",
-    "data": {
-      "trace_id": "DEMO-REPLAY-004",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "def789ghi012def789ghi012def789ghi012def789ghi012def789ghi012def7",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-DETERMINISM-TEST-001-1",
-    "trace_id": "DETERMINISM-TEST-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T10:30:10Z",
-    "data": {
-      "trace_id": "DETERMINISM-TEST-001",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "ghi345jkl678ghi345jkl678ghi345jkl678ghi345jkl678ghi345jkl678ghi3",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-TRACE_123-4",
-    "trace_id": "TRACE_123",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:41:51.542633Z",
-    "data": {
-      "trace_id": "TRACE_123",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-TRACE_FAIL_002-5",
-    "trace_id": "TRACE_FAIL_002",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:42:35.640145Z",
-    "data": {
-      "trace_id": "TRACE_FAIL_002",
-      "signal": {}
-    },
-    "event_hash": "c6fb3fa29f24cd94e19bd0c91507f5f49f320f04a2e302299abf448b1d0291e5",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-TRACE_123-6",
-    "trace_id": "TRACE_123",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:42:35.668022Z",
-    "data": {
-      "trace_id": "TRACE_123",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-DEMO-UNCERTAINTY-001-7",
-    "trace_id": "DEMO-UNCERTAINTY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:42:55.731891Z",
+    "timestamp": "2026-05-18T18:58:35.272819Z",
     "data": {
       "trace_id": "DEMO-UNCERTAINTY-001",
       "signal": {
@@ -93,27 +11,16 @@
       }
     },
     "event_hash": "ca068305f4caf4474b34699ae1def871fdd874351445efeb1088b91127e68173",
-    "immutable": true
+    "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "current_event_hash": "ffadea91eae3cf14e3cc3c55564f52d1c1eee191db11be99f3beea5920a799fc",
+    "immutable": true,
+    "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-TRACE_123-8",
-    "trace_id": "TRACE_123",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:43:21.245835Z",
-    "data": {
-      "trace_id": "TRACE_123",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-DEMO-CONFIDENCE-002-9",
+    "event_id": "EVT-DEMO-CONFIDENCE-002-1",
     "trace_id": "DEMO-CONFIDENCE-002",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:43:51.416693Z",
+    "timestamp": "2026-05-18T18:58:53.330762Z",
     "data": {
       "trace_id": "DEMO-CONFIDENCE-002",
       "signal": {
@@ -121,27 +28,16 @@
       }
     },
     "event_hash": "a3b812e28316d567b7fcb7b8f0641f6c61ca3800f3fb13c5eeaa2be459df1242",
-    "immutable": true
+    "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "current_event_hash": "f5f0daa6135b714c42e6727b28c1a57426126427eb0146e2441503c2c3b38602",
+    "immutable": true,
+    "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-TRACE_123-10",
-    "trace_id": "TRACE_123",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:44:26.463978Z",
-    "data": {
-      "trace_id": "TRACE_123",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-DEMO-COMPARATIVE-003-11",
+    "event_id": "EVT-DEMO-COMPARATIVE-003-1",
     "trace_id": "DEMO-COMPARATIVE-003",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:44:52.028061Z",
+    "timestamp": "2026-05-18T18:59:10.511948Z",
     "data": {
       "trace_id": "DEMO-COMPARATIVE-003",
       "signal": {
@@ -149,27 +45,16 @@
       }
     },
     "event_hash": "15b302e3097183aa21b6087869bd204520c8920b0d71636183f089af995503f1",
-    "immutable": true
+    "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "current_event_hash": "9865895c5dfaf79ed0f376efc8bb341f74022801dd884b8502fd0a8904402eed",
+    "immutable": true,
+    "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-TRACE_123-12",
-    "trace_id": "TRACE_123",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:45:05.995200Z",
-    "data": {
-      "trace_id": "TRACE_123",
-      "signal": {
-        "dataset": "crop_yield.csv"
-      }
-    },
-    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-DEMO-REPLAY-004-13",
+    "event_id": "EVT-DEMO-REPLAY-004-1",
     "trace_id": "DEMO-REPLAY-004",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:45:23.360142Z",
+    "timestamp": "2026-05-18T18:59:27.514343Z",
     "data": {
       "trace_id": "DEMO-REPLAY-004",
       "signal": {
@@ -177,27 +62,33 @@
       }
     },
     "event_hash": "f373eccad9d0a6f024f672e807db6c67ad3b1462d7b6810c980645fd024c3323",
-    "immutable": true
+    "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "current_event_hash": "30f8e7da720e1287b2959e61e581f1489b0ef1d07bc48f40c87ecb458dcf0c26",
+    "immutable": true,
+    "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-TRACE_123-14",
-    "trace_id": "TRACE_123",
+    "event_id": "EVT-DEMO-REPLAY-004-2",
+    "trace_id": "DEMO-REPLAY-004",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:45:38.907805Z",
+    "timestamp": "2026-05-18T18:59:47.491115Z",
     "data": {
-      "trace_id": "TRACE_123",
+      "trace_id": "DEMO-REPLAY-004",
       "signal": {
         "dataset": "crop_yield.csv"
       }
     },
-    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
-    "immutable": true
+    "event_hash": "f373eccad9d0a6f024f672e807db6c67ad3b1462d7b6810c980645fd024c3323",
+    "previous_event_hash": "30f8e7da720e1287b2959e61e581f1489b0ef1d07bc48f40c87ecb458dcf0c26",
+    "current_event_hash": "2fb22fe49c60ca57e82ede3ca5c3e6a5ee76a3cccc4ea395315848f85b17dd63",
+    "immutable": true,
+    "lineage_sequence": 2
   },
   {
-    "event_id": "EVT-DEMO-ACK-005-15",
+    "event_id": "EVT-DEMO-ACK-005-1",
     "trace_id": "DEMO-ACK-005",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:45:52.128658Z",
+    "timestamp": "2026-05-18T19:00:06.644175Z",
     "data": {
       "trace_id": "DEMO-ACK-005",
       "signal": {
@@ -205,377 +96,75 @@
       }
     },
     "event_hash": "c719eea8264c4f12015781abe357a3064039546d0b67a104e8ff2cf84d55d7e0",
-    "immutable": true
+    "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "current_event_hash": "649d67b6c6ff9e883e8d2c908af5893a2a392d615b72ce021cee2bd291d84a07",
+    "immutable": true,
+    "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-DEMO-OBSERVABILITY-006-16",
-    "trace_id": "DEMO-OBSERVABILITY-006",
+    "event_id": "EVT-TRACE_123-1",
+    "trace_id": "TRACE_123",
     "event_type": "INPUT",
-    "timestamp": "2026-05-11T18:46:18.049152Z",
+    "timestamp": "2026-05-18T19:00:46.430431Z",
     "data": {
-      "trace_id": "DEMO-OBSERVABILITY-006",
+      "trace_id": "TRACE_123",
       "signal": {
         "dataset": "crop_yield.csv"
       }
     },
-    "event_hash": "cfe6ed07b8125d2e0d688a0d71414a8c1bf0567297837daf43dcdefdbc3c7931",
-    "immutable": true
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-1",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:21:07.772881Z",
-    "data": {
-      "signal": "test",
-      "value": 100
-    },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
     "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
-    "current_event_hash": "e05b712d64b220d886cb9c70ce2e4768b4b079201c1acfd889ec5be88cc3ec6a",
+    "current_event_hash": "433df3efe9751622da0b23a411c21f0f7724e5b9b87ee105b555e5c4b04c90a2",
     "immutable": true,
     "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-TRACE-LINEAGE-001-2",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:21:07.777946Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "e05b712d64b220d886cb9c70ce2e4768b4b079201c1acfd889ec5be88cc3ec6a",
-    "current_event_hash": "e498a34c76d913395a7093f1780aa9c618f151fd6bf4aa47e6129074948ccbfb",
-    "immutable": true,
-    "lineage_sequence": 2
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-1",
-    "trace_id": "TRACE-REPLAY-001",
+    "event_id": "EVT-TRACE_FAIL_002-1",
+    "trace_id": "TRACE_FAIL_002",
     "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:21:07.788389Z",
+    "timestamp": "2026-05-18T19:01:04.440107Z",
     "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
+      "trace_id": "TRACE_FAIL_002",
+      "signal": {}
     },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
+    "event_hash": "c6fb3fa29f24cd94e19bd0c91507f5f49f320f04a2e302299abf448b1d0291e5",
     "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
-    "current_event_hash": "ac1f192eb7f1a7de7e889a02ab141316c1d780136029c0ecdc36a2f875f42ded",
+    "current_event_hash": "2b201b84f81f87a7c389d91dfa491973ae15afbff84c194b4914f4496c692bd1",
     "immutable": true,
     "lineage_sequence": 1
   },
   {
-    "event_id": "EVT-TRACE-LINEAGE-001-3",
-    "trace_id": "TRACE-LINEAGE-001",
+    "event_id": "EVT-TRACE_123-2",
+    "trace_id": "TRACE_123",
     "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:21:53.476846Z",
+    "timestamp": "2026-05-18T19:01:04.461258Z",
     "data": {
-      "signal": "test",
-      "value": 100
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
     },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
-    "previous_event_hash": "e498a34c76d913395a7093f1780aa9c618f151fd6bf4aa47e6129074948ccbfb",
-    "current_event_hash": "99b87317706130a29598ea45a65cee9bac70222b9fffd33e7c7c0327a5366b07",
-    "immutable": true,
-    "lineage_sequence": 3
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-4",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:21:53.480810Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "99b87317706130a29598ea45a65cee9bac70222b9fffd33e7c7c0327a5366b07",
-    "current_event_hash": "4efc94caa5964a3220cddd0e940787418f64ad4f2be066de5af0aa63359f0794",
-    "immutable": true,
-    "lineage_sequence": 4
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-2",
-    "trace_id": "TRACE-REPLAY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:21:53.487901Z",
-    "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
-    },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
-    "previous_event_hash": "ac1f192eb7f1a7de7e889a02ab141316c1d780136029c0ecdc36a2f875f42ded",
-    "current_event_hash": "8bf8e81f3f5467943de2c918e4f005be9db5693b287b1f12f2a9e1668158c76e",
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "previous_event_hash": "433df3efe9751622da0b23a411c21f0f7724e5b9b87ee105b555e5c4b04c90a2",
+    "current_event_hash": "533110c6f2d16c49a2074b409906f42d129ea0c8659dfab3ef96f0a5dfd06083",
     "immutable": true,
     "lineage_sequence": 2
   },
   {
-    "event_id": "EVT-TRACE-LINEAGE-001-5",
-    "trace_id": "TRACE-LINEAGE-001",
+    "event_id": "EVT-TRACE_123-3",
+    "trace_id": "TRACE_123",
     "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:22:24.785538Z",
+    "timestamp": "2026-05-18T19:01:22.924933Z",
     "data": {
-      "signal": "test",
-      "value": 100
+      "trace_id": "TRACE_123",
+      "signal": {
+        "dataset": "crop_yield.csv"
+      }
     },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
-    "previous_event_hash": "4efc94caa5964a3220cddd0e940787418f64ad4f2be066de5af0aa63359f0794",
-    "current_event_hash": "c28d31b408a72de97c39f42b0f8bed60fee1c0c766757faa7a34491305129ce3",
-    "immutable": true,
-    "lineage_sequence": 5
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-6",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:22:24.790642Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "c28d31b408a72de97c39f42b0f8bed60fee1c0c766757faa7a34491305129ce3",
-    "current_event_hash": "54ee538a1357ec1deae03963aed8000f508a33a5b2287f47202052b370ad9956",
-    "immutable": true,
-    "lineage_sequence": 6
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-3",
-    "trace_id": "TRACE-REPLAY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:22:24.796932Z",
-    "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
-    },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
-    "previous_event_hash": "8bf8e81f3f5467943de2c918e4f005be9db5693b287b1f12f2a9e1668158c76e",
-    "current_event_hash": "5709adeae7261b416df94536fc64010b895f025cc424f8dc532d9dbd80cefb69",
+    "event_hash": "d8eaaf9d865f59833d167b339aa8ce04a825d96c78f8310d00ed19e065994933",
+    "previous_event_hash": "533110c6f2d16c49a2074b409906f42d129ea0c8659dfab3ef96f0a5dfd06083",
+    "current_event_hash": "baa24b7e069ec83e63cf302e19bb5fd26727ded58af5150e4e65b0d392e6e4c7",
     "immutable": true,
     "lineage_sequence": 3
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-7",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:24:03.084806Z",
-    "data": {
-      "signal": "test",
-      "value": 100
-    },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
-    "previous_event_hash": "54ee538a1357ec1deae03963aed8000f508a33a5b2287f47202052b370ad9956",
-    "current_event_hash": "1de0e4849e7a8fa1adefde6cb1b71b5b3d9fd3146121f1f4fabaf1783d3e8ee0",
-    "immutable": true,
-    "lineage_sequence": 7
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-8",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:24:03.094636Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "1de0e4849e7a8fa1adefde6cb1b71b5b3d9fd3146121f1f4fabaf1783d3e8ee0",
-    "current_event_hash": "2a82c0db81445b3fe1530a22f4b1ab97676f2f6b4b6485a92f650cc5b42cc33d",
-    "immutable": true,
-    "lineage_sequence": 8
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-4",
-    "trace_id": "TRACE-REPLAY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:24:03.111821Z",
-    "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
-    },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
-    "previous_event_hash": "5709adeae7261b416df94536fc64010b895f025cc424f8dc532d9dbd80cefb69",
-    "current_event_hash": "281dd6794a1c2cb2e207e5a6d1d97af0810f2a8903593c6002f28cd53cd6a635",
-    "immutable": true,
-    "lineage_sequence": 4
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-9",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:24:55.981197Z",
-    "data": {
-      "signal": "test",
-      "value": 100
-    },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
-    "previous_event_hash": "2a82c0db81445b3fe1530a22f4b1ab97676f2f6b4b6485a92f650cc5b42cc33d",
-    "current_event_hash": "4249a74f1cbbdcbab502224408aae4536dccfc5710e1b143de0508b9d2cab87d",
-    "immutable": true,
-    "lineage_sequence": 9
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-10",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:24:55.984109Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "4249a74f1cbbdcbab502224408aae4536dccfc5710e1b143de0508b9d2cab87d",
-    "current_event_hash": "64310797cac6045f22ebf4cbaf6bf05bfcf5899e1f4e120ad64946e0616f12a0",
-    "immutable": true,
-    "lineage_sequence": 10
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-5",
-    "trace_id": "TRACE-REPLAY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:24:55.999498Z",
-    "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
-    },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
-    "previous_event_hash": "281dd6794a1c2cb2e207e5a6d1d97af0810f2a8903593c6002f28cd53cd6a635",
-    "current_event_hash": "1b23199d68fa12ce8a1046cf62592f265c9b21b04f0c908cb14fefba180d83de",
-    "immutable": true,
-    "lineage_sequence": 5
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-11",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:25:47.306184Z",
-    "data": {
-      "signal": "test",
-      "value": 100
-    },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
-    "previous_event_hash": "64310797cac6045f22ebf4cbaf6bf05bfcf5899e1f4e120ad64946e0616f12a0",
-    "current_event_hash": "5e494132a819e8263c1538e03fe1f9bfb6f7ff629c47dbf92c814522509eb266",
-    "immutable": true,
-    "lineage_sequence": 11
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-12",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:25:47.308818Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "5e494132a819e8263c1538e03fe1f9bfb6f7ff629c47dbf92c814522509eb266",
-    "current_event_hash": "01dd4372458f915035218de2f0017e3ccf5381d0440703564944f22c2698d3cb",
-    "immutable": true,
-    "lineage_sequence": 12
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-6",
-    "trace_id": "TRACE-REPLAY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:25:47.314740Z",
-    "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
-    },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
-    "previous_event_hash": "1b23199d68fa12ce8a1046cf62592f265c9b21b04f0c908cb14fefba180d83de",
-    "current_event_hash": "be1fddd66d572b5e2290d33421ca9612b7062d6f8802be481c6136709cfde49f",
-    "immutable": true,
-    "lineage_sequence": 6
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-13",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:26:16.946704Z",
-    "data": {
-      "signal": "test",
-      "value": 100
-    },
-    "event_hash": "ea8c7e6481098f4699182b4e1a658d65d320050e16fc5d498ef81016c4845a9d",
-    "previous_event_hash": "01dd4372458f915035218de2f0017e3ccf5381d0440703564944f22c2698d3cb",
-    "current_event_hash": "fdb69a0917a57c1f8b7a5978e46e4dfe1226664577c6e0cdd08eeaeff84803c5",
-    "immutable": true,
-    "lineage_sequence": 13
-  },
-  {
-    "event_id": "EVT-TRACE-LINEAGE-001-14",
-    "trace_id": "TRACE-LINEAGE-001",
-    "event_type": "PROCESSING",
-    "timestamp": "2026-05-15T12:26:16.956681Z",
-    "data": {
-      "stage": "sanskar",
-      "computed": 150
-    },
-    "event_hash": "ab523c6b8687ee83949e9007b47a1dde793e8c12a096f85adbaa656401adce74",
-    "previous_event_hash": "fdb69a0917a57c1f8b7a5978e46e4dfe1226664577c6e0cdd08eeaeff84803c5",
-    "current_event_hash": "8bdc2fa3e5454b906d8a45e6016dd9505e1e30455a990770400a7ef9036c6fac",
-    "immutable": true,
-    "lineage_sequence": 14
-  },
-  {
-    "event_id": "EVT-TRACE-REPLAY-001-7",
-    "trace_id": "TRACE-REPLAY-001",
-    "event_type": "INPUT",
-    "timestamp": "2026-05-15T12:26:16.966222Z",
-    "data": {
-      "signal": "crop_yield_analysis",
-      "regions": [
-        "North",
-        "South",
-        "East"
-      ],
-      "rainfall": 750,
-      "temperature": 25
-    },
-    "event_hash": "bbd401cb647db9d868b55ef60d7630159b72b23be57789249cb65b2598c84db3",
-    "previous_event_hash": "be1fddd66d572b5e2290d33421ca9612b7062d6f8802be481c6136709cfde49f",
-    "current_event_hash": "8ce7b1be29d324ced879f68647a5435170d19e8e2911c0de10fd1291bde21fa3",
-    "immutable": true,
-    "lineage_sequence": 7
   }
 ]

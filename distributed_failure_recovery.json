@@ -1,0 +1,169 @@
+{
+  "proof_type": "Distributed Failure Recovery",
+  "generated_at": "2026-05-18T10:04:01.884293Z",
+  "description": "Distributed failure injection and recovery proof",
+  "data": {
+    "failure_injection_timestamp": "2026-05-18T10:04:01.883947Z",
+    "failure_scenarios_tested": 5,
+    "failures": [
+      {
+        "trace_id": "TRACE-92b67a91072e",
+        "failure_type": "SERVICE_TIMEOUT",
+        "affected_service": "sanskar",
+        "timestamp": "2026-05-18T10:04:01.627575Z",
+        "service_state_before": "HEALTHY",
+        "service_state_after": "TIMEOUT"
+      },
+      {
+        "trace_id": "TRACE-6787c94a0ef9",
+        "failure_type": "DELAYED_ACK",
+        "affected_service": "enforcement",
+        "timestamp": "2026-05-18T10:04:01.657684Z",
+        "service_state_before": "HEALTHY",
+        "service_state_after": "DEGRADED"
+      },
+      {
+        "trace_id": "TRACE-3bcadde44fab",
+        "failure_type": "TELEMETRY_LOSS",
+        "affected_service": "telemetry",
+        "timestamp": "2026-05-18T10:04:01.712897Z",
+        "service_state_before": "HEALTHY",
+        "service_state_after": "HEALTHY"
+      },
+      {
+        "trace_id": "TRACE-6b875207ee3b",
+        "failure_type": "NODE_RESTART",
+        "affected_service": "rajya",
+        "timestamp": "2026-05-18T10:04:01.746666Z",
+        "service_state_before": "HEALTHY",
+        "service_state_after": "RECOVERING"
+      },
+      {
+        "trace_id": "TRACE-f87d8c62e9aa",
+        "failure_type": "DUPLICATE_REPLAY",
+        "affected_service": "enforcement",
+        "timestamp": "2026-05-18T10:04:01.770725Z",
+        "service_state_before": "HEALTHY",
+        "service_state_after": "HEALTHY"
+      }
+    ],
+    "recovery_attempts": [
+      {
+        "trace_id": "TRACE-92b67a91072e",
+        "failure_type": "SERVICE_TIMEOUT",
+        "affected_service": "sanskar",
+        "recovery_started_at": "2026-05-18T10:04:01.639300Z",
+        "recovery_actions": [
+          {
+            "action": "restore_service_health",
+            "service": "sanskar",
+            "completed": true
+          },
+          {
+            "action": "reconcile_diverged_state",
+            "conflicts_detected": 0,
+            "resolved": true
+          }
+        ],
+        "lineage_reconstructed": false,
+        "replay_continuity_preserved": false,
+        "recovery_completed_at": "2026-05-18T10:04:01.639383Z",
+        "status": "PARTIAL"
+      },
+      {
+        "trace_id": "TRACE-6787c94a0ef9",
+        "failure_type": "DELAYED_ACK",
+        "affected_service": "enforcement",
+        "recovery_started_at": "2026-05-18T10:04:01.663024Z",
+        "recovery_actions": [
+          {
+            "action": "restore_service_health",
+            "service": "enforcement",
+            "completed": true
+          },
+          {
+            "action": "reconcile_diverged_state",
+            "conflicts_detected": 0,
+            "resolved": true
+          }
+        ],
+        "lineage_reconstructed": false,
+        "replay_continuity_preserved": false,
+        "recovery_completed_at": "2026-05-18T10:04:01.663103Z",
+        "status": "PARTIAL"
+      },
+      {
+        "trace_id": "TRACE-3bcadde44fab",
+        "failure_type": "TELEMETRY_LOSS",
+        "affected_service": "telemetry",
+        "recovery_started_at": "2026-05-18T10:04:01.720889Z",
+        "recovery_actions": [
+          {
+            "action": "restore_service_health",
+            "service": "telemetry",
+            "completed": true
+          },
+          {
+            "action": "reconcile_diverged_state",
+            "conflicts_detected": 0,
+            "resolved": true
+          }
+        ],
+        "lineage_reconstructed": false,
+        "replay_continuity_preserved": false,
+        "recovery_completed_at": "2026-05-18T10:04:01.720960Z",
+        "status": "PARTIAL"
+      },
+      {
+        "trace_id": "TRACE-6b875207ee3b",
+        "failure_type": "NODE_RESTART",
+        "affected_service": "rajya",
+        "recovery_started_at": "2026-05-18T10:04:01.758054Z",
+        "recovery_actions": [
+          {
+            "action": "restore_service_health",
+            "service": "rajya",
+            "completed": true
+          },
+          {
+            "action": "reconcile_diverged_state",
+            "conflicts_detected": 0,
+            "resolved": true
+          }
+        ],
+        "lineage_reconstructed": false,
+        "replay_continuity_preserved": false,
+        "recovery_completed_at": "2026-05-18T10:04:01.758129Z",
+        "status": "PARTIAL"
+      },
+      {
+        "trace_id": "TRACE-f87d8c62e9aa",
+        "failure_type": "DUPLICATE_REPLAY",
+        "affected_service": "enforcement",
+        "recovery_started_at": "2026-05-18T10:04:01.784046Z",
+        "recovery_actions": [
+          {
+            "action": "restore_service_health",
+            "service": "enforcement",
+            "completed": true
+          },
+          {
+            "action": "reconcile_diverged_state",
+            "conflicts_detected": 0,
+            "resolved": true
+          }
+        ],
+        "lineage_reconstructed": false,
+        "replay_continuity_preserved": false,
+        "recovery_completed_at": "2026-05-18T10:04:01.784124Z",
+        "status": "PARTIAL"
+      }
+    ],
+    "recovery_success_rate": 0.0,
+    "summary": {
+      "total_failures": 5,
+      "successful_recoveries": 0,
+      "lineage_preserved": 0
+    }
+  }
+}

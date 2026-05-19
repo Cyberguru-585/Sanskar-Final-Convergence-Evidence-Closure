@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-05-19T06:43:21.870657Z",
+  "total_integrity_violations": 1,
+  "execution_halts_triggered": 1,
+  "fail_closed_proof": {
+    "proof_timestamp": "2026-05-19T06:43:21.870606Z",
+    "proof_type": "FAIL_CLOSED_GOVERNANCE_ENFORCEMENT",
+    "total_integrity_checks": 2,
+    "total_violations_detected": 1,
+    "total_boundary_violations_prevented": 0,
+    "execution_halts_triggered": 1,
+    "halt_reasons": [
+      "REPLAY_HASH_MISMATCH_DETECTED"
+    ],
+    "proof_summary": {
+      "replay_integrity_enforced": true,
+      "trace_continuity_enforced": false,
+      "schema_validation_enforced": false,
+      "boundary_enforcement_enforced": true,
+      "all_violations_halted_execution": true
+    }
+  }
+}

@@ -15,7 +15,7 @@ class ObservabilityTracker:
         self.correlation_context = {}
     
     def _load_existing_logs(self):
-        """Load existing logs from file."""
+        
         if Path(self.log_file).exists():
             with open(self.log_file, 'r') as f:
                 for line in f:
@@ -26,14 +26,7 @@ class ObservabilityTracker:
                             pass
     
     def set_correlation_context(self, trace_id, parent_trace_id=None, correlation_id=None):
-        """
-        Set correlation context for distributed tracing.
         
-        Args:
-            trace_id: Current trace ID
-            parent_trace_id: Parent trace ID (for nested traces)
-            correlation_id: Correlation ID for grouping related operations
-        """
         if correlation_id is None:
             correlation_id = str(uuid.uuid4())
         
@@ -47,7 +40,7 @@ class ObservabilityTracker:
         return self.correlation_context[trace_id]
     
     def get_correlation_context(self, trace_id):
-        """Get correlation context for a trace."""
+        
         return self.correlation_context.get(trace_id, {
             "trace_id": trace_id,
             "correlation_id": str(uuid.uuid4()),
@@ -55,7 +48,7 @@ class ObservabilityTracker:
         })
     
     def record_stage_entry(self, trace_id, stage, contract_version="v1", replay_mode=False):
-        """Record entry into a pipeline stage."""
+        
         entry_time = time.time()
         correlation = self.get_correlation_context(trace_id)
         
@@ -74,7 +67,7 @@ class ObservabilityTracker:
     def record_stage_exit(self, trace_id, stage, entry_time, decision_state=None, 
                          success=True, contract_version="v1", replay_mode=False,
                          dependency_status="healthy"):
-        """Record exit from a pipeline stage with latency and distributed context."""
+        
         exit_time = time.time()
         latency_ms = round((exit_time - entry_time) * 1000, 2)
         correlation = self.get_correlation_context(trace_id)
@@ -100,7 +93,7 @@ class ObservabilityTracker:
     
     def record_decision(self, trace_id, stage, decision_state, confidence, score,
                        contract_version="v1", replay_mode=False):
-        """Record a decision point with uncertainty state and distributed context."""
+        
         correlation = self.get_correlation_context(trace_id)
         
         log_entry = {
@@ -123,7 +116,7 @@ class ObservabilityTracker:
     
     def record_error(self, trace_id, stage, error_code, error_message, 
                     contract_version="v1"):
-        """Record an error event with distributed context."""
+        
         correlation = self.get_correlation_context(trace_id)
         
         log_entry = {
@@ -143,7 +136,7 @@ class ObservabilityTracker:
         return log_entry
     
     def record_replay_lineage(self, trace_id, original_trace_id, lineage_depth=1):
-        """Record replay lineage for trace visibility."""
+        
         correlation = self.get_correlation_context(trace_id)
         
         log_entry = {
@@ -162,7 +155,7 @@ class ObservabilityTracker:
     
     def record_orchestration_transition(self, trace_id, from_stage, to_stage, 
                                        transition_type="normal"):
-        """Record orchestration transitions for visibility."""
+        
         correlation = self.get_correlation_context(trace_id)
         
         log_entry = {
@@ -181,7 +174,7 @@ class ObservabilityTracker:
     
     def record_dependency_status(self, trace_id, dependency_name, status, 
                                 details=None):
-        """Record dependency status for visibility."""
+        
         correlation = self.get_correlation_context(trace_id)
         
         log_entry = {
@@ -199,24 +192,24 @@ class ObservabilityTracker:
         return log_entry
     
     def _append_log(self, log_entry):
-        """Append log entry to file (append-only)."""
+        
         with open(self.log_file, 'a') as f:
             f.write(json.dumps(log_entry, default=str) + "\n")
     
     def get_trace_logs(self, trace_id):
-        """Get all logs for a specific trace."""
+        
         return [log for log in self.logs if log.get("trace_id") == trace_id]
     
     def get_correlation_group(self, correlation_id):
-        """Get all logs in a correlation group."""
+        
         return [log for log in self.logs if log.get("correlation_id") == correlation_id]
     
     def generate_distributed_trace_report(self, trace_id):
-        """Generate distributed trace report with correlation context."""
+        
         correlation = self.get_correlation_context(trace_id)
         trace_logs = self.get_trace_logs(trace_id)
         
-        # Group logs by event type
+        
         events_by_type = {}
         for log in trace_logs:
             event_type = log.get("event", "unknown")
@@ -224,7 +217,7 @@ class ObservabilityTracker:
                 events_by_type[event_type] = []
             events_by_type[event_type].append(log)
         
-        # Compute latencies
+        
         stage_entries = {log["stage"]: log for log in trace_logs if log.get("event") == "stage_entry"}
         stage_latencies = {}
         for log in trace_logs:
@@ -244,32 +237,9 @@ class ObservabilityTracker:
             ],
             "events": trace_logs
         }
-
-
-# Global tracker instance
-_global_tracker = None
-
-
-def get_tracker():
-    """Get or create global tracker instance."""
-    global _global_tracker
-    if _global_tracker is None:
-        _global_tracker = ObservabilityTracker()
-    return _global_tracker
-
-
-def reset_tracker():
-    """Reset global tracker (for testing)."""
-    global _global_tracker
-    _global_tracker = None
-
-    
-    def get_trace_logs(self, trace_id):
-        """Retrieve all logs for a specific trace."""
-        return [log for log in self.logs if log.get("trace_id") == trace_id]
     
     def get_stage_latencies(self, trace_id):
-        """Get latency breakdown by stage."""
+        
         trace_logs = self.get_trace_logs(trace_id)
         latencies = {}
         
@@ -280,20 +250,23 @@ def reset_tracker():
                     latencies[stage] = []
                 latencies[stage].append(log["latency_ms"])
         
-        # Compute averages
+        
         return {stage: round(sum(times) / len(times), 2) for stage, times in latencies.items()}
-    
-    def export_logs(self):
-        """Export all logs in memory."""
-        return self.logs
 
 
-# Global tracker instance
-_tracker = None
+
+_global_tracker = None
+
 
 def get_tracker():
-    """Get or create global tracker."""
-    global _tracker
-    if _tracker is None:
-        _tracker = ObservabilityTracker()
-    return _tracker
+    
+    global _global_tracker
+    if _global_tracker is None:
+        _global_tracker = ObservabilityTracker()
+    return _global_tracker
+
+
+def reset_tracker():
+    
+    global _global_tracker
+    _global_tracker = None

@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-05-19T06:43:21.870852Z",
+  "total_processes": 6,
+  "total_messages": 4,
+  "total_recovery_events": 1,
+  "process_health": {
+    "PROC-bf27d9a0": {
+      "process_id": "PROC-bf27d9a0",
+      "service_role": "signal_source",
+      "state": "HEALTHY",
+      "health_status": "INITIALIZING",
+      "last_heartbeat": "2026-05-19T06:43:21.868271Z",
+      "restart_count": 1,
+      "messages_processed": 0,
+      "failure_count": 1,
+      "failures": [
+        "service_crash"
+      ]
+    },
+    "PROC-f8fe0c5b": {
+      "process_id": "PROC-f8fe0c5b",
+      "service_role": "sanskar",
+      "state": "INITIALIZING",
+      "health_status": "INITIALIZING",
+      "last_heartbeat": "2026-05-19T06:43:21.864086Z",
+      "restart_count": 0,
+      "messages_processed": 0,
+      "failure_count": 0,
+      "failures": []
+    },
+    "PROC-bb4a56a7": {
+      "process_id": "PROC-bb4a56a7",
+      "service_role": "core",
+      "state": "INITIALIZING",
+      "health_status": "INITIALIZING",
+      "last_heartbeat": "2026-05-19T06:43:21.864423Z",
+      "restart_count": 0,
+      "messages_processed": 0,
+      "failure_count": 0,
+      "failures": []
+    },
+    "PROC-94c32018": {
+      "process_id": "PROC-94c32018",
+      "service_role": "enforcement",
+      "state": "INITIALIZING",
+      "health_status": "INITIALIZING",
+      "last_heartbeat": "2026-05-19T06:43:21.864653Z",
+      "restart_count": 0,
+      "messages_processed": 0,
+      "failure_count": 0,
+      "failures": []
+    },
+    "PROC-3f486f2f": {
+      "process_id": "PROC-3f486f2f",
+      "service_role": "truth",
+      "state": "INITIALIZING",
+      "health_status": "INITIALIZING",
+      "last_heartbeat": "2026-05-19T06:43:21.864881Z",
+      "restart_count": 0,
+      "messages_processed": 0,
+      "failure_count": 0,
+      "failures": []
+    },
+    "PROC-a88e3ff4": {
+      "process_id": "PROC-a88e3ff4",
+      "service_role": "observability",
+      "state": "INITIALIZING",
+      "health_status": "INITIALIZING",
+      "last_heartbeat": "2026-05-19T06:43:21.865080Z",
+      "restart_count": 0,
+      "messages_processed": 0,
+      "failure_count": 0,
+      "failures": []
+    }
+  },
+  "observability_proof": "ALL_METRICS_VISIBLE_AND_TRACKED"
+}
