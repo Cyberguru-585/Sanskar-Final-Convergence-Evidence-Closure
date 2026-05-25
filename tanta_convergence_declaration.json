@@ -1,0 +1,261 @@
+{
+  "declaration_timestamp": "2026-05-22T00:00:00Z",
+  "phase": "TANTRA_ECOSYSTEM_CONVERGENCE",
+  "declaration_type": "SANSKAR_ROLE_AND_AUTHORITY_DECLARATION",
+  
+  "A_CURRENT_TANTRA_ROLE": {
+    "layer_name": "Sanskar",
+    "layer_purpose": "Deterministic Intelligence Derivation",
+    "primary_function": "Signal analysis, entity ranking, confidence scoring, decision support",
+    "execution_context": "DISTRIBUTED_ECOSYSTEM_PARTICIPANT",
+    "operational_mode": "REAL_CONTRACT_EXCHANGE_WITH_SCHEMA_DISCIPLINE"
+  },
+
+  "authority_owned": {
+    "signal_interpretation": {
+      "description": "Sanskar owns the transformation of input signals into interpretable features",
+      "scope": "Feature engineering, normalization, signal quality assessment",
+      "authority_boundary": "EXCLUSIVE - Sanskar controls feature derivation logic",
+      "governance_constraint": "Feature derivation must be deterministic and replayable"
+    },
+    "entity_ranking": {
+      "description": "Sanskar owns the comparative ranking of entities",
+      "scope": "Score computation, confidence derivation, ranking order",
+      "authority_boundary": "EXCLUSIVE - Sanskar controls ranking mathematics",
+      "governance_constraint": "Ranking methodology must be observable and auditable"
+    },
+    "confidence_scoring": {
+      "description": "Sanskar owns internal confidence measurements",
+      "scope": "Signal quality metrics, score separation margins, confidence thresholds",
+      "authority_boundary": "EXCLUSIVE - Sanskar computes confidence internally",
+      "governance_constraint": "Confidence must reflect actual signal quality, not desired outcomes"
+    },
+    "trace_id_propagation": {
+      "description": "Sanskar owns passing trace_id through the pipeline unmodified",
+      "scope": "Trace_id must survive upstream→Sanskar→downstream without regeneration",
+      "authority_boundary": "EXCLUSIVE - Sanskar never regenerates or mutates trace_id",
+      "governance_constraint": "Trace continuity is non-negotiable for replay verification"
+    }
+  },
+
+  "authority_NOT_owned": {
+    "legitimacy_decision": {
+      "description": "Sanskar does NOT own whether the decision is legitimate",
+      "reason": "Legitimacy is determined by external governance (RAJYA)",
+      "implication": "High confidence does not grant Sanskar execution permission",
+      "verification": "RAJYA validates all intelligence output before enforcement"
+    },
+    "governance_enforcement": {
+      "description": "Sanskar does NOT execute governance decisions",
+      "reason": "Enforcement is owned by Enforcement and RAJYA layers",
+      "implication": "Sanskar output is advisory, not mandatory",
+      "verification": "Enforcement layer independently validates before action"
+    },
+    "replay_authority": {
+      "description": "Sanskar does NOT own the authority to decide replay validity",
+      "reason": "Replay authority is determined by Bucket (truth persistence) and federated nodes",
+      "implication": "Sanskar accepts replay input as-is or rejects it; no negotiation",
+      "verification": "Bucket stores authoritative replay reference"
+    },
+    "observability_ownership": {
+      "description": "Sanskar does NOT own observability system configuration",
+      "reason": "Observability is governed by InsightBridge and centralized telemetry",
+      "implication": "Sanskar reports data; does not control what is observed",
+      "verification": "Observability configuration is external to Sanskar"
+    },
+    "downstream_policy": {
+      "description": "Sanskar does NOT own downstream participant policies",
+      "reason": "Each downstream participant (RAJYA, Bucket, InsightBridge) governs its own boundaries",
+      "implication": "Sanskar must conform to each downstream contract",
+      "verification": "Each participant validates Sanskar output against its own rules"
+    }
+  },
+
+  "execution_rights": {
+    "EXECUTE_RIGHT_TO_PROCESS_SIGNAL": {
+      "right": "Sanskar CAN process incoming signal contracts",
+      "constraints": [
+        "Signal must contain valid trace_id",
+        "Signal schema must match contract version v1 or higher",
+        "Signal data must be within normalization bounds",
+        "Sanskar may reject signal on schema mismatch"
+      ],
+      "failure_mode": "REJECT - return failure contract with original trace_id"
+    },
+    "EXECUTE_RIGHT_TO_COMPUTE_RANKING": {
+      "right": "Sanskar CAN compute entity rankings deterministically",
+      "constraints": [
+        "Ranking computation must be bit-for-bit reproducible on replay",
+        "Ranking must be based on feature scores, not confidence",
+        "Ranking must include margin separation (runner-up comparison)",
+        "Tie-breaking must be deterministic (not random)"
+      ],
+      "failure_mode": "FAIL - return computational failure with trace preserved"
+    },
+    "EXECUTE_RIGHT_TO_PASS_OUTPUT": {
+      "right": "Sanskar CAN pass ranking output to downstream (RAJYA/Core)",
+      "constraints": [
+        "Output must include complete trace_id from input",
+        "Output must include all entities and scores",
+        "Output must include confidence metadata",
+        "Output must include contract version"
+      ],
+      "failure_mode": "BLOCK - if contract validation fails, do not pass output"
+    },
+    "EXECUTE_RIGHT_TO_DEFER_DECISION": {
+      "right": "Sanskar CAN mark decision_state as AMBIGUOUS or LOW_CONFIDENCE",
+      "constraints": [
+        "AMBIGUOUS flag must reflect actual score separation < 0.1",
+        "LOW_CONFIDENCE flag must reflect signal quality issues",
+        "Flags must NOT prevent output transmission",
+        "Downstream participants MUST handle flagged decisions"
+      ],
+      "failure_mode": "WARN - flag decision state, pass output with warning"
+    },
+    "EXECUTE_RIGHT_NOT_TO_EXECUTE": {
+      "right": "Sanskar CANNOT enforce decisions",
+      "constraints": [
+        "Sanskar may not directly call enforcement APIs",
+        "Sanskar may not modify Bucket data",
+        "Sanskar may not reject downstream calls",
+        "Sanskar may only output advisory rankings"
+      ],
+      "failure_mode": "N/A - by design, Sanskar has no execution authority"
+    }
+  },
+
+  "B_LIVE_DEPENDENCY_MAP": {
+    "upstream_participants": [
+      {
+        "participant_name": "Signal Source",
+        "relationship": "STRUCTURED_SIGNAL_PRODUCER",
+        "contract_type": "INPUT_SIGNAL_CONTRACT",
+        "schema_version": "v1",
+        "mandatory_fields": ["trace_id", "signal", "timestamp"],
+        "trace_property": "Signal contains trace_id; Sanskar preserves it",
+        "failure_handling": "REJECT if trace_id missing"
+      }
+    ],
+
+    "downstream_participants": [
+      {
+        "participant_name": "Core / RAJYA",
+        "relationship": "DECISION_LEGITIMACY_VALIDATOR",
+        "contract_type": "RANKING_OUTPUT_CONTRACT",
+        "schema_version": "v1",
+        "sanskar_output_structure": {
+          "trace_id": "PRESERVED from input",
+          "entities": "Array of scored, ranked entities",
+          "ranking": "Ordered list by score",
+          "confidence": "Signal quality metric",
+          "decision_state": "CONFIDENT | AMBIGUOUS | LOW_CONFIDENCE",
+          "downstream_decision": "Prepared for RAJYA validation"
+        },
+        "rajya_validation": "RAJYA independently validates all rankings",
+        "rajya_authority": "RAJYA can REJECT Sanskar output if governance boundary violated",
+        "trace_property": "trace_id passes through RAJYA unchanged to Enforcement"
+      },
+      {
+        "participant_name": "Bucket",
+        "relationship": "TRUTH_LINEAGE_PERSISTENCE",
+        "contract_type": "TRUTH_STORE_CONTRACT",
+        "schema_version": "v1",
+        "sanskar_involvement": "Sanskar output is stored as immutable lineage record",
+        "truth_persistence": "Each stage's output stored with trace_id, timestamp, hash",
+        "replay_authority": "Bucket serves as authoritative source for replay verification",
+        "trace_property": "trace_id is primary key for lineage retrieval"
+      },
+      {
+        "participant_name": "InsightBridge",
+        "relationship": "OBSERVABILITY_TELEMETRY_PARTICIPANT",
+        "contract_type": "TELEMETRY_REPORTING_CONTRACT",
+        "schema_version": "v1",
+        "sanskar_telemetry": "Sanskar reports execution metrics, score distributions, confidence levels",
+        "observability_constraint": "Sanskar reports data; does NOT control observability policies",
+        "telemetry_sampling": "InsightBridge controls sampling, retention, and alerting",
+        "trace_property": "Telemetry tagged with trace_id for correlation"
+      },
+      {
+        "participant_name": "Enforcement",
+        "relationship": "ACTION_EXECUTION_LAYER",
+        "contract_type": "ENFORCEMENT_DIRECTIVE_CONTRACT",
+        "schema_version": "v1",
+        "sanskar_role": "Sanskar prepares directives; Enforcement executes",
+        "enforcement_autonomy": "Enforcement may reject Sanskar directives if governance violated",
+        "trace_property": "Enforcement receives trace_id with all directives"
+      }
+    ],
+
+    "enforcement_participant": {
+      "participant_name": "RAJYA",
+      "role": "EXTERNAL_GOVERNANCE_VALIDATOR",
+      "authority_source": "Constitutional boundary layer",
+      "validation_responsibility": "Validates that Sanskar output respects governance constraints",
+      "boundary_enforcement": "RAJYA can reject Sanskar output without explanation",
+      "trace_responsibility": "RAJYA preserves trace_id for downstream"
+    }
+  },
+
+  "C_BOUNDARY_DECLARATION": {
+    "influence_boundaries": {
+      "sanskar_influence_on_core": "ADVISORY - Core uses Sanskar ranking as input but makes independent decisions",
+      "sanskar_influence_on_rajya": "INFORMATIVE - RAJYA validates independently; Sanskar influence is not authority",
+      "sanskar_influence_on_enforcement": "ADVISORY - Enforcement validates directives; does not blindly execute",
+      "sanskar_influence_on_observability": "REPORTING_ONLY - Sanskar reports; does not control what is observed",
+      "sanskar_influence_on_bucket": "DATA_PRODUCER - Sanskar data is stored but not trusted without validation"
+    },
+
+    "validation_boundaries": {
+      "input_validation": {
+        "boundary": "Sanskar validates input signal structure",
+        "scope": "Schema version, required fields, data types",
+        "rejection_authority": "Sanskar CAN reject invalid input",
+        "trace_property": "Rejected input still includes trace_id in failure"
+      },
+      "output_validation": {
+        "boundary": "RAJYA/Enforcement validate Sanskar output",
+        "scope": "Legitimacy, governance compliance, constitutional alignment",
+        "rejection_authority": "RAJYA/Enforcement can reject Sanskar output",
+        "trace_property": "Rejected output preserves trace_id for audit"
+      },
+      "replay_validation": {
+        "boundary": "Bucket validates replay determinism",
+        "scope": "Output hash matches historical record, trace_id matches",
+        "rejection_authority": "Bucket can reject replay if hash diverges",
+        "trace_property": "Replay validation uses trace_id as key"
+      },
+      "schema_validation": {
+        "boundary": "Each stage validates contract schema",
+        "scope": "Input/output schema version compatibility",
+        "rejection_authority": "Any stage can reject schema mismatch",
+        "trace_property": "Schema version is part of contract"
+      }
+    },
+
+    "replay_boundaries": {
+      "sanskar_replay_responsibility": "Sanskar reproduces exact output from input + historical replay record",
+      "determinism_requirement": "Output must be bit-for-bit identical on replay",
+      "replay_authority_source": "Bucket holds authoritative replay record",
+      "replay_divergence_handling": "If Sanskar output diverges from Bucket record, Bucket record wins",
+      "trace_property": "Replay uses trace_id to locate historical record"
+    },
+
+    "truth_boundaries": {
+      "truth_authority_source": "Bucket is the single source of truth for all executions",
+      "sanskar_truth_role": "Sanskar outputs are stored in Bucket as immutable records",
+      "truth_mutability": "Once stored in Bucket, Sanskar output cannot be mutated",
+      "truth_verification": "All replay must verify against Bucket records",
+      "trace_property": "Bucket indexes all records by trace_id",
+      "constitutional_alignment": "Truth layer is constitutionally protected from Sanskar mutation"
+    }
+  },
+
+  "convergence_readiness": {
+    "phase_1_state": "DECLARATION_COMPLETE",
+    "role_clarity": "Sanskar role explicitly bounded and documented",
+    "authority_clarity": "Authority owned vs. not owned explicitly declared",
+    "dependency_clarity": "All participants and their relationships mapped",
+    "boundary_clarity": "All influence, validation, replay, and truth boundaries declared",
+    "next_phase": "LIVE_INTEGRATION_CHAIN_CONSTRUCTION"
+  }
+}

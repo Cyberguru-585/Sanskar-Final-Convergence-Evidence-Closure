@@ -1,0 +1,145 @@
+{
+  "schema_name": "RAJYA_VALIDATION_CONTRACT",
+  "schema_version": "v1",
+  "description": "Contract for RAJYA governance validation of Sanskar output",
+  
+  "required_fields": [
+    "trace_id",
+    "validation_status",
+    "legitimacy_verdict",
+    "governance_constraint"
+  ],
+  
+  "field_definitions": {
+    "trace_id": {
+      "type": "string",
+      "immutable": true,
+      "propagation_rule": "MUST_PRESERVE",
+      "description": "Trace ID from Sanskar output (NEVER regenerated)"
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": ["APPROVED", "REJECTED", "REVIEW_REQUIRED"],
+      "description": "Overall validation outcome"
+    },
+    "legitimacy_verdict": {
+      "type": "string",
+      "enum": ["LEGITIMATE", "ILLEGITIMATE", "AMBIGUOUS"],
+      "description": "Governance legitimacy assessment"
+    },
+    "governance_constraint": {
+      "type": "object",
+      "required": [
+        "confidence_not_legitimacy",
+        "intelligence_not_governance",
+        "boundary_respected"
+      ],
+      "properties": {
+        "confidence_not_legitimacy": {
+          "type": "boolean",
+          "description": "High confidence did NOT influence legitimacy decision"
+        },
+        "intelligence_not_governance": {
+          "type": "boolean",
+          "description": "Intelligence capability did NOT confer governance authority"
+        },
+        "boundary_respected": {
+          "type": "boolean",
+          "description": "All constitutional boundaries respected"
+        },
+        "rejections": {
+          "type": "array",
+          "description": "Specific boundary violations (if any)",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": ["v1", "v1.1"],
+      "default": "v1"
+    }
+  },
+  
+  "governance_rules": [
+    {
+      "rule": "independent_validation",
+      "description": "RAJYA validates independently of Sanskar confidence",
+      "enforcement": "MANDATORY"
+    },
+    {
+      "rule": "rejection_without_explanation",
+      "description": "RAJYA can reject without explaining reason",
+      "rationale": "Prevents downstream from negotiating governance"
+    },
+    {
+      "rule": "trace_continuity",
+      "description": "Validation must preserve trace_id for audit trail",
+      "enforcement": "MANDATORY"
+    }
+  ],
+  
+  "validation_boundaries": [
+    {
+      "boundary": "Confidence vs Legitimacy",
+      "rule": "High confidence (>0.9) does NOT guarantee legitimacy",
+      "check": "confidence_not_legitimacy flag MUST be true"
+    },
+    {
+      "boundary": "Intelligence vs Governance",
+      "rule": "Sanskar intelligence does NOT confer governance authority",
+      "check": "intelligence_not_governance flag MUST be true"
+    },
+    {
+      "boundary": "Authority Ownership",
+      "rule": "RAJYA is sole authority; Sanskar has zero authority",
+      "check": "rejection possible without Sanskar input"
+    }
+  ],
+  
+  "failure_visibility": [
+    {
+      "failure_case": "CONFIDENCE_OVERRIDE_ATTEMPT",
+      "detection": "High confidence + low legitimacy mismatch",
+      "action": "REJECT",
+      "visibility": "EXPLICIT - rejection includes boundary violation"
+    },
+    {
+      "failure_case": "SCHEMA_MISMATCH",
+      "detection": "Sanskar output violates schema",
+      "action": "REJECT",
+      "visibility": "EXPLICIT - error message explains mismatch"
+    },
+    {
+      "failure_case": "TRACE_DIVERGENCE",
+      "detection": "trace_id in validation != trace_id in input",
+      "action": "AUDIT",
+      "visibility": "EXPLICIT - divergence logged"
+    }
+  ],
+  
+  "example_validation_approved": {
+    "trace_id": "TRACE-a1b2c3d4e5f6",
+    "validation_status": "APPROVED",
+    "legitimacy_verdict": "LEGITIMATE",
+    "governance_constraint": {
+      "confidence_not_legitimacy": true,
+      "intelligence_not_governance": true,
+      "boundary_respected": true
+    },
+    "contract_version": "v1"
+  },
+  
+  "example_validation_rejected": {
+    "trace_id": "TRACE-a1b2c3d4e5f6",
+    "validation_status": "REJECTED",
+    "legitimacy_verdict": "ILLEGITIMATE",
+    "governance_constraint": {
+      "confidence_not_legitimacy": false,
+      "intelligence_not_governance": true,
+      "boundary_respected": false,
+      "rejections": ["Confidence overreach detected: 0.98 confidence + ambiguous decision_state"]
+    },
+    "contract_version": "v1"
+  }
+}

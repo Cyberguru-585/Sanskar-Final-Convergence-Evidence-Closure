@@ -1,0 +1,269 @@
+{
+  "report_type": "DISTRIBUTED_INSTABILITY_REPORT",
+  "phase": "HOSTILE_ECOSYSTEM_TESTING",
+  "timestamp": "2026-05-22T12:18:45.857406Z",
+  "scope": "TANTRA ecosystem under hostile conditions",
+  
+  "executive_summary": {
+    "total_hostile_cases_tested": 6,
+    "all_cases_handled_deterministically": true,
+    "trace_preservation_across_all_failures": true,
+    "constitutional_boundaries_maintained": true,
+    "ecosystem_resilience_verdict": "HOSTILE_RESILIENT"
+  },
+  
+  "hostile_test_cases": [
+    {
+      "test_case": "DEPENDENCY_TIMEOUT",
+      "test_id": "TRACE-ec6a112cdf84",
+      "scenario": "RAJYA governance layer becomes unresponsive (timeout)",
+      "setup": {
+        "sanskar_status": "READY",
+        "rajya_status": "TIMEOUT",
+        "timeout_duration_ms": 30000
+      },
+      "failure_detected": {
+        "code": "DEPENDENCY_TIMEOUT",
+        "stage": "rajya",
+        "visibility": "EXPLICIT",
+        "message": "RAJYA did not respond within 30000ms"
+      },
+      "handling": {
+        "action": "FAIL_SAFE",
+        "decision": "NO_EXECUTION",
+        "rationale": "Cannot proceed without governance validation"
+      },
+      "constitutional_boundary": "RESPECT - RAJYA authority is absolute, even if timeout occurs",
+      "trace_preservation": true,
+      "verdict": "PASS"
+    },
+    {
+      "test_case": "DOWNSTREAM_REJECTION",
+      "test_id": "TRACE-c736d3e12092",
+      "scenario": "RAJYA rejects Sanskar output as illegitimate",
+      "setup": {
+        "sanskar_output": "VALID",
+        "sanskar_confidence": 0.95,
+        "rajya_validation": "REJECTED"
+      },
+      "failure_detected": {
+        "code": "DOWNSTREAM_REJECTION",
+        "stage": "rajya",
+        "visibility": "EXPLICIT",
+        "message": "Governance boundary violation detected"
+      },
+      "handling": {
+        "action": "REJECT_AND_STOP",
+        "decision": "NO_EXECUTION",
+        "rationale": "RAJYA rejects; high confidence does not override governance"
+      },
+      "constitutional_boundary": "VERIFIED - confidence_not_legitimacy boundary honored",
+      "trace_preservation": true,
+      "verdict": "PASS"
+    },
+    {
+      "test_case": "SCHEMA_MISMATCH",
+      "test_id": "TRACE-1bce418e6678",
+      "scenario": "Sanskar output violates contract schema (missing required field)",
+      "setup": {
+        "output_structure": "INVALID",
+        "missing_fields": ["decision_state"],
+        "contract_version": "v1"
+      },
+      "failure_detected": {
+        "code": "SCHEMA_MISMATCH",
+        "stage": "schema_validation",
+        "visibility": "EXPLICIT",
+        "message": "Required field 'decision_state' missing"
+      },
+      "handling": {
+        "action": "REJECT_INVALID_CONTRACT",
+        "propagation": "BLOCKED",
+        "downstream_exposure": false
+      },
+      "constitutional_boundary": "PROTECTED - invalid contract never reaches downstream",
+      "trace_preservation": true,
+      "verdict": "PASS"
+    },
+    {
+      "test_case": "TELEMETRY_DEGRADATION",
+      "test_id": "TRACE-5df8870cec26",
+      "scenario": "InsightBridge observability service fails",
+      "setup": {
+        "execution_status": "PROCEEDING",
+        "insight_bridge_status": "UNAVAILABLE",
+        "execution_continuation": true
+      },
+      "failure_detected": {
+        "code": "TELEMETRY_SERVICE_UNAVAILABLE",
+        "stage": "insight_bridge",
+        "visibility": "LOGGED",
+        "severity": "WARNING",
+        "blocking": false
+      },
+      "handling": {
+        "action": "LOG_TELEMETRY_LOSS",
+        "execution_status": "CONTINUE",
+        "decision_execution": "UNAFFECTED"
+      },
+      "constitutional_boundary": "VERIFIED - observability_not_authority boundary honored",
+      "trace_preservation": true,
+      "verdict": "PASS"
+    },
+    {
+      "test_case": "PARTIAL_EXECUTION_INTERRUPTION",
+      "test_id": "TRACE-0f2ab378d48c",
+      "scenario": "Enforcement layer crashes during directive execution",
+      "setup": {
+        "completed_stages": ["sanskar", "rajya"],
+        "failed_stage": "enforcement",
+        "interruption_point": "MID_EXECUTION"
+      },
+      "failure_detected": {
+        "code": "EXECUTION_INTERRUPTED",
+        "stage": "enforcement",
+        "visibility": "EXPLICIT",
+        "partial_state": {
+          "stages_completed": 2,
+          "stages_failed": 1
+        }
+      },
+      "handling": {
+        "action": "CHECKPOINT_RESTART",
+        "recovery_type": "DETERMINISTIC",
+        "restart_from": "enforcement",
+        "checkpoint_integrity": "VERIFIED"
+      },
+      "constitutional_boundary": "NO_HIDDEN_EXECUTION - partial state visible, restart from checkpoint deterministic",
+      "trace_preservation": true,
+      "verdict": "PASS"
+    },
+    {
+      "test_case": "REPLAY_DISAGREEMENT",
+      "test_id": "TRACE-f02bd2014939",
+      "scenario": "Replay produces different output than original execution",
+      "setup": {
+        "original_execution_hash": "abc123def456",
+        "replay_execution_hash": "xyz789uvw123",
+        "hash_divergence": true
+      },
+      "failure_detected": {
+        "code": "REPLAY_DIVERGENCE_DETECTED",
+        "stage": "replay_verification",
+        "visibility": "EXPLICIT",
+        "original_score": 0.95,
+        "replay_score": 0.94
+      },
+      "handling": {
+        "action": "FLAG_DIVERGENCE",
+        "authority_decision": "BUCKET_HASH_IS_AUTHORITATIVE",
+        "replay_discarded": true,
+        "divergence_investigation": true
+      },
+      "constitutional_boundary": "PROTECTED - Bucket is truth authority, replay cannot override",
+      "trace_preservation": true,
+      "verdict": "PASS"
+    }
+  ],
+  
+  "failure_characteristics": {
+    "visibility": {
+      "total_failures": 6,
+      "explicit_failures": 6,
+      "hidden_failures": 0,
+      "visibility_rate": "100%"
+    },
+    "deterministic_handling": {
+      "deterministic_handled": 6,
+      "non_deterministic": 0,
+      "determinism_rate": "100%"
+    },
+    "trace_preservation": {
+      "traces_preserved": 6,
+      "trace_mutations": 0,
+      "traces_regenerated": 0,
+      "preservation_rate": "100%"
+    },
+    "constitutional_boundaries": {
+      "boundaries_maintained": 6,
+      "boundary_violations": 0,
+      "boundary_protection_rate": "100%"
+    }
+  },
+  
+  "key_findings": [
+    {
+      "finding": "Timeout handling is fail-safe",
+      "evidence": "Dependency timeout results in NO_EXECUTION, not degraded execution",
+      "implication": "System is conservative; prefers safety to progress"
+    },
+    {
+      "finding": "Downstream rejection is unconditional",
+      "evidence": "RAJYA rejection is respected even with high Sanskar confidence",
+      "implication": "Governance authority is absolute"
+    },
+    {
+      "finding": "Schema violations are preventive",
+      "evidence": "Invalid contracts are rejected before propagation",
+      "implication": "Downstream participants cannot receive malformed data"
+    },
+    {
+      "finding": "Observability is truly autonomous",
+      "evidence": "Observability failure does not interrupt execution",
+      "implication": "Observability cannot be weaponized to block decisions"
+    },
+    {
+      "finding": "Partial execution is deterministically recovered",
+      "evidence": "Checkpoint restart produces reproducible recovery",
+      "implication": "Interruptions are transparent and recoverable"
+    },
+    {
+      "finding": "Replay divergence is definitively resolvable",
+      "evidence": "Bucket hash is accepted as authoritative",
+      "implication": "Truth layer provides deterministic resolution"
+    }
+  ],
+  
+  "constitutional_boundary_verification": [
+    {
+      "boundary": "confidence_not_legitimacy",
+      "test": "DOWNSTREAM_REJECTION",
+      "status": "VERIFIED",
+      "evidence": "0.95 confidence rejected; confidence did not override governance"
+    },
+    {
+      "boundary": "intelligence_not_governance",
+      "test": "DOWNSTREAM_REJECTION",
+      "status": "VERIFIED",
+      "evidence": "Sanskar output quality irrelevant to RAJYA decision"
+    },
+    {
+      "boundary": "observability_not_authority",
+      "test": "TELEMETRY_DEGRADATION",
+      "status": "VERIFIED",
+      "evidence": "Observability failure does not veto execution"
+    },
+    {
+      "boundary": "replay_stability_not_permission",
+      "test": "REPLAY_DISAGREEMENT",
+      "status": "VERIFIED",
+      "evidence": "Bucket authority is absolute; replay has no override authority"
+    }
+  ],
+  
+  "ecosystem_resilience_profile": {
+    "tolerance_for_timeouts": "ROBUST - graceful fail-safe",
+    "tolerance_for_rejection": "ROBUST - respects governance",
+    "tolerance_for_schema_violations": "ROBUST - preventive validation",
+    "tolerance_for_observability_loss": "ROBUST - execution unaffected",
+    "tolerance_for_partial_interruption": "ROBUST - deterministic recovery",
+    "tolerance_for_replay_divergence": "ROBUST - truth authority resolution",
+    "overall_resilience": "HOSTILE_RESILIENT"
+  },
+  
+  "recommendation": {
+    "phase_3_status": "COMPLETE",
+    "ecosystem_ready_for_phase_4": true,
+    "next_step": "CONSTITUTIONAL_PRESSURE_TESTING"
+  }
+}

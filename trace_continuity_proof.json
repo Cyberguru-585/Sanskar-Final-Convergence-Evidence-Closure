@@ -1,27 +1,57 @@
 {
-  "expected_trace_id": "TRACE_123",
-  "stages_checked": [
+  "proof_type": "TRACE_CONTINUITY_PROOF",
+  "phase": "LIVE_ECOSYSTEM_INTEGRATION",
+  "timestamp": "2026-05-22T12:16:04.338460Z",
+  "proof_assertion": "trace_id survives ecosystem without regeneration",
+  
+  "execution_summary": {
+    "trace_id_tested": "TRACE-63172430b5bb",
+    "stages_in_chain": 4,
+    "contract_exchanges": 6
+  },
+  
+  "trace_survival_analysis": {
+    "expected_trace_id": "TRACE-63172430b5bb",
+    "stages_validated": 4,
+    "trace_preserved": true,
+    "divergences": [],
+    "verdict": "PASS - trace_id identical across all 4 stages"
+  },
+  
+  "stage_by_stage_verification": [
     {
-      "stage": "input",
-      "trace_id_found": "TRACE_123",
-      "matches_expected": true
+      "stage": "signal_source",
+      "trace_id_present": true,
+      "trace_id_value": "TRACE-63172430b5bb",
+      "trace_id_matches_expected": true,
+      "status": "PASS"
     },
     {
       "stage": "sanskar",
-      "trace_id_found": "TRACE_123",
-      "matches_expected": true
+      "trace_id_present": true,
+      "trace_id_value": "TRACE-63172430b5bb",
+      "trace_id_matches_expected": true,
+      "status": "PASS"
     },
     {
-      "stage": "core",
-      "trace_id_found": "TRACE_123",
-      "matches_expected": true
+      "stage": "rajya",
+      "trace_id_present": true,
+      "trace_id_value": "TRACE-63172430b5bb",
+      "trace_id_matches_expected": true,
+      "status": "PASS"
     },
     {
       "stage": "enforcement",
-      "trace_id_found": "TRACE_123",
-      "matches_expected": true
+      "trace_id_present": true,
+      "trace_id_value": "TRACE-63172430b5bb",
+      "trace_id_matches_expected": true,
+      "status": "PASS"
     }
   ],
-  "all_match": true,
-  "verdict": "PASS \u2014 trace_id identical across all stages"
+  
+  "convergence_verdict": {
+    "trace_continuity_achieved": true,
+    "phase_2_complete": true,
+    "ready_for_phase_3": true
+  }
 }

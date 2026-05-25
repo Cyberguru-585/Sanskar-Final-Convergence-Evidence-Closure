@@ -1,0 +1,135 @@
+{
+  "schema_name": "INSIGHT_BRIDGE_TELEMETRY_CONTRACT",
+  "schema_version": "v1",
+  "description": "Contract for InsightBridge observability - reporting authority boundaries",
+  
+  "required_fields": [
+    "trace_id",
+    "stage",
+    "telemetry_data"
+  ],
+  
+  "field_definitions": {
+    "trace_id": {
+      "type": "string",
+      "immutable": true,
+      "description": "Trace ID for correlation (NEVER regenerated)"
+    },
+    "stage": {
+      "type": "string",
+      "description": "Stage reporting telemetry"
+    },
+    "telemetry_data": {
+      "type": "object",
+      "description": "Observability metrics",
+      "properties": {
+        "execution_time_ms": {
+          "type": "number",
+          "description": "Stage execution time"
+        },
+        "input_size_bytes": {
+          "type": "integer",
+          "description": "Input contract size"
+        },
+        "output_hash": {
+          "type": "string",
+          "description": "Hash of stage output"
+        },
+        "stage_status": {
+          "type": "string",
+          "enum": ["SUCCESS", "FAILED", "TIMEOUT"],
+          "description": "Execution status"
+        },
+        "confidence_value": {
+          "type": "number",
+          "description": "Confidence level reported by stage"
+        }
+      }
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": ["v1", "v1.1"],
+      "default": "v1"
+    }
+  },
+  
+  "observability_boundaries": [
+    {
+      "boundary": "Observability is informational only",
+      "rule": "Telemetry does NOT influence decisions",
+      "implication": "High telemetry confidence cannot override RAJYA rejection"
+    },
+    {
+      "boundary": "Observability has no authority",
+      "rule": "InsightBridge cannot veto decisions",
+      "implication": "Observability system is completely autonomous from governance"
+    },
+    {
+      "boundary": "Observability is secondary to execution",
+      "rule": "Execution continues even if observability fails",
+      "implication": "Telemetry loss does not block decision enforcement"
+    }
+  ],
+  
+  "independence_guarantees": [
+    {
+      "guarantee": "No feedback loop from observability to governance",
+      "mechanism": "Observability reads execution state; never influences it"
+    },
+    {
+      "guarantee": "No observability data used for legitimacy",
+      "mechanism": "RAJYA validation is independent of telemetry"
+    },
+    {
+      "guarantee": "Observability configuration is external",
+      "mechanism": "Sanskar reports data; does not control telemetry policies"
+    }
+  ],
+  
+  "failure_modes": [
+    {
+      "failure": "TELEMETRY_LOSS",
+      "detection": "Observability service unavailable",
+      "action": "LOG - failure recorded",
+      "impact": "Execution continues unaffected"
+    },
+    {
+      "failure": "SCHEMA_MISMATCH",
+      "detection": "Telemetry data structure invalid",
+      "action": "REJECT - invalid telemetry dropped",
+      "impact": "Other telemetry accepted; execution unaffected"
+    },
+    {
+      "failure": "TRACE_CORRELATION_LOSS",
+      "detection": "trace_id missing from telemetry",
+      "action": "LOG - uncorrelated telemetry",
+      "impact": "Audit trail incomplete but execution unaffected"
+    }
+  ],
+  
+  "trace_continuity_properties": [
+    {
+      "property": "Trace correlation",
+      "description": "All telemetry tagged with trace_id for correlation",
+      "verification": "Observability can correlate events across stages"
+    },
+    {
+      "property": "No trace mutation",
+      "description": "InsightBridge never modifies trace_id",
+      "verification": "trace_id in telemetry = trace_id in execution"
+    }
+  ],
+  
+  "example_telemetry_record": {
+    "trace_id": "TRACE-a1b2c3d4e5f6",
+    "stage": "sanskar",
+    "telemetry_data": {
+      "execution_time_ms": 45,
+      "input_size_bytes": 2048,
+      "output_hash": "a1b2c3d4e5f6g7h8",
+      "stage_status": "SUCCESS",
+      "confidence_value": 0.92
+    },
+    "contract_version": "v1"
+  }
+}

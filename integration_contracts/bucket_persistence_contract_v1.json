@@ -1,0 +1,132 @@
+{
+  "schema_name": "BUCKET_PERSISTENCE_CONTRACT",
+  "schema_version": "v1",
+  "description": "Contract for Bucket truth layer - immutable execution record persistence",
+  
+  "required_fields": [
+    "trace_id",
+    "stage",
+    "execution_hash",
+    "immutable_timestamp"
+  ],
+  
+  "field_definitions": {
+    "trace_id": {
+      "type": "string",
+      "immutable": true,
+      "propagation_rule": "PRIMARY_KEY",
+      "description": "Trace ID (primary key for lineage retrieval)"
+    },
+    "stage": {
+      "type": "string",
+      "enum": ["signal_source", "sanskar", "rajya", "enforcement", "bucket", "insight_bridge"],
+      "description": "Stage that produced this output"
+    },
+    "execution_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{16}$",
+      "description": "SHA256 hash of stage output (immutable)"
+    },
+    "immutable_timestamp": {
+      "type": "string",
+      "format": "iso8601",
+      "description": "Bucket write timestamp (immutable)",
+      "immutability": "ENFORCED_BY_LAYER"
+    },
+    "storage_location": {
+      "type": "string",
+      "pattern": "^bucket://traces/TRACE-[a-f0-9]{12}/[a-z_]+$",
+      "description": "Storage path in Bucket"
+    },
+    "lineage_position": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Position in execution lineage"
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": ["v1", "v1.1"],
+      "default": "v1"
+    }
+  },
+  
+  "immutability_guarantees": [
+    {
+      "guarantee": "No mutation after write",
+      "enforcement": "Bucket rejects all mutation attempts",
+      "audit": "Mutation attempts logged with trace_id"
+    },
+    {
+      "guarantee": "Execution hash unchanged",
+      "enforcement": "Hash is computed at write time and locked",
+      "verification": "Replay hash must match stored hash"
+    },
+    {
+      "guarantee": "Timestamp unchanged",
+      "enforcement": "Write timestamp is system-controlled",
+      "verification": "No backdating possible"
+    }
+  ],
+  
+  "replay_properties": [
+    {
+      "property": "Hash serves as replay authority",
+      "description": "Bucket hash is source of truth for replay verification",
+      "implication": "If replay output diverges from Bucket hash, Bucket wins"
+    },
+    {
+      "property": "Lineage is deterministic",
+      "description": "Each trace_id has ordered sequence of stage outputs",
+      "implication": "Replay must reproduce identical sequence"
+    }
+  ],
+  
+  "truth_layer_boundaries": [
+    {
+      "boundary": "Truth immutability",
+      "rule": "Bucket output is constitutionally protected from mutation",
+      "violation_action": "BLOCK - mutation attempt prevented"
+    },
+    {
+      "boundary": "Replay authority",
+      "rule": "Bucket is authoritative source for all replay verification",
+      "implication": "Sanskar must accept Bucket record as ground truth"
+    },
+    {
+      "boundary": "Constitutional protection",
+      "rule": "Truth layer is externally governed, not internal to Sanskar",
+      "implication": "Sanskar cannot influence truth layer decisions"
+    }
+  ],
+  
+  "failure_modes": [
+    {
+      "failure": "MUTATION_ATTEMPT",
+      "detection": "Write request with existing trace_id+stage",
+      "action": "BLOCK - mutation prevented",
+      "audit": "Mutation attempt recorded with trace_id and requestor"
+    },
+    {
+      "failure": "HASH_DIVERGENCE_ON_REPLAY",
+      "detection": "Replayed output hash != Bucket stored hash",
+      "action": "FLAG - divergence recorded",
+      "resolution": "Bucket hash is authoritative"
+    },
+    {
+      "failure": "LINEAGE_GAP",
+      "detection": "Missing intermediate stage in lineage",
+      "action": "FLAG - gap recorded",
+      "implication": "Incomplete execution trace"
+    }
+  ],
+  
+  "example_persistence_record": {
+    "trace_id": "TRACE-a1b2c3d4e5f6",
+    "stage": "sanskar",
+    "execution_hash": "a1b2c3d4e5f6g7h8",
+    "immutable_timestamp": "2026-05-22T10:30:45.123456Z",
+    "storage_location": "bucket://traces/TRACE-a1b2c3d4e5f6/sanskar",
+    "lineage_position": 1,
+    "contract_version": "v1"
+  }
+}

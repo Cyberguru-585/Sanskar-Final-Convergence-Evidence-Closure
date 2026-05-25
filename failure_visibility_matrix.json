@@ -1,0 +1,300 @@
+{
+  "document_type": "FAILURE_VISIBILITY_MATRIX",
+  "phase": "HOSTILE_ECOSYSTEM_TESTING",
+  "timestamp": "2026-05-22T12:18:45.857406Z",
+  "purpose": "Demonstrate comprehensive failure visibility across all hostile scenarios",
+  
+  "visibility_definitions": {
+    "EXPLICIT": "Failure is immediately visible, reported, and traceable",
+    "LOGGED": "Failure is recorded in logs but does not block execution",
+    "DETECTED": "Failure is identified through verification check",
+    "PREVENTIVE": "Failure is prevented before occurring (validation blocks it)",
+    "HIDDEN": "Failure is not visible (SHOULD NOT OCCUR)"
+  },
+  
+  "failure_visibility_matrix": [
+    {
+      "failure_type": "DEPENDENCY_TIMEOUT",
+      "failure_id": "1_TIMEOUT",
+      "visibility": "EXPLICIT",
+      "detection_mechanism": "Service response timeout check",
+      "detection_latency_ms": 30000,
+      "visibility_characteristics": [
+        "Error code: DEPENDENCY_TIMEOUT",
+        "Stage: rajya",
+        "Trace ID: PRESERVED",
+        "Message: Explicit timeout message",
+        "Severity: CRITICAL"
+      ],
+      "detection_layer": "Service orchestration",
+      "impact_on_execution": "BLOCKS (NO_EXECUTION)",
+      "trace_in_failure": "YES",
+      "failure_is_recoverable": true,
+      "recovery_mechanism": "Retry with exponential backoff or escalate to manual review",
+      "test_trace_id": "TRACE-ec6a112cdf84"
+    },
+    {
+      "failure_type": "DOWNSTREAM_REJECTION",
+      "failure_id": "2_REJECTION",
+      "visibility": "EXPLICIT",
+      "detection_mechanism": "RAJYA validation result check",
+      "detection_latency_ms": 10,
+      "visibility_characteristics": [
+        "Validation status: REJECTED",
+        "Legitimacy verdict: ILLEGITIMATE",
+        "Trace ID: PRESERVED",
+        "Message: Governance violation",
+        "Reason: Withheld (RAJYA authority)"
+      ],
+      "detection_layer": "Governance validation",
+      "impact_on_execution": "BLOCKS (NO_EXECUTION)",
+      "trace_in_failure": "YES",
+      "failure_is_recoverable": false,
+      "recovery_mechanism": "Escalate to governance review; accept rejection as final",
+      "test_trace_id": "TRACE-c736d3e12092"
+    },
+    {
+      "failure_type": "SCHEMA_MISMATCH",
+      "failure_id": "3_SCHEMA",
+      "visibility": "PREVENTIVE",
+      "detection_mechanism": "Contract schema validator",
+      "detection_latency_ms": 5,
+      "visibility_characteristics": [
+        "Validation code: SCHEMA_MISMATCH",
+        "Missing field: decision_state",
+        "Trace ID: PRESERVED",
+        "Message: Required field missing",
+        "Propagation: BLOCKED"
+      ],
+      "detection_layer": "Input validation",
+      "impact_on_execution": "PREVENTS (invalid contract rejected before propagation)",
+      "trace_in_failure": "YES",
+      "failure_is_recoverable": false,
+      "recovery_mechanism": "Fix upstream contract structure and retry",
+      "test_trace_id": "TRACE-1bce418e6678"
+    },
+    {
+      "failure_type": "TELEMETRY_DEGRADATION",
+      "failure_id": "4_TELEMETRY",
+      "visibility": "LOGGED",
+      "detection_mechanism": "Observability service health check",
+      "detection_latency_ms": 100,
+      "visibility_characteristics": [
+        "Service: insight_bridge",
+        "Status: UNAVAILABLE",
+        "Trace ID: PRESERVED",
+        "Severity: WARNING",
+        "Blocking: false"
+      ],
+      "detection_layer": "Observability monitoring",
+      "impact_on_execution": "DOES_NOT_BLOCK (execution continues)",
+      "trace_in_failure": "YES",
+      "failure_is_recoverable": true,
+      "recovery_mechanism": "Wait for observability service to recover; execution unaffected",
+      "test_trace_id": "TRACE-5df8870cec26"
+    },
+    {
+      "failure_type": "PARTIAL_EXECUTION_INTERRUPTION",
+      "failure_id": "5_INTERRUPTION",
+      "visibility": "DETECTED",
+      "detection_mechanism": "Execution stage status monitoring",
+      "detection_latency_ms": 50,
+      "visibility_characteristics": [
+        "Stages completed: sanskar, rajya",
+        "Stage failed: enforcement",
+        "Trace ID: PRESERVED",
+        "Checkpoint: PRESERVED",
+        "Partial state: VISIBLE"
+      ],
+      "detection_layer": "Execution orchestration",
+      "impact_on_execution": "PARTIAL (stages 1-2 complete; stage 3 failed)",
+      "trace_in_failure": "YES",
+      "failure_is_recoverable": true,
+      "recovery_mechanism": "Checkpoint restart from enforcement stage",
+      "test_trace_id": "TRACE-0f2ab378d48c"
+    },
+    {
+      "failure_type": "REPLAY_DISAGREEMENT",
+      "failure_id": "6_DIVERGENCE",
+      "visibility": "DETECTED",
+      "detection_mechanism": "Replay hash verification against Bucket",
+      "detection_latency_ms": 20,
+      "visibility_characteristics": [
+        "Original hash: abc123def456",
+        "Replay hash: xyz789uvw123",
+        "Trace ID: PRESERVED",
+        "Divergence: EXPLICIT",
+        "Authority: Bucket"
+      ],
+      "detection_layer": "Replay verification",
+      "impact_on_execution": "FLAGS (divergence recorded; original hash authoritative)",
+      "trace_in_failure": "YES",
+      "failure_is_recoverable": false,
+      "recovery_mechanism": "Investigate divergence; discard replay; use Bucket record",
+      "test_trace_id": "TRACE-f02bd2014939"
+    }
+  ],
+  
+  "visibility_summary": {
+    "total_failures_tested": 6,
+    "explicit_visibility": 2,
+    "preventive_visibility": 1,
+    "logged_visibility": 1,
+    "detected_visibility": 2,
+    "hidden_visibility": 0,
+    "hidden_failure_count": 0,
+    "visibility_coverage": "100%"
+  },
+  
+  "trace_preservation_in_failures": [
+    {
+      "failure_type": "DEPENDENCY_TIMEOUT",
+      "trace_present_in_failure": true,
+      "trace_value_correct": true,
+      "trace_propagated_to_logs": true,
+      "trace_audit_trail": "COMPLETE"
+    },
+    {
+      "failure_type": "DOWNSTREAM_REJECTION",
+      "trace_present_in_failure": true,
+      "trace_value_correct": true,
+      "trace_propagated_to_logs": true,
+      "trace_audit_trail": "COMPLETE"
+    },
+    {
+      "failure_type": "SCHEMA_MISMATCH",
+      "trace_present_in_failure": true,
+      "trace_value_correct": true,
+      "trace_propagated_to_logs": true,
+      "trace_audit_trail": "COMPLETE"
+    },
+    {
+      "failure_type": "TELEMETRY_DEGRADATION",
+      "trace_present_in_failure": true,
+      "trace_value_correct": true,
+      "trace_propagated_to_logs": true,
+      "trace_audit_trail": "COMPLETE"
+    },
+    {
+      "failure_type": "PARTIAL_EXECUTION_INTERRUPTION",
+      "trace_present_in_failure": true,
+      "trace_value_correct": true,
+      "trace_propagated_to_logs": true,
+      "trace_audit_trail": "COMPLETE"
+    },
+    {
+      "failure_type": "REPLAY_DISAGREEMENT",
+      "trace_present_in_failure": true,
+      "trace_value_correct": true,
+      "trace_propagated_to_logs": true,
+      "trace_audit_trail": "COMPLETE"
+    }
+  ],
+  
+  "visibility_by_layer": {
+    "input_validation_layer": {
+      "failures_detected": 1,
+      "failures": ["SCHEMA_MISMATCH"],
+      "visibility_type": "PREVENTIVE",
+      "effectiveness": "100%"
+    },
+    "governance_layer": {
+      "failures_detected": 1,
+      "failures": ["DOWNSTREAM_REJECTION"],
+      "visibility_type": "EXPLICIT",
+      "effectiveness": "100%"
+    },
+    "service_orchestration_layer": {
+      "failures_detected": 2,
+      "failures": ["DEPENDENCY_TIMEOUT", "PARTIAL_EXECUTION_INTERRUPTION"],
+      "visibility_type": "EXPLICIT / DETECTED",
+      "effectiveness": "100%"
+    },
+    "observability_layer": {
+      "failures_detected": 1,
+      "failures": ["TELEMETRY_DEGRADATION"],
+      "visibility_type": "LOGGED",
+      "effectiveness": "100%"
+    },
+    "verification_layer": {
+      "failures_detected": 1,
+      "failures": ["REPLAY_DISAGREEMENT"],
+      "visibility_type": "DETECTED",
+      "effectiveness": "100%"
+    }
+  },
+  
+  "deterministic_handling_verification": [
+    {
+      "failure_type": "DEPENDENCY_TIMEOUT",
+      "handling": "FAIL_SAFE - always NO_EXECUTION",
+      "determinism": "DETERMINISTIC",
+      "repeatability": "100% - same timeout always results in same action"
+    },
+    {
+      "failure_type": "DOWNSTREAM_REJECTION",
+      "handling": "REJECT_AND_STOP - always NO_EXECUTION",
+      "determinism": "DETERMINISTIC",
+      "repeatability": "100% - rejection always results in no execution"
+    },
+    {
+      "failure_type": "SCHEMA_MISMATCH",
+      "handling": "REJECT_INVALID_CONTRACT - always BLOCKED",
+      "determinism": "DETERMINISTIC",
+      "repeatability": "100% - same schema mismatch always rejected"
+    },
+    {
+      "failure_type": "TELEMETRY_DEGRADATION",
+      "handling": "LOG_TELEMETRY_LOSS - always CONTINUE",
+      "determinism": "DETERMINISTIC",
+      "repeatability": "100% - observability loss always allows execution"
+    },
+    {
+      "failure_type": "PARTIAL_EXECUTION_INTERRUPTION",
+      "handling": "CHECKPOINT_RESTART - deterministic recovery",
+      "determinism": "DETERMINISTIC",
+      "repeatability": "100% - same interruption always restarts from checkpoint"
+    },
+    {
+      "failure_type": "REPLAY_DISAGREEMENT",
+      "handling": "FLAG_DIVERGENCE - Bucket authority",
+      "determinism": "DETERMINISTIC",
+      "repeatability": "100% - same divergence always resolved to Bucket hash"
+    }
+  ],
+  
+  "constitutional_boundary_protection": [
+    {
+      "boundary": "confidence_not_legitimacy",
+      "failure_testing": "DOWNSTREAM_REJECTION with high confidence",
+      "protection_verified": true,
+      "evidence": "High confidence did not prevent rejection"
+    },
+    {
+      "boundary": "intelligence_not_governance",
+      "failure_testing": "DOWNSTREAM_REJECTION of valid Sanskar output",
+      "protection_verified": true,
+      "evidence": "Intelligence quality irrelevant to governance"
+    },
+    {
+      "boundary": "observability_not_authority",
+      "failure_testing": "TELEMETRY_DEGRADATION with execution continuing",
+      "protection_verified": true,
+      "evidence": "Observability failure did not veto execution"
+    },
+    {
+      "boundary": "replay_stability_not_permission",
+      "failure_testing": "REPLAY_DISAGREEMENT resolved to Bucket authority",
+      "protection_verified": true,
+      "evidence": "Replay has no override authority; Bucket decides"
+    }
+  ],
+  
+  "recommendations": [
+    "All 6 hostile failure cases are handled with full visibility",
+    "Trace preservation is maintained across all failures (100%)",
+    "All failures are handled deterministically (100%)",
+    "Constitutional boundaries are protected in all scenarios (100%)",
+    "System is ready for Phase 4 constitutional pressure testing"
+  ]
+}

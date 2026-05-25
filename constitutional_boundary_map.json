@@ -1,0 +1,231 @@
+{
+  "declaration_timestamp": "2026-05-22T00:00:00Z",
+  "document_type": "CONSTITUTIONAL_BOUNDARY_MAP",
+  "purpose": "Explicit mapping of all constitutional boundaries in TANTRA ecosystem",
+  
+  "boundary_matrix": {
+    "confidence_vs_legitimacy": {
+      "boundary_name": "CONFIDENCE_NOT_LEGITIMACY",
+      "definition": "High confidence in Sanskar ranking does NOT grant legitimacy to execute decision",
+      "constitutional_protection": "RAJYA must validate ALL decisions regardless of confidence",
+      "enforcement_mechanism": "RAJYA rejects Sanskar output if governance boundary violated",
+      "failure_mode": "If Sanskar misuses confidence as legitimacy marker: CONSTITUTIONAL VIOLATION",
+      "test_case": "High confidence + low legitimacy → RAJYA rejects, decision not executed"
+    },
+    
+    "intelligence_vs_governance": {
+      "boundary_name": "INTELLIGENCE_NOT_GOVERNANCE",
+      "definition": "Sanskar's intelligence capability does NOT confer governance authority",
+      "constitutional_protection": "Governance authority is exclusive to RAJYA",
+      "enforcement_mechanism": "RAJYA is standalone validator; Sanskar cannot influence RAJYA decisions",
+      "failure_mode": "If Sanskar attempts to enforce decisions: CONSTITUTIONAL VIOLATION",
+      "test_case": "Sanskar recommends action → RAJYA independently decides → if reject, no action"
+    },
+    
+    "observability_vs_authority": {
+      "boundary_name": "OBSERVABILITY_NOT_AUTHORITY",
+      "definition": "Extensive observability data does NOT grant execution authority",
+      "constitutional_protection": "Observability is purely informational; does not affect decision rights",
+      "enforcement_mechanism": "Observability system (InsightBridge) reports but cannot veto decisions",
+      "failure_mode": "If observability data is used to bypass RAJYA validation: CONSTITUTIONAL VIOLATION",
+      "test_case": "Observability shows execution should proceed → RAJYA still validates independently"
+    },
+    
+    "replay_stability_vs_execution_permission": {
+      "boundary_name": "REPLAY_STABILITY_NOT_EXECUTION_PERMISSION",
+      "definition": "Ability to replay deterministically does NOT grant permission to execute",
+      "constitutional_protection": "Replay is for verification, not for obtaining execution authority",
+      "enforcement_mechanism": "Replayed output still requires RAJYA validation before enforcement",
+      "failure_mode": "If deterministic replay bypasses validation: CONSTITUTIONAL VIOLATION",
+      "test_case": "Replay produces stable output → RAJYA still validates → if reject, no action"
+    }
+  },
+
+  "boundary_enforcement_layers": {
+    "layer_1_input_contract_validation": {
+      "enforcer": "Sanskar",
+      "boundary_responsibility": "Ensure input signals conform to contract schema",
+      "violations_prevented": "Invalid signal format, missing trace_id, malformed data",
+      "action_on_violation": "REJECT - return failure contract",
+      "trace_continuity": "Failure includes original trace_id"
+    },
+    
+    "layer_2_output_schema_enforcement": {
+      "enforcer": "Sanskar (output validation) + RAJYA (legitimacy validation)",
+      "boundary_responsibility": "Ensure Sanskar output conforms to contract before passing downstream",
+      "violations_prevented": "Schema mismatch, missing required fields, invalid data types",
+      "action_on_violation": "REJECT - do not pass output downstream",
+      "trace_continuity": "Rejection includes trace_id"
+    },
+    
+    "layer_3_governance_boundary_enforcement": {
+      "enforcer": "RAJYA",
+      "boundary_responsibility": "Validate that Sanskar output respects constitutional constraints",
+      "violations_prevented": "Confidence overreach, governance authority assumption, legitimacy bypass",
+      "action_on_violation": "REJECT - Sanskar output blocked from enforcement",
+      "trace_continuity": "Rejection includes trace_id and governance reason"
+    },
+    
+    "layer_4_replay_determinism_enforcement": {
+      "enforcer": "Bucket + Federated verification nodes",
+      "boundary_responsibility": "Verify that replay output is deterministically identical to original",
+      "violations_prevented": "Non-deterministic output, state mutation, divergent computation",
+      "action_on_violation": "FLAG - mark divergence, escalate to constitutional review",
+      "trace_continuity": "Divergence includes trace_id and hash comparison"
+    },
+    
+    "layer_5_truth_immutability_enforcement": {
+      "enforcer": "Bucket (with constitutional lock)",
+      "boundary_responsibility": "Ensure Sanskar outputs stored in Bucket cannot be mutated",
+      "violations_prevented": "Post-execution modification, truth layer tampering, audit trail corruption",
+      "action_on_violation": "PREVENT - mutation attempt fails, audit recorded",
+      "trace_continuity": "Mutation attempt includes trace_id"
+    },
+    
+    "layer_6_observability_autonomy_enforcement": {
+      "enforcer": "InsightBridge",
+      "boundary_responsibility": "Ensure observability system is independent of decision authority",
+      "violations_prevented": "Observability used to influence decisions, telemetry used to override validation",
+      "action_on_violation": "LOG - record violation, alert operators",
+      "trace_continuity": "Violation record includes trace_id"
+    }
+  },
+
+  "boundary_crossing_rules": {
+    "signal_to_sanskar_crossing": {
+      "crossing_point": "Signal Source → Sanskar",
+      "required_properties": ["trace_id", "timestamp", "signal_data"],
+      "boundary_check": "Sanskar validates schema compliance",
+      "trace_rule": "trace_id MUST be preserved, NEVER regenerated",
+      "failure_rule": "Invalid signal → REJECT with original trace_id"
+    },
+    
+    "sanskar_to_core_crossing": {
+      "crossing_point": "Sanskar → Core/RAJYA",
+      "required_properties": ["trace_id", "entities", "ranking", "confidence", "decision_state"],
+      "boundary_check": "RAJYA validates legitimacy of ranking",
+      "trace_rule": "trace_id MUST pass through RAJYA to downstream unchanged",
+      "failure_rule": "Invalid ranking → RAJYA rejects, downstream never sees decision"
+    },
+    
+    "core_to_enforcement_crossing": {
+      "crossing_point": "Core/RAJYA → Enforcement",
+      "required_properties": ["trace_id", "decision", "directives"],
+      "boundary_check": "Enforcement validates decision authority",
+      "trace_rule": "trace_id MUST be attached to all execution directives",
+      "failure_rule": "Unauthorized decision → Enforcement blocks execution"
+    },
+    
+    "enforcement_to_bucket_crossing": {
+      "crossing_point": "Enforcement/All Stages → Bucket",
+      "required_properties": ["trace_id", "stage_output", "timestamp", "execution_hash"],
+      "boundary_check": "Bucket stores immutable record",
+      "trace_rule": "trace_id is primary key for lineage retrieval",
+      "failure_rule": "Invalid record → Bucket rejects, replay later uses external source"
+    },
+    
+    "any_stage_to_insightbridge_crossing": {
+      "crossing_point": "Any Stage → InsightBridge",
+      "required_properties": ["trace_id", "stage", "telemetry_data"],
+      "boundary_check": "InsightBridge validates telemetry schema",
+      "trace_rule": "trace_id MUST tag all telemetry for correlation",
+      "failure_rule": "Invalid telemetry → logged but does not block execution"
+    }
+  },
+
+  "constitutional_pressure_test_scenarios": {
+    "scenario_1_high_confidence_low_legitimacy": {
+      "setup": "Sanskar produces high confidence (0.95+) but legitimacy is questionable",
+      "pressure": "Attempt to use confidence as legitimacy proxy",
+      "boundary_to_test": "CONFIDENCE_NOT_LEGITIMACY",
+      "expected_outcome": "RAJYA rejects, decision blocked despite high confidence",
+      "success_criterion": "High confidence does not override RAJYA validation"
+    },
+    
+    "scenario_2_perfect_replay_stability": {
+      "setup": "Sanskar replay produces bit-perfect output, 100% deterministic",
+      "pressure": "Attempt to use replay stability as execution permission",
+      "boundary_to_test": "REPLAY_STABILITY_NOT_EXECUTION_PERMISSION",
+      "expected_outcome": "RAJYA still validates replay output, can still reject",
+      "success_criterion": "Determinism does not grant execution authority"
+    },
+    
+    "scenario_3_massive_observability_data": {
+      "setup": "Observability system has extensive telemetry supporting decision",
+      "pressure": "Attempt to use telemetry volume as decision override",
+      "boundary_to_test": "OBSERVABILITY_NOT_AUTHORITY",
+      "expected_outcome": "Observability data is informational, decision still requires RAJYA validation",
+      "success_criterion": "Telemetry volume does not override governance"
+    },
+    
+    "scenario_4_intelligence_sophistication": {
+      "setup": "Sanskar applies advanced algorithms, multi-stage ranking",
+      "pressure": "Attempt to use algorithm sophistication as governance authority claim",
+      "boundary_to_test": "INTELLIGENCE_NOT_GOVERNANCE",
+      "expected_outcome": "Algorithm sophistication is irrelevant; RAJYA validates",
+      "success_criterion": "Algorithm quality does not grant governance authority"
+    },
+    
+    "scenario_5_downstream_automation_pressure": {
+      "setup": "Core/Enforcement automated to act on Sanskar output",
+      "pressure": "Attempt to create fast path that bypasses RAJYA",
+      "boundary_to_test": "ALL_BOUNDARIES",
+      "expected_outcome": "RAJYA validation is mandatory in all paths",
+      "success_criterion": "Automation does not create bypass paths"
+    },
+    
+    "scenario_6_distributed_dependency_pressure": {
+      "setup": "Multiple downstream participants create convergence pressure",
+      "pressure": "Attempt to overwhelm RAJYA with simultaneous requests",
+      "boundary_to_test": "GOVERNANCE_AUTONOMY",
+      "expected_outcome": "RAJYA processes independently, maintains stance",
+      "success_criterion": "Dependency pressure does not influence governance"
+    }
+  },
+
+  "boundary_validation_checklist": {
+    "input_level": [
+      "trace_id is always present and propagated",
+      "Schema version is validated",
+      "Required fields are enforced",
+      "Invalid input is explicitly rejected with trace_id"
+    ],
+    "processing_level": [
+      "Sanskar computations are deterministic",
+      "Confidence is NOT used as legitimacy",
+      "Ranking is based on objective scoring",
+      "No decision-making authority is assumed"
+    ],
+    "output_level": [
+      "All output includes trace_id",
+      "Output schema is validated before transmission",
+      "Decision state flags are accurate",
+      "Failure messages preserve trace_id"
+    ],
+    "governance_level": [
+      "RAJYA validates all Sanskar output",
+      "RAJYA rejects unconstitutional decisions",
+      "Rejection does not require explanation",
+      "No feedback loop from RAJYA to Sanskar"
+    ],
+    "verification_level": [
+      "Replay uses Bucket as authoritative source",
+      "Divergence is detected and flagged",
+      "Constitutional boundary is verified in replay",
+      "Truth layer immutability is maintained"
+    ],
+    "observability_level": [
+      "Telemetry does not influence decisions",
+      "Observability is independent of governance",
+      "Observability data is audit trail only",
+      "Observability cannot veto decisions"
+    ]
+  },
+
+  "convergence_status": {
+    "phase_1_declaration": "COMPLETE",
+    "boundary_map_state": "ACTIVE",
+    "ready_for_phase_2": true,
+    "next_validation": "LIVE_INTEGRATION_CHAIN_EXECUTION"
+  }
+}
