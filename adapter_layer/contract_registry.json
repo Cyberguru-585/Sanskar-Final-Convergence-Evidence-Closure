@@ -1,0 +1,325 @@
+{
+  "title": "TANTRA Ecosystem Contract Registry",
+  "version": "1.0",
+  "date": "2026-05-28",
+  "authority": "Canonical Authority for Ecosystem Contracts",
+  
+  "ecosystem_flow": {
+    "description": "Standard contract flow through TANTRA ecosystem",
+    "phases": [
+      "signal_source",
+      "sanskar",
+      "rajya",
+      "enforcement",
+      "bucket",
+      "insight_bridge"
+    ]
+  },
+  
+  "schema_definitions": {
+    "input_signal_contract_v1.0": {
+      "owner": "signal_source",
+      "description": "Initial signal from signal source",
+      "required_keys": [
+        "signal_id",
+        "timestamp",
+        "signal_data",
+        "origin_metadata"
+      ],
+      "type_requirements": {
+        "signal_id": "string (UUID format)",
+        "timestamp": "ISO8601 datetime string",
+        "signal_data": "object with numeric values",
+        "origin_metadata": "object with signal source info"
+      },
+      "example": {
+        "signal_id": "sig-2026-05-28-001",
+        "timestamp": "2026-05-28T14:32:00Z",
+        "signal_data": {
+          "field_1": 45.2,
+          "field_2": 98.7
+        },
+        "origin_metadata": {
+          "source": "weather_station",
+          "region": "north"
+        }
+      }
+    },
+    
+    "sanskar_output_contract_v1.0": {
+      "owner": "sanskar",
+      "description": "SANSKAR ranking decision output",
+      "inherits_from": "input_signal_contract_v1.0",
+      "added_keys": [
+        "rankings",
+        "confidence_state",
+        "trace_id",
+        "decision_state"
+      ],
+      "type_requirements": {
+        "rankings": "array of ranked items with scores",
+        "confidence_state": "enum: CONFIDENT|LOW_CONFIDENCE|AMBIGUOUS",
+        "trace_id": "string (immutable)",
+        "decision_state": "enum matching confidence_state"
+      },
+      "immutability_requirements": [
+        "trace_id is set once and never modified",
+        "signal_id is preserved from input",
+        "timestamp is preserved from input"
+      ],
+      "example": {
+        "signal_id": "sig-2026-05-28-001",
+        "timestamp": "2026-05-28T14:32:00Z",
+        "signal_data": {
+          "field_1": 45.2,
+          "field_2": 98.7
+        },
+        "origin_metadata": {
+          "source": "weather_station",
+          "region": "north"
+        },
+        "trace_id": "tr-2026-05-28-001-sanskar",
+        "rankings": [
+          {"item": "option_a", "score": 0.78, "rank": 1},
+          {"item": "option_b", "score": 0.65, "rank": 2}
+        ],
+        "confidence_state": "CONFIDENT",
+        "decision_state": "CONFIDENT"
+      }
+    },
+    
+    "rajya_validation_contract_v1.0": {
+      "owner": "rajya",
+      "description": "RAJYA governance validation output",
+      "inherits_from": "sanskar_output_contract_v1.0",
+      "added_keys": [
+        "governance_check",
+        "governance_violations",
+        "validated_at"
+      ],
+      "type_requirements": {
+        "governance_check": "object with validation results",
+        "governance_violations": "array (empty if valid)",
+        "validated_at": "ISO8601 datetime"
+      },
+      "validation_rules": [
+        "trace_id must match incoming",
+        "signal_id must match incoming",
+        "rankings must be valid (scores 0-1)",
+        "decision_state must be consistent"
+      ],
+      "immutability_guarantees": [
+        "trace_id unchanged",
+        "signal_id unchanged",
+        "timestamps preserved"
+      ]
+    },
+    
+    "enforcement_output_contract_v1.0": {
+      "owner": "enforcement",
+      "description": "Enforcement boundary enforcement output",
+      "inherits_from": "rajya_validation_contract_v1.0",
+      "added_keys": [
+        "enforcement_decision",
+        "enforcement_rationale",
+        "enforcement_timestamp",
+        "enforceable"
+      ],
+      "enforcement_modes": [
+        "ENFORCE: Apply ranking as-is",
+        "CONDITIONAL: Apply with conditions",
+        "REJECT: Do not apply",
+        "ESCALATE: Review by authority"
+      ]
+    },
+    
+    "bucket_persistence_contract_v1.0": {
+      "owner": "bucket",
+      "description": "Bucket truth store persistence contract",
+      "inherits_from": "enforcement_output_contract_v1.0",
+      "added_keys": [
+        "persistence_id",
+        "bucket_location",
+        "replicas",
+        "persisted_at"
+      ],
+      "type_requirements": {
+        "persistence_id": "string (UUID)",
+        "bucket_location": "S3-like path or database reference",
+        "replicas": "array of replica locations",
+        "persisted_at": "ISO8601 datetime"
+      },
+      "durability_guarantees": [
+        "At least 3 replicas",
+        "Cross-region replication",
+        "Immutable audit trail"
+      ]
+    },
+    
+    "insight_bridge_telemetry_contract_v1.0": {
+      "owner": "insight_bridge",
+      "description": "InsightBridge observability telemetry output",
+      "inherits_from": "bucket_persistence_contract_v1.0",
+      "added_keys": [
+        "telemetry_id",
+        "observability_metadata",
+        "distributed_trace_spans",
+        "telemetry_timestamp"
+      ],
+      "observability_requirements": [
+        "Correlation ID propagated",
+        "Parent span ID tracked",
+        "Full distributed trace captured",
+        "Latency metrics recorded"
+      ]
+    }
+  },
+  
+  "version_compatibility_matrix": {
+    "sanskar_output": {
+      "v1.0": "current",
+      "backward_compatible_with": []
+    },
+    "rajya_validation": {
+      "v1.0": "current",
+      "backward_compatible_with": []
+    },
+    "enforcement_output": {
+      "v1.0": "current",
+      "backward_compatible_with": []
+    },
+    "bucket_persistence": {
+      "v1.0": "current",
+      "backward_compatible_with": []
+    },
+    "insight_bridge_telemetry": {
+      "v1.0": "current",
+      "backward_compatible_with": []
+    }
+  },
+  
+  "immutability_guarantees": {
+    "trace_id": {
+      "requirement": "Never modified after creation",
+      "validation_method": "Compare on entry and exit of each phase",
+      "failure_mode": "TRACE_MUTATION"
+    },
+    "signal_id": {
+      "requirement": "Preserved from signal source through all phases",
+      "validation_method": "Equality check",
+      "failure_mode": "TRACE_MUTATION"
+    },
+    "payload_hash": {
+      "requirement": "Calculated on creation, verified on receipt",
+      "validation_method": "SHA256 hash verification",
+      "failure_mode": "TRACE_MUTATION"
+    },
+    "lineage_entries": {
+      "requirement": "Append-only log of phase traversals",
+      "validation_method": "Check monotonic timestamp increase",
+      "failure_mode": "MISSING_LINEAGE"
+    }
+  },
+  
+  "ownership_declaration": {
+    "signal_source": {
+      "owns": ["input_signal_contract_v1.0"],
+      "responsibility": "Generate valid signals with origin metadata",
+      "contract_exchange_protocol": "Push to SANSKAR"
+    },
+    "sanskar": {
+      "owns": ["sanskar_output_contract_v1.0"],
+      "responsibility": "Generate rankings with confidence state, preserve trace_id",
+      "contract_exchange_protocol": "Push to RAJYA"
+    },
+    "rajya": {
+      "owns": ["rajya_validation_contract_v1.0"],
+      "responsibility": "Validate governance bounds, preserve all lineage",
+      "contract_exchange_protocol": "Push to Enforcement"
+    },
+    "enforcement": {
+      "owns": ["enforcement_output_contract_v1.0"],
+      "responsibility": "Enforce boundaries, declare enforcement decision",
+      "contract_exchange_protocol": "Push to Bucket"
+    },
+    "bucket": {
+      "owns": ["bucket_persistence_contract_v1.0"],
+      "responsibility": "Persist contract with durability guarantees",
+      "contract_exchange_protocol": "Async replication"
+    },
+    "insight_bridge": {
+      "owns": ["insight_bridge_telemetry_contract_v1.0"],
+      "responsibility": "Emit observability signals, preserve all metadata",
+      "contract_exchange_protocol": "Async collection"
+    }
+  },
+  
+  "failure_visibility_requirements": {
+    "timeout": {
+      "detection": "Contract not received within SLA",
+      "visibility": "Log timeout with phase and trace_id",
+      "recovery": "Circuit breaker + retry"
+    },
+    "rejection": {
+      "detection": "Contract fails validation",
+      "visibility": "Record rejection reason and lineage state",
+      "recovery": "Error response to previous phase"
+    },
+    "schema_mismatch": {
+      "detection": "Contract missing required fields or wrong types",
+      "visibility": "Report missing fields and expectations",
+      "recovery": "Return error, request correction"
+    },
+    "version_incompatibility": {
+      "detection": "Contract version not supported",
+      "visibility": "Report version and supported versions",
+      "recovery": "Negotiate compatible version or fallback"
+    },
+    "trace_mutation": {
+      "detection": "trace_id changed or payload hash mismatch",
+      "visibility": "CRITICAL: Log mutation details, halt processing",
+      "recovery": "No recovery - integrity compromise"
+    },
+    "missing_lineage": {
+      "detection": "Contract has no phase traversal history",
+      "visibility": "CRITICAL: Flag missing lineage",
+      "recovery": "Reject contract - integrity unknown"
+    },
+    "duplicate_event": {
+      "detection": "Same event_id processed twice",
+      "visibility": "Log duplicate with original and current trace",
+      "recovery": "Deduplicate or error"
+    },
+    "missing_participant_response": {
+      "detection": "Expected participant not responding",
+      "visibility": "Log missing participant with timeout",
+      "recovery": "Escalate or use circuit breaker"
+    }
+  },
+  
+  "validation_checklist": {
+    "pre_contract_acceptance": [
+      "✓ trace_id exists and is immutable string",
+      "✓ signal_id exists (if from signal source)",
+      "✓ timestamp is ISO8601 format",
+      "✓ Required keys present for this phase",
+      "✓ payload_hash computes correctly",
+      "✓ Schema version is supported"
+    ],
+    "post_contract_processing": [
+      "✓ trace_id unchanged",
+      "✓ New fields added by this phase",
+      "✓ Lineage entry added",
+      "✓ Ownership declared",
+      "✓ Contract ready for next phase"
+    ]
+  },
+  
+  "no_freeform_payloads_rule": {
+    "enforcement": "All contract data must match registered schema",
+    "exception_handling": "Reject contracts with unknown fields (allow forward compatibility)",
+    "validation_method": "Schema validation before processing"
+  },
+  
+  "readiness": "Phase 2 COMPLETE - Contract registry established and canonical adapter interfaces defined"
+}

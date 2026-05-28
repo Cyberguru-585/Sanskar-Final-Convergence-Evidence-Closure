@@ -1,12 +1,17 @@
 # SANSKAR UPGRADE - FINAL DELIVERY INDEX
-## Complete List of Deliverables (May 15, 2026)
+## Complete List of Deliverables (May 26, 2026)
+
+**Status:** Bounded Integration Proof + Convergence Simulation  
+**Maturity:** Integration-Ready Code (not production-deployed)  
+**Next Phase:** Multi-Process Deployment (Phase 11)  
+**See Also:** [GAP_INVENTORY.md](GAP_INVENTORY.md) for proven vs. unproven claims
 
 ---
 
 ## NEW CODE MODULES (4 files - 1,300 lines)
 
 ### 1. async_orchestration.py
-- **Purpose**: Async execution simulation with delays, timeouts, retries
+- **Purpose**: Async execution simulation with delays, timeouts, retries (single-process)
 - **Key Classes**: AsyncOrchestrator, ExecutionState (enum)
 - **Key Methods**: 
   - queue_async_directive()
@@ -15,19 +20,19 @@
   - simulate_timeout_handling()
   - simulate_retry()
   - verify_replay_safety()
-- **Status**: PRODUCTION READY
+- **Status**: Integration-Ready (tested in single-process scope)
 - **Lines**: 300
 
 ### 2. external_verification.py
-- **Purpose**: Separate directive issuance from execution verification
+- **Purpose**: Separate directive issuance from execution verification (simulated consensus)
 - **Key Classes**: ExternalExecutor
 - **Key Methods**:
   - issue_directive()
   - verify_execution()
   - verify_separation_of_concerns()
   - batch_verify_executions()
-- **Features**: Multi-executor consensus, audit trail
-- **Status**: PRODUCTION READY
+- **Features**: Multi-executor consensus (simulated), audit trail
+- **Status**: Integration-Ready (single-process scope)
 - **Lines**: 250
 
 ### 3. schema_evolution.py
@@ -39,18 +44,18 @@
   - migrate_document()
   - is_backward_compatible()
   - get_compatibility_matrix()
-- **Status**: PRODUCTION READY
+- **Status**: Integration-Ready (well-tested)
 - **Lines**: 400
 
 ### 4. concurrency_test_engine.py
-- **Purpose**: Concurrency-safe determinism testing
+- **Purpose**: Concurrency-safe determinism testing (single-process simulation)
 - **Key Classes**: ConcurrencyTestEngine
 - **Test Types**:
   - Concurrent replay test
   - Parallel execution simulation
   - Stress test
   - Ordered concurrency test
-- **Status**: PRODUCTION READY
+- **Status**: Integration-Ready (test harness verified)
 - **Lines**: 350
 
 ---

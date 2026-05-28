@@ -1,0 +1,126 @@
+{
+  "title": "TANTRA Ecosystem Instability Test Report",
+  "date": "2026-05-28T07:12:42.641824",
+  "summary": {
+    "total_scenarios": 6,
+    "passed": 6,
+    "failed": 0,
+    "all_passed": true
+  },
+  "test_results": [
+    {
+      "scenario": "dependency_timeout",
+      "passed": true,
+      "timestamp": "2026-05-28T07:12:42.531910"
+    },
+    {
+      "scenario": "rajya_rejection",
+      "passed": true,
+      "timestamp": "2026-05-28T07:12:42.533172"
+    },
+    {
+      "scenario": "bucket_delay",
+      "passed": true,
+      "timestamp": "2026-05-28T07:12:42.634800"
+    },
+    {
+      "scenario": "observability_degradation",
+      "passed": true,
+      "timestamp": "2026-05-28T07:12:42.636530"
+    },
+    {
+      "scenario": "contract_incompatibility",
+      "passed": true,
+      "timestamp": "2026-05-28T07:12:42.637657"
+    },
+    {
+      "scenario": "partial_chain_interruption",
+      "passed": true,
+      "timestamp": "2026-05-28T07:12:42.641270"
+    }
+  ],
+  "failure_observations": [
+    {
+      "timestamp": "2026-05-28T07:12:42.531096",
+      "scenario": "dependency_timeout",
+      "phase": "RAJYA",
+      "status": "failure_handled",
+      "error": "RAJYA timeout",
+      "deterministic_marker": "rajya_timeout_detected_deterministically",
+      "replay_preserved": true,
+      "governance_held": true
+    },
+    {
+      "timestamp": "2026-05-28T07:12:42.532996",
+      "scenario": "rajya_rejection",
+      "phase": "RAJYA",
+      "status": "rejection",
+      "error": "Confidence boundary violation: AMBIGUOUS state with extreme confidence",
+      "deterministic_marker": "rajya_governance_check_deterministic",
+      "replay_preserved": true,
+      "governance_held": true
+    },
+    {
+      "timestamp": "2026-05-28T07:12:42.634670",
+      "scenario": "bucket_delay",
+      "phase": "BUCKET",
+      "status": "sla_miss",
+      "error": "Persistence delay exceeded SLA",
+      "deterministic_marker": "bucket_sla_deterministic",
+      "replay_preserved": true,
+      "governance_held": true
+    },
+    {
+      "timestamp": "2026-05-28T07:12:42.636215",
+      "scenario": "observability_degradation",
+      "phase": "INSIGHT_BRIDGE",
+      "status": "degraded",
+      "error": "Telemetry lag exceeded target",
+      "deterministic_marker": "observability_degradation_deterministic",
+      "replay_preserved": true,
+      "governance_held": true
+    },
+    {
+      "timestamp": "2026-05-28T07:12:42.637242",
+      "scenario": "contract_incompatibility",
+      "phase": "SANSKAR",
+      "status": "version_mismatch",
+      "error": "Unsupported schema version 2.0",
+      "deterministic_marker": "version_check_deterministic",
+      "replay_preserved": false,
+      "governance_held": true
+    },
+    {
+      "timestamp": "2026-05-28T07:12:42.640964",
+      "scenario": "partial_chain_interruption",
+      "phase": "ENFORCEMENT",
+      "status": "chain_interruption",
+      "error": "Mid-chain failure at ENFORCEMENT",
+      "deterministic_marker": "partial_chain_deterministic",
+      "replay_preserved": true,
+      "governance_held": true
+    }
+  ],
+  "determinism_verification": {
+    "dependency_timeout": "DETERMINISTIC",
+    "rajya_rejection": "DETERMINISTIC",
+    "bucket_delay": "DETERMINISTIC",
+    "observability_degradation": "GRACEFUL",
+    "contract_incompatibility": "DETERMINISTIC",
+    "partial_chain_interruption": "DETERMINISTIC"
+  },
+  "visibility_verification": {
+    "all_failures_logged": true,
+    "failure_modes_tracked": 6,
+    "audit_trail_complete": true
+  },
+  "replay_continuity_verification": {
+    "continuity_preserved": 5,
+    "recovery_possible": true
+  },
+  "governance_boundary_verification": {
+    "boundaries_maintained": true,
+    "violations_detected": 0,
+    "rejections_enforced": true
+  }
+}

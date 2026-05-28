@@ -1,0 +1,128 @@
+{
+  "harness": "TANTRA Live Integration Harness",
+  "date": "2026-05-28T07:09:13.997320",
+  "test_results": {
+    "total_tests": 38,
+    "passed": 38,
+    "failed": 0,
+    "failures": []
+  },
+  "execution_summary": {
+    "total_events": 58,
+    "total_contracts": 6,
+    "total_traces": 1,
+    "total_observability_events": 10,
+    "total_replay_entries": 2
+  },
+  "traces": {
+    "integration-test-2026-05-28-001": [
+      "sanskar",
+      "rajya",
+      "enforcement",
+      "bucket",
+      "insight_bridge"
+    ]
+  },
+  "observability_events": [
+    {
+      "timestamp": "2026-05-28T07:09:13.975910",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "sanskar",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.976226",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "rajya",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.976541",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "enforcement",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.976969",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "bucket",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.977398",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "insight_bridge",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.993306",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "sanskar",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.993576",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "rajya",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.993879",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "enforcement",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.994258",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "bucket",
+      "event_type": "phase_transition",
+      "status": "success"
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.994607",
+      "trace_id": "integration-test-2026-05-28-001",
+      "phase": "insight_bridge",
+      "event_type": "phase_transition",
+      "status": "success"
+    }
+  ],
+  "replay_events": [
+    {
+      "timestamp": "2026-05-28T07:09:13.978703",
+      "trace_id": "integration-test-2026-05-28-001",
+      "lineage": [
+        "sanskar",
+        "rajya",
+        "enforcement",
+        "bucket",
+        "insight_bridge"
+      ],
+      "final_contract_hash": "a8acc1437927678274cc35fde48b8efa27db23d95a57e757a0727c04ed577644",
+      "deterministic": true,
+      "replay_valid": true
+    },
+    {
+      "timestamp": "2026-05-28T07:09:13.995467",
+      "trace_id": "integration-test-2026-05-28-001",
+      "lineage": [
+        "sanskar",
+        "rajya",
+        "enforcement",
+        "bucket",
+        "insight_bridge"
+      ],
+      "final_contract_hash": "016ab41b47e1a75bd71aa4760442f9406faf6afeb494496819aa4a843b93183b",
+      "deterministic": true,
+      "replay_valid": true
+    }
+  ]
+}
