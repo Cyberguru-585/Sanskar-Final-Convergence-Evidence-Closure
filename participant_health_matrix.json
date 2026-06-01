@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-06-01T10:24:08.598955+00:00",
+  "report_type": "participant_health_matrix",
+  "total_participants": 3,
+  "participants": {
+    "sanskar-001": {
+      "name": "SANSKAR",
+      "startup_time": "2026-06-01T10:24:08.576757+00:00",
+      "endpoint": {
+        "hostname": "localhost",
+        "port": 8001,
+        "protocol": "http",
+        "url": "http://localhost:8001"
+      },
+      "readiness": true,
+      "liveness": true,
+      "capabilities": [
+        {
+          "capability": "ranking_engine",
+          "version": "v1",
+          "status": "READY"
+        },
+        {
+          "capability": "adaptive_intelligence",
+          "version": "v1",
+          "status": "READY"
+        }
+      ],
+      "health_check_count": 0,
+      "recent_checks": []
+    },
+    "rajya-002": {
+      "name": "RAJYA",
+      "startup_time": "2026-06-01T10:24:08.591913+00:00",
+      "endpoint": {
+        "hostname": "localhost",
+        "port": 8002,
+        "protocol": "http",
+        "url": "http://localhost:8002"
+      },
+      "readiness": true,
+      "liveness": true,
+      "capabilities": [
+        {
+          "capability": "governance_validation",
+          "version": "v1",
+          "status": "READY"
+        },
+        {
+          "capability": "boundary_enforcement",
+          "version": "v1",
+          "status": "READY"
+        }
+      ],
+      "health_check_count": 0,
+      "recent_checks": []
+    },
+    "enforcement-003": {
+      "name": "ENFORCEMENT",
+      "startup_time": "2026-06-01T10:24:08.592415+00:00",
+      "endpoint": {
+        "hostname": "localhost",
+        "port": 8003,
+        "protocol": "http",
+        "url": "http://localhost:8003"
+      },
+      "readiness": true,
+      "liveness": true,
+      "capabilities": [
+        {
+          "capability": "fail_closed_enforcement",
+          "version": "v1",
+          "status": "READY"
+        },
+        {
+          "capability": "authority_validation",
+          "version": "v1",
+          "status": "READY"
+        }
+      ],
+      "health_check_count": 0,
+      "recent_checks": []
+    }
+  }
+}

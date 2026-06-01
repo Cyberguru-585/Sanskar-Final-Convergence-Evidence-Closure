@@ -1,0 +1,100 @@
+{
+  "profiles": {
+    "development": {
+      "profile_name": "development",
+      "environment": "local",
+      "profile_type": "development",
+      "config": {
+        "log_level": "DEBUG",
+        "health_check_interval": 5,
+        "timeout_ms": 10000
+      },
+      "services": {
+        "SANSKAR": {
+          "port": 8001,
+          "workers": 1,
+          "memory_limit_mb": 256,
+          "auto_restart": false
+        },
+        "RAJYA": {
+          "port": 8002,
+          "workers": 1,
+          "memory_limit_mb": 256,
+          "auto_restart": false
+        },
+        "ENFORCEMENT": {
+          "port": 8003,
+          "workers": 1,
+          "memory_limit_mb": 256,
+          "auto_restart": false
+        }
+      },
+      "timestamp": "2026-06-01T10:39:25.268922+00:00"
+    },
+    "staging": {
+      "profile_name": "staging",
+      "environment": "staging.internal",
+      "profile_type": "staging",
+      "config": {
+        "log_level": "INFO",
+        "health_check_interval": 10,
+        "timeout_ms": 5000
+      },
+      "services": {
+        "SANSKAR": {
+          "port": 8001,
+          "workers": 2,
+          "memory_limit_mb": 512,
+          "auto_restart": true
+        },
+        "RAJYA": {
+          "port": 8002,
+          "workers": 2,
+          "memory_limit_mb": 512,
+          "auto_restart": true
+        },
+        "ENFORCEMENT": {
+          "port": 8003,
+          "workers": 2,
+          "memory_limit_mb": 512,
+          "auto_restart": true
+        }
+      },
+      "timestamp": "2026-06-01T10:39:25.268932+00:00"
+    },
+    "production": {
+      "profile_name": "production",
+      "environment": "prod.internal",
+      "profile_type": "production",
+      "config": {
+        "log_level": "WARN",
+        "health_check_interval": 15,
+        "timeout_ms": 3000
+      },
+      "services": {
+        "SANSKAR": {
+          "port": 8001,
+          "workers": 4,
+          "memory_limit_mb": 1024,
+          "auto_restart": true,
+          "replicas": 2
+        },
+        "RAJYA": {
+          "port": 8002,
+          "workers": 4,
+          "memory_limit_mb": 1024,
+          "auto_restart": true,
+          "replicas": 2
+        },
+        "ENFORCEMENT": {
+          "port": 8003,
+          "workers": 4,
+          "memory_limit_mb": 1024,
+          "auto_restart": true,
+          "replicas": 2
+        }
+      },
+      "timestamp": "2026-06-01T10:39:25.268934+00:00"
+    }
+  }
+}

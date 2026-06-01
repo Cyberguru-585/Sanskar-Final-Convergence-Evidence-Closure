@@ -1,0 +1,150 @@
+{
+  "proof_type": "cross_ecosystem_execution_proof",
+  "timestamp": "2026-06-01T10:25:59.253955+00:00",
+  "bhiv_integration_chain": {
+    "status": "VERIFIED",
+    "trace_continuity": true,
+    "execution_time_ms": 2,
+    "phases": {
+      "sanskar_to_rajya": {
+        "status": "COMPLETE",
+        "contract_exchanges": 1
+      },
+      "rajya_to_bucket": {
+        "status": "COMPLETE",
+        "contract_exchanges": 1
+      },
+      "bucket_to_insight": {
+        "status": "COMPLETE",
+        "contract_exchanges": 1
+      }
+    },
+    "trace": {
+      "trace_id": "trace-7af92126",
+      "created_at": "2026-06-01T10:25:59.250059+00:00",
+      "path_length": 3,
+      "path": [
+        {
+          "timestamp": "2026-06-01T10:25:59.252794+00:00",
+          "from": "SANSKAR",
+          "to": "RAJYA",
+          "contract_version": "v1",
+          "trace_id": "trace-7af92126"
+        },
+        {
+          "timestamp": "2026-06-01T10:25:59.252999+00:00",
+          "from": "RAJYA",
+          "to": "Bucket",
+          "contract_version": "v1",
+          "trace_id": "trace-7af92126"
+        },
+        {
+          "timestamp": "2026-06-01T10:25:59.253170+00:00",
+          "from": "Bucket",
+          "to": "InsightBridge",
+          "contract_version": "v1",
+          "trace_id": "trace-7af92126"
+        }
+      ],
+      "immutable": true
+    },
+    "all_contract_exchanges": [
+      {
+        "type": "SANSKAR\u2192RAJYA",
+        "contract": {
+          "service_from": "SANSKAR",
+          "service_to": "RAJYA",
+          "version": "v1",
+          "timestamp": "2026-06-01T10:25:59.248932+00:00"
+        },
+        "payload": {
+          "trace_id": "trace-7af92126",
+          "timestamp": "2026-06-01T10:25:59.252765+00:00",
+          "data": {
+            "ranking_result": [
+              "North",
+              "East",
+              "West"
+            ],
+            "confidence": 0.87,
+            "selected_entity": "North",
+            "source_service": "SANSKAR"
+          }
+        },
+        "response": {
+          "trace_id": "trace-7af92126",
+          "governance_status": "APPROVED",
+          "authority_check": "PASSED",
+          "boundary_compliance": true,
+          "timestamp": "2026-06-01T10:25:59.252788+00:00"
+        },
+        "trace": "trace-7af92126"
+      },
+      {
+        "type": "RAJYA\u2192Bucket",
+        "contract": {
+          "service_from": "RAJYA",
+          "service_to": "Bucket",
+          "version": "v1",
+          "timestamp": "2026-06-01T10:25:59.248971+00:00"
+        },
+        "payload": {
+          "trace_id": "trace-7af92126",
+          "timestamp": "2026-06-01T10:25:59.252957+00:00",
+          "data": {
+            "decision": {
+              "trace_id": "trace-7af92126",
+              "governance_status": "APPROVED",
+              "authority_check": "PASSED",
+              "boundary_compliance": true,
+              "timestamp": "2026-06-01T10:25:59.252788+00:00"
+            },
+            "replicas": 3,
+            "consistency_level": "strong",
+            "source_service": "RAJYA"
+          }
+        },
+        "response": {
+          "trace_id": "trace-7af92126",
+          "storage_status": "PERSISTED",
+          "record_id": "bucket-baffe29c",
+          "replicas_confirmed": 3,
+          "consistency": "STRONG",
+          "timestamp": "2026-06-01T10:25:59.252993+00:00"
+        },
+        "trace": "trace-7af92126"
+      },
+      {
+        "type": "Bucket\u2192InsightBridge",
+        "contract": {
+          "service_from": "Bucket",
+          "service_to": "InsightBridge",
+          "version": "v1",
+          "timestamp": "2026-06-01T10:25:59.248977+00:00"
+        },
+        "payload": {
+          "trace_id": "trace-7af92126",
+          "timestamp": "2026-06-01T10:25:59.253149+00:00",
+          "data": {
+            "event_type": "decision_persisted",
+            "record_id": "bucket-baffe29c",
+            "replicas": 3,
+            "source_service": "Bucket"
+          }
+        },
+        "response": {
+          "trace_id": "trace-7af92126",
+          "telemetry_status": "COLLECTED",
+          "event_id": "event-d2d25876",
+          "collectors_updated": [
+            "prometheus",
+            "jaeger",
+            "datadog"
+          ],
+          "timestamp": "2026-06-01T10:25:59.253165+00:00"
+        },
+        "trace": "trace-7af92126"
+      }
+    ]
+  }
+}

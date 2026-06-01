@@ -1,0 +1,109 @@
+{
+  "audit_type": "runtime_governance_audit",
+  "timestamp": "2026-06-01T10:38:42.958528+00:00",
+  "audit_duration_seconds": 0.001173,
+  "authority_violations": 2,
+  "boundary_drift_events": 1,
+  "trace_mutations": 1,
+  "overall_status": "VIOLATIONS_DETECTED",
+  "authority_validation": {
+    "violations": [
+      {
+        "event_id": "gov-20260601103842-8784",
+        "timestamp": "2026-06-01T10:38:42.957355+00:00",
+        "event_type": "authority_exceeded",
+        "service": "SANSKAR",
+        "severity": "CRITICAL",
+        "detail": {
+          "action": "governance_decisions",
+          "reason": "Outside service authority"
+        }
+      },
+      {
+        "event_id": "gov-20260601103842-2480",
+        "timestamp": "2026-06-01T10:38:42.957434+00:00",
+        "event_type": "authority_exceeded",
+        "service": "RAJYA",
+        "severity": "CRITICAL",
+        "detail": {
+          "action": "ranking",
+          "reason": "Outside service authority"
+        }
+      }
+    ]
+  },
+  "boundary_drift": {
+    "drift_events": [
+      {
+        "drift_type": "undeclared_action",
+        "timestamp": "2026-06-01T10:38:42.957525+00:00",
+        "service": "SANSKAR",
+        "action": "ranking_engine_score_calculation",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  "trace_integrity": {
+    "total_traces_monitored": 2,
+    "traces_intact": 1,
+    "traces_mutated": 1,
+    "mutations": [
+      {
+        "trace_id": "trace-audit-002",
+        "timestamp": "2026-06-01T10:38:42.958320+00:00",
+        "original": "original-value-002",
+        "mutated_to": "MUTATED-value-002",
+        "severity": "CRITICAL"
+      }
+    ],
+    "integrity_percentage": 50.0
+  },
+  "constitutional_compliance": {
+    "sanskar_identity": {
+      "declared": "bounded_intelligence_producer",
+      "compliant": true,
+      "note": "SANSKAR does not make governance decisions"
+    },
+    "rajya_identity": {
+      "declared": "governance_authority",
+      "compliant": true,
+      "note": "RAJYA owns all governance decisions"
+    },
+    "enforcement_identity": {
+      "declared": "boundary_enforcer",
+      "compliant": true,
+      "note": "ENFORCEMENT ensures fail-closed behavior"
+    },
+    "overall_constitutional_alignment": "COMPLIANT"
+  },
+  "audit_log": [
+    {
+      "test": "SANSKAR ranking",
+      "result": "PASSED"
+    },
+    {
+      "test": "SANSKAR governance",
+      "result": "BLOCKED"
+    },
+    {
+      "test": "RAJYA governance",
+      "result": "PASSED"
+    },
+    {
+      "test": "RAJYA ranking",
+      "result": "BLOCKED"
+    },
+    {
+      "test": "ENFORCEMENT enforcement",
+      "result": "PASSED"
+    },
+    {
+      "test": "SANSKAR identity",
+      "result": "CANONICAL"
+    },
+    {
+      "test": "RAJYA identity",
+      "result": "CANONICAL"
+    }
+  ]
+}

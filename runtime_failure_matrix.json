@@ -1,0 +1,90 @@
+{
+  "proof_type": "runtime_failure_matrix",
+  "timestamp": "2026-06-01T10:37:37.351422+00:00",
+  "failure_events": [
+    {
+      "scenario": "rajya_unavailable",
+      "timestamp": "2026-06-01T10:37:35.178376+00:00",
+      "failure_point": "SANSKAR\u2192RAJYA boundary",
+      "error": "connection_refused",
+      "service_down": "RAJYA"
+    },
+    {
+      "scenario": "bucket_timeout",
+      "timestamp": "2026-06-01T10:37:35.430846+00:00",
+      "failure_point": "RAJYA\u2192Bucket boundary",
+      "error": "write_timeout",
+      "timeout_ms": 3000
+    },
+    {
+      "scenario": "insight_degraded",
+      "timestamp": "2026-06-01T10:37:36.134028+00:00",
+      "failure_point": "Bucket\u2192InsightBridge boundary",
+      "status": "degraded",
+      "collectors_ok": [
+        "prometheus",
+        "jaeger"
+      ],
+      "collectors_down": [
+        "datadog"
+      ],
+      "success_percentage": 66.7
+    },
+    {
+      "scenario": "network_partition",
+      "timestamp": "2026-06-01T10:37:36.134166+00:00",
+      "failure_point": "all_boundaries",
+      "error": "network_unreachable",
+      "affected_services": [
+        "SANSKAR",
+        "RAJYA",
+        "Bucket",
+        "InsightBridge"
+      ]
+    },
+    {
+      "scenario": "schema_skew",
+      "timestamp": "2026-06-01T10:37:36.638011+00:00",
+      "failure_point": "SANSKAR\u2192RAJYA boundary",
+      "error": "schema_mismatch",
+      "producer_version": "v1",
+      "consumer_version": "v2",
+      "missing_field": "confidence_explanation"
+    },
+    {
+      "scenario": "disagreement",
+      "timestamp": "2026-06-01T10:37:36.738866+00:00",
+      "failure_point": "SANSKAR\u2194RAJYA disagreement",
+      "error": "priority_mismatch",
+      "sanskar_ranking": [
+        "North",
+        "East",
+        "West"
+      ],
+      "rajya_ranking": [
+        "East",
+        "North",
+        "West"
+      ]
+    },
+    {
+      "scenario": "partial_crash",
+      "timestamp": "2026-06-01T10:37:36.941774+00:00",
+      "failure_point": "ENFORCEMENT service process",
+      "error": "process_crash",
+      "crashed_service": "ENFORCEMENT",
+      "cause": "out_of_memory",
+      "pid": 91676
+    }
+  ],
+  "total_failures_injected": 7,
+  "recovery_strategies_used": [
+    "circuit_breaker_fail_safe",
+    "local_governance_check",
+    "backward_compatibility_shim",
+    "graceful_degradation",
+    "replay_arbitration",
+    "exponential_backoff_retry",
+    "service_restart_with_replay"
+  ]
+}

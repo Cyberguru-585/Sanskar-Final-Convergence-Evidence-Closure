@@ -1,325 +1,61 @@
 {
-  "phase": "Phase 1: Canonical Plug-and-Play Runtime Package",
-  "date": "2026-05-28",
-  "title": "Runtime Boot Proof - Environment Portability Validation",
-  "status": "VERIFIED",
-  
-  "executive_summary": {
-    "claim": "SANSKAR runtime boots successfully across all deployment profiles without hardcoded local assumptions",
-    "verification_timestamp": "2026-05-28T14:32:00Z",
-    "test_scope": "5 deployment scenarios, 3 configuration profiles, single-command startup/shutdown/health",
-    "all_tests_passed": true,
-    "zero_hardcoded_assumptions": true
-  },
-  
-  "boot_tests": {
-    "test_1_development_isolated": {
-      "profile": "development",
-      "deployment": "standalone",
-      "environment": "runtime_config/integration_profiles/development.env",
-      "command": "./run.sh --profile development",
-      "expected_outcome": "Isolated single-process SANSKAR without external dependencies",
-      "actual_outcome": "PASS",
-      "verification": {
-        "boot_time_ms": 245,
-        "startup_error_handling": "graceful",
-        "configuration_loaded": true,
-        "configuration_source": "environment variable stack (no hardcoding)",
-        "health_check_passed": true,
-        "trace_id_initialized": "dev-boot-2026-05-28-001",
-        "observability_enabled": true,
-        "shutdown_time_ms": 89
-      },
-      "proof": {
-        "runtime_config_stack": [
-          "runtime_config/environment/default.env (base)",
-          "runtime_config/integration_profiles/development.env (override)",
-          "environment_variables (no hardcoded paths)"
-        ],
-        "zero_hardcoded_assumptions": [
-          "✓ No hardcoded port: SANSKAR_PORT from env",
-          "✓ No hardcoded database path: SANSKAR_DB_PATH from env",
-          "✓ No hardcoded service endpoints: resolved from config",
-          "✓ No hardcoded trace storage: configurable",
-          "✓ No hardcoded observability backend: configurable via OBSERVABILITY_BACKEND"
-        ]
-      }
+  "proof_type": "runtime_boot_proof",
+  "timestamp": "2026-06-01T10:24:58.986193+00:00",
+  "boot_duration_seconds": 13.626766,
+  "participants_started": 3,
+  "boot_sequence": [
+    {
+      "timestamp": "2026-06-01T10:24:45.358908+00:00",
+      "event": "boot_sequence_start"
     },
-    
-    "test_2_integration_with_tantra": {
-      "profile": "integration",
-      "deployment": "standalone",
-      "environment": "runtime_config/integration_profiles/integration.env",
-      "command": "./run.sh --profile integration",
-      "expected_outcome": "SANSKAR ready to exchange contracts with TANTRA services",
-      "actual_outcome": "PASS",
-      "verification": {
-        "boot_time_ms": 312,
-        "startup_error_handling": "graceful with retry",
-        "configuration_loaded": true,
-        "rajya_endpoint_discovered": "http://localhost:8001",
-        "bucket_endpoint_discovered": "http://localhost:8002",
-        "insight_bridge_endpoint_discovered": "http://localhost:8003",
-        "contract_schema_validated": true,
-        "health_check_passed": true,
-        "trace_propagation_ready": true,
-        "shutdown_time_ms": 145
-      },
-      "proof": {
-        "portability_validation": [
-          "✓ Service endpoints from environment, not hardcoded",
-          "✓ Contract schemas validated at boot, not assumed",
-          "✓ Retry logic for service discovery (not fatal if delayed)",
-          "✓ Schema versioning negotiated automatically",
-          "✓ Trace propagation setup through config"
-        ]
-      }
+    {
+      "timestamp": "2026-06-01T10:24:45.398300+00:00",
+      "event": "sanskar_process_started",
+      "pid": 91568
     },
-    
-    "test_3_staging_high_availability": {
-      "profile": "staging",
-      "deployment": "docker",
-      "environment": "runtime_config/integration_profiles/staging.env",
-      "command": "./run.sh --profile staging --deployment docker",
-      "expected_outcome": "SANSKAR boots with HA config (replication, health checks, SLA enforcement)",
-      "actual_outcome": "PASS",
-      "verification": {
-        "boot_time_ms": 456,
-        "startup_error_handling": "strict (fail-fast on validation)",
-        "configuration_loaded": true,
-        "replicas_configured": 3,
-        "health_check_interval_seconds": 30,
-        "sla_enforcement_enabled": true,
-        "circuit_breaker_enabled": true,
-        "graceful_degradation_enabled": true,
-        "shutdown_time_ms": 234,
-        "zero_data_loss": true
-      },
-      "proof": {
-        "staging_readiness": [
-          "✓ Multi-replica configuration from environment",
-          "✓ Health checks integrated (no manual verification needed)",
-          "✓ SLA enforcement active (timeouts, retry budgets)",
-          "✓ Circuit breaker prevents cascade failures",
-          "✓ Graceful shutdown preserves event log"
-        ]
-      }
+    {
+      "timestamp": "2026-06-01T10:24:45.916631+00:00",
+      "event": "rajya_process_started",
+      "pid": 70304
     },
-    
-    "test_4_production_locked_down": {
-      "profile": "production",
-      "deployment": "kubernetes",
-      "environment": "runtime_config/integration_profiles/production.env",
-      "command": "./run.sh --profile production --deployment kubernetes",
-      "expected_outcome": "SANSKAR boots with strict security, audit, and compliance enforcement",
-      "actual_outcome": "PASS",
-      "verification": {
-        "boot_time_ms": 623,
-        "startup_error_handling": "ultra-strict (no compromises)",
-        "configuration_loaded": true,
-        "configuration_immutable": true,
-        "security_context_validated": true,
-        "tls_enforcement": true,
-        "audit_logging_enabled": true,
-        "compliance_mode": "strict",
-        "governance_boundaries_enforced": true,
-        "shutdown_time_ms": 456,
-        "zero_unauthorized_access": true
-      },
-      "proof": {
-        "production_hardening": [
-          "✓ Configuration immutable after boot",
-          "✓ TLS required for all endpoints",
-          "✓ Audit trail of all operations",
-          "✓ Constitutional boundaries enforced",
-          "✓ Graceful shutdown with SLA guarantees"
-        ]
-      }
+    {
+      "timestamp": "2026-06-01T10:24:46.463204+00:00",
+      "event": "enforcement_process_started",
+      "pid": 91676
     },
-    
-    "test_5_command_line_override": {
-      "profile": "development",
-      "deployment": "standalone",
-      "command": "./run.sh --profile development --port 9999 --trace-backend custom-backend --db-path /custom/path",
-      "expected_outcome": "Environment variables respect command-line overrides without requiring config edits",
-      "actual_outcome": "PASS",
-      "verification": {
-        "boot_time_ms": 278,
-        "port_override_applied": 9999,
-        "trace_backend_override_applied": "custom-backend",
-        "db_path_override_applied": "/custom/path",
-        "no_config_file_modification": true,
-        "health_check_passed": true,
-        "shutdown_time_ms": 102
-      },
-      "proof": {
-        "cli_override_priority": [
-          "✓ Command-line args override profile config",
-          "✓ Profile config overrides default config",
-          "✓ Default config has sensible fallbacks",
-          "✓ Zero config file modification needed",
-          "✓ Full portability: same code, different invocation"
-        ]
-      }
+    {
+      "timestamp": "2026-06-01T10:24:46.964156+00:00",
+      "event": "all_services_started",
+      "count": 3
+    },
+    {
+      "timestamp": "2026-06-01T10:24:58.970241+00:00",
+      "event": "shutdown_sequence_start"
+    },
+    {
+      "timestamp": "2026-06-01T10:24:58.973405+00:00",
+      "event": "sanskar-001_shutdown",
+      "pid": 91568
+    },
+    {
+      "timestamp": "2026-06-01T10:24:58.979013+00:00",
+      "event": "rajya-002_shutdown",
+      "pid": 70304
+    },
+    {
+      "timestamp": "2026-06-01T10:24:58.984105+00:00",
+      "event": "enforcement-003_shutdown",
+      "pid": 91676
+    },
+    {
+      "timestamp": "2026-06-01T10:24:58.984680+00:00",
+      "event": "all_services_stopped"
     }
+  ],
+  "service_pids": {
+    "sanskar-001": 91568,
+    "rajya-002": 70304,
+    "enforcement-003": 91676
   },
-  
-  "health_check_proof": {
-    "test_command": "./health_check.sh",
-    "verification_timestamp": "2026-05-28T14:45:00Z",
-    "all_checks_passed": true,
-    "health_metrics": {
-      "runtime_process_alive": true,
-      "event_sourcing_store_accessible": true,
-      "observability_backend_reachable": true,
-      "trace_propagation_functional": true,
-      "constitutional_enforcement_active": true,
-      "graceful_shutdown_capability": true
-    },
-    "output": {
-      "sample_health_report": {
-        "timestamp": "2026-05-28T14:45:00Z",
-        "status": "HEALTHY",
-        "process_uptime_seconds": 123,
-        "event_count": 892,
-        "trace_lineage_integrity": "verified",
-        "governance_violations": 0,
-        "observability_lag_ms": 45,
-        "last_heartbeat": "2026-05-28T14:45:00Z"
-      }
-    }
-  },
-  
-  "shutdown_proof": {
-    "test_command": "./shutdown.sh",
-    "verification_timestamp": "2026-05-28T14:52:00Z",
-    "graceful_shutdown_confirmed": true,
-    "shutdown_tests": [
-      {
-        "scenario": "Graceful shutdown after stable operation",
-        "event_flush_complete": true,
-        "trace_lineage_preserved": true,
-        "event_log_persisted": true,
-        "zero_data_loss": true,
-        "shutdown_time_ms": 143
-      },
-      {
-        "scenario": "Shutdown during active operations",
-        "event_flush_complete": true,
-        "in_flight_requests_drained": true,
-        "replay_continuity_ensured": true,
-        "zero_data_loss": true,
-        "shutdown_time_ms": 267
-      },
-      {
-        "scenario": "Shutdown during observability burst",
-        "telemetry_flush_complete": true,
-        "trace_correlation_preserved": true,
-        "observability_lag_resolved": true,
-        "zero_data_loss": true,
-        "shutdown_time_ms": 189
-      }
-    ]
-  },
-  
-  "portability_checklist": {
-    "zero_hardcoded_local_assumptions": {
-      "no_hardcoded_ports": "✓ All ports from environment",
-      "no_hardcoded_paths": "✓ All paths configurable",
-      "no_hardcoded_hostnames": "✓ All resolved from service discovery or config",
-      "no_hardcoded_backends": "✓ All backends configurable",
-      "no_hardcoded_credentials": "✓ All credentials from secure config (not in code)",
-      "no_hardcoded_profiles": "✓ Profile selection via CLI or environment"
-    },
-    "single_launch_command": {
-      "development": "✓ ./run.sh --profile development",
-      "integration": "✓ ./run.sh --profile integration",
-      "staging": "✓ ./run.sh --profile staging",
-      "production": "✓ ./run.sh --profile production",
-      "custom": "✓ ./run.sh --profile custom --port 9000 [other overrides]"
-    },
-    "single_shutdown_command": "✓ ./shutdown.sh (works from any profile)",
-    "single_health_command": "✓ ./health_check.sh (works from any profile)"
-  },
-  
-  "configuration_immutability_proof": {
-    "claim": "Runtime configuration is deterministic and reproducible",
-    "test_method": "Boot twice with identical environment, verify identical configuration",
-    "test_results": {
-      "boot_1_timestamp": "2026-05-28T14:30:00Z",
-      "boot_2_timestamp": "2026-05-28T14:30:30Z",
-      "configuration_hash_boot1": "ae4c8f2b9d7e3c1a6f4b2e9d8c5a1f7b",
-      "configuration_hash_boot2": "ae4c8f2b9d7e3c1a6f4b2e9d8c5a1f7b",
-      "hashes_match": true,
-      "deterministic": true
-    }
-  },
-  
-  "deployment_profile_examples": {
-    "development": {
-      "profile_file": "runtime_config/integration_profiles/development.env",
-      "key_settings": {
-        "SANSKAR_PORT": "8000",
-        "SANSKAR_ENV": "development",
-        "OBSERVABILITY_BACKEND": "stdout",
-        "TRACE_STORAGE": "memory",
-        "EXTERNAL_VERIFICATION_ENABLED": "false",
-        "SLA_ENFORCEMENT": "disabled"
-      },
-      "use_case": "Local development, fast iteration, no external dependencies"
-    },
-    "integration": {
-      "profile_file": "runtime_config/integration_profiles/integration.env",
-      "key_settings": {
-        "SANSKAR_PORT": "8000",
-        "SANSKAR_ENV": "integration",
-        "RAJYA_ENDPOINT": "http://rajya:8001",
-        "BUCKET_ENDPOINT": "http://bucket:8002",
-        "INSIGHT_BRIDGE_ENDPOINT": "http://insight-bridge:8003",
-        "OBSERVABILITY_BACKEND": "collector",
-        "TRACE_STORAGE": "persistent",
-        "EXTERNAL_VERIFICATION_ENABLED": "true"
-      },
-      "use_case": "Integration testing with other TANTRA services"
-    },
-    "staging": {
-      "profile_file": "runtime_config/integration_profiles/staging.env",
-      "key_settings": {
-        "SANSKAR_REPLICAS": "3",
-        "SANSKAR_ENV": "staging",
-        "HEALTH_CHECK_INTERVAL": "30",
-        "SLA_ENFORCEMENT": "enabled",
-        "CIRCUIT_BREAKER_THRESHOLD": "5",
-        "GRACEFUL_DEGRADATION": "enabled"
-      },
-      "use_case": "High-availability testing before production"
-    },
-    "production": {
-      "profile_file": "runtime_config/integration_profiles/production.env",
-      "key_settings": {
-        "SANSKAR_ENV": "production",
-        "SECURITY_MODE": "strict",
-        "TLS_REQUIRED": "true",
-        "AUDIT_LOGGING": "enabled",
-        "GOVERNANCE_ENFORCEMENT": "strict",
-        "CONFIG_IMMUTABLE": "true",
-        "SLA_ENFORCEMENT": "strict"
-      },
-      "use_case": "Production deployment with compliance and security hardening"
-    }
-  },
-  
-  "conclusion": {
-    "claim_verified": "Runtime package is portable, repeatable, and deployment-ready",
-    "hardcoded_assumptions": 0,
-    "environment_variables_required": 15,
-    "configuration_profiles": 4,
-    "deployment_targets": 3,
-    "single_launch_confirmed": true,
-    "single_shutdown_confirmed": true,
-    "single_health_check_confirmed": true,
-    "determinism_verified": true,
-    "portability_verified": true,
-    "readiness": "Phase 1 COMPLETE - READY FOR PHASE 2"
-  }
+  "status": "PASS"
 }

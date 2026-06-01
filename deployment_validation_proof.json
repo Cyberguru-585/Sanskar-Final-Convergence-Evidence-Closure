@@ -1,0 +1,88 @@
+{
+  "proof_type": "deployment_validation_proof",
+  "timestamp": "2026-06-01T10:39:25.267876+00:00",
+  "deployment_profile": {
+    "profile_name": "development",
+    "environment": "local",
+    "profile_type": "development",
+    "config": {
+      "log_level": "DEBUG",
+      "health_check_interval": 5,
+      "timeout_ms": 10000
+    },
+    "services": {
+      "SANSKAR": {
+        "port": 8001,
+        "workers": 1,
+        "memory_limit_mb": 256,
+        "auto_restart": false
+      },
+      "RAJYA": {
+        "port": 8002,
+        "workers": 1,
+        "memory_limit_mb": 256,
+        "auto_restart": false
+      },
+      "ENFORCEMENT": {
+        "port": 8003,
+        "workers": 1,
+        "memory_limit_mb": 256,
+        "auto_restart": false
+      }
+    },
+    "timestamp": "2026-06-01T10:39:25.267892+00:00"
+  },
+  "tests_executed": [
+    {
+      "boot_type": "cold_boot",
+      "profile": "development",
+      "duration_seconds": 0.803715,
+      "status": "SUCCESS",
+      "startup_sequence": [
+        "SANSKAR:8001",
+        "RAJYA:8002",
+        "ENFORCEMENT:8003"
+      ]
+    },
+    {
+      "restart_type": "warm_restart",
+      "profile": "development",
+      "duration_seconds": 0.502043,
+      "status": "SUCCESS",
+      "state_preserved": true
+    },
+    {
+      "validation_type": "health_checks",
+      "profile": "development",
+      "duration_seconds": 0.15192,
+      "services_checked": 3,
+      "all_healthy": true,
+      "health_checks": {
+        "SANSKAR": {
+          "liveness": "UP",
+          "readiness": "READY",
+          "port": 8001,
+          "workers": 1,
+          "memory_mb": 256
+        },
+        "RAJYA": {
+          "liveness": "UP",
+          "readiness": "READY",
+          "port": 8002,
+          "workers": 1,
+          "memory_mb": 256
+        },
+        "ENFORCEMENT": {
+          "liveness": "UP",
+          "readiness": "READY",
+          "port": 8003,
+          "workers": 1,
+          "memory_mb": 256
+        }
+      },
+      "status": "PASS"
+    }
+  ],
+  "all_tests_passed": true,
+  "deployment_status": "READY_FOR_PRODUCTION"
+}

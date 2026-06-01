@@ -1,0 +1,30 @@
+{
+  "proof_type": "authority_violation_detector_report",
+  "timestamp": "2026-06-01T10:38:42.961265+00:00",
+  "violations_detected": 2,
+  "violations": [
+    {
+      "event_id": "gov-20260601103842-8784",
+      "timestamp": "2026-06-01T10:38:42.957355+00:00",
+      "event_type": "authority_exceeded",
+      "service": "SANSKAR",
+      "severity": "CRITICAL",
+      "detail": {
+        "action": "governance_decisions",
+        "reason": "Outside service authority"
+      }
+    },
+    {
+      "event_id": "gov-20260601103842-2480",
+      "timestamp": "2026-06-01T10:38:42.957434+00:00",
+      "event_type": "authority_exceeded",
+      "service": "RAJYA",
+      "severity": "CRITICAL",
+      "detail": {
+        "action": "ranking",
+        "reason": "Outside service authority"
+      }
+    }
+  ],
+  "status": "VIOLATIONS_BLOCKED"
+}

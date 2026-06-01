@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-06-01T10:24:08.593044+00:00",
+  "total_registered": 3,
+  "healthy_services": 3,
+  "services": [
+    {
+      "service_id": "sanskar-001",
+      "service_name": "SANSKAR",
+      "endpoint": {
+        "hostname": "localhost",
+        "port": 8001,
+        "protocol": "http",
+        "url": "http://localhost:8001"
+      },
+      "readiness": true,
+      "liveness": true
+    },
+    {
+      "service_id": "rajya-002",
+      "service_name": "RAJYA",
+      "endpoint": {
+        "hostname": "localhost",
+        "port": 8002,
+        "protocol": "http",
+        "url": "http://localhost:8002"
+      },
+      "readiness": true,
+      "liveness": true
+    },
+    {
+      "service_id": "enforcement-003",
+      "service_name": "ENFORCEMENT",
+      "endpoint": {
+        "hostname": "localhost",
+        "port": 8003,
+        "protocol": "http",
+        "url": "http://localhost:8003"
+      },
+      "readiness": true,
+      "liveness": true
+    }
+  ]
+}

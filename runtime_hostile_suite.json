@@ -1,0 +1,293 @@
+{
+  "proof_type": "runtime_hostile_suite",
+  "timestamp": "2026-06-01T10:37:37.347081+00:00",
+  "total_scenarios": 7,
+  "scenarios": [
+    {
+      "scenario": "rajya_unavailable",
+      "failure": {
+        "scenario": "rajya_unavailable",
+        "timestamp": "2026-06-01T10:37:35.178376+00:00",
+        "failure_point": "SANSKAR\u2192RAJYA boundary",
+        "error": "connection_refused",
+        "service_down": "RAJYA"
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:35.279065+00:00",
+        "failure": "rajya_unavailable",
+        "recovery_strategy": "local_governance_check",
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 301
+      },
+      "status": "SURVIVED"
+    },
+    {
+      "scenario": "bucket_timeout",
+      "failure": {
+        "scenario": "bucket_timeout",
+        "timestamp": "2026-06-01T10:37:35.430846+00:00",
+        "failure_point": "RAJYA\u2192Bucket boundary",
+        "error": "write_timeout",
+        "timeout_ms": 3000
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:36.133877+00:00",
+        "failure": "bucket_timeout",
+        "recovery_strategy": "exponential_backoff_retry",
+        "retries_attempted": 3,
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 853
+      },
+      "status": "SURVIVED"
+    },
+    {
+      "scenario": "insight_degraded",
+      "failure": {
+        "scenario": "insight_degraded",
+        "timestamp": "2026-06-01T10:37:36.134028+00:00",
+        "failure_point": "Bucket\u2192InsightBridge boundary",
+        "status": "degraded",
+        "collectors_ok": [
+          "prometheus",
+          "jaeger"
+        ],
+        "collectors_down": [
+          "datadog"
+        ],
+        "success_percentage": 66.7
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:36.134103+00:00",
+        "failure": "insight_degraded",
+        "recovery_strategy": "graceful_degradation",
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 0
+      },
+      "status": "SURVIVED"
+    },
+    {
+      "scenario": "network_partition",
+      "failure": {
+        "scenario": "network_partition",
+        "timestamp": "2026-06-01T10:37:36.134166+00:00",
+        "failure_point": "all_boundaries",
+        "error": "network_unreachable",
+        "affected_services": [
+          "SANSKAR",
+          "RAJYA",
+          "Bucket",
+          "InsightBridge"
+        ]
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:36.636918+00:00",
+        "failure": "network_partition",
+        "recovery_strategy": "circuit_breaker_fail_safe",
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 502
+      },
+      "status": "SURVIVED"
+    },
+    {
+      "scenario": "schema_skew",
+      "failure": {
+        "scenario": "schema_skew",
+        "timestamp": "2026-06-01T10:37:36.638011+00:00",
+        "failure_point": "SANSKAR\u2192RAJYA boundary",
+        "error": "schema_mismatch",
+        "producer_version": "v1",
+        "consumer_version": "v2",
+        "missing_field": "confidence_explanation"
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:36.738738+00:00",
+        "failure": "schema_skew",
+        "recovery_strategy": "backward_compatibility_shim",
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 101
+      },
+      "status": "SURVIVED"
+    },
+    {
+      "scenario": "disagreement",
+      "failure": {
+        "scenario": "disagreement",
+        "timestamp": "2026-06-01T10:37:36.738866+00:00",
+        "failure_point": "SANSKAR\u2194RAJYA disagreement",
+        "error": "priority_mismatch",
+        "sanskar_ranking": [
+          "North",
+          "East",
+          "West"
+        ],
+        "rajya_ranking": [
+          "East",
+          "North",
+          "West"
+        ]
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:36.939523+00:00",
+        "failure": "disagreement",
+        "recovery_strategy": "replay_arbitration",
+        "arbitration_result": "RAJYA_authority_preferred",
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 200
+      },
+      "status": "SURVIVED"
+    },
+    {
+      "scenario": "partial_crash",
+      "failure": {
+        "scenario": "partial_crash",
+        "timestamp": "2026-06-01T10:37:36.941774+00:00",
+        "failure_point": "ENFORCEMENT service process",
+        "error": "process_crash",
+        "crashed_service": "ENFORCEMENT",
+        "cause": "out_of_memory",
+        "pid": 91676
+      },
+      "recovery": {
+        "timestamp": "2026-06-01T10:37:37.344464+00:00",
+        "failure": "partial_crash",
+        "recovery_strategy": "service_restart_with_replay",
+        "new_pid": 91700,
+        "outcome": "RECOVERED",
+        "recovery_time_ms": 404
+      },
+      "status": "SURVIVED"
+    }
+  ],
+  "all_failures": [
+    {
+      "scenario": "rajya_unavailable",
+      "timestamp": "2026-06-01T10:37:35.178376+00:00",
+      "failure_point": "SANSKAR\u2192RAJYA boundary",
+      "error": "connection_refused",
+      "service_down": "RAJYA"
+    },
+    {
+      "scenario": "bucket_timeout",
+      "timestamp": "2026-06-01T10:37:35.430846+00:00",
+      "failure_point": "RAJYA\u2192Bucket boundary",
+      "error": "write_timeout",
+      "timeout_ms": 3000
+    },
+    {
+      "scenario": "insight_degraded",
+      "timestamp": "2026-06-01T10:37:36.134028+00:00",
+      "failure_point": "Bucket\u2192InsightBridge boundary",
+      "status": "degraded",
+      "collectors_ok": [
+        "prometheus",
+        "jaeger"
+      ],
+      "collectors_down": [
+        "datadog"
+      ],
+      "success_percentage": 66.7
+    },
+    {
+      "scenario": "network_partition",
+      "timestamp": "2026-06-01T10:37:36.134166+00:00",
+      "failure_point": "all_boundaries",
+      "error": "network_unreachable",
+      "affected_services": [
+        "SANSKAR",
+        "RAJYA",
+        "Bucket",
+        "InsightBridge"
+      ]
+    },
+    {
+      "scenario": "schema_skew",
+      "timestamp": "2026-06-01T10:37:36.638011+00:00",
+      "failure_point": "SANSKAR\u2192RAJYA boundary",
+      "error": "schema_mismatch",
+      "producer_version": "v1",
+      "consumer_version": "v2",
+      "missing_field": "confidence_explanation"
+    },
+    {
+      "scenario": "disagreement",
+      "timestamp": "2026-06-01T10:37:36.738866+00:00",
+      "failure_point": "SANSKAR\u2194RAJYA disagreement",
+      "error": "priority_mismatch",
+      "sanskar_ranking": [
+        "North",
+        "East",
+        "West"
+      ],
+      "rajya_ranking": [
+        "East",
+        "North",
+        "West"
+      ]
+    },
+    {
+      "scenario": "partial_crash",
+      "timestamp": "2026-06-01T10:37:36.941774+00:00",
+      "failure_point": "ENFORCEMENT service process",
+      "error": "process_crash",
+      "crashed_service": "ENFORCEMENT",
+      "cause": "out_of_memory",
+      "pid": 91676
+    }
+  ],
+  "all_recoveries": [
+    {
+      "timestamp": "2026-06-01T10:37:35.279065+00:00",
+      "failure": "rajya_unavailable",
+      "recovery_strategy": "local_governance_check",
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 301
+    },
+    {
+      "timestamp": "2026-06-01T10:37:36.133877+00:00",
+      "failure": "bucket_timeout",
+      "recovery_strategy": "exponential_backoff_retry",
+      "retries_attempted": 3,
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 853
+    },
+    {
+      "timestamp": "2026-06-01T10:37:36.134103+00:00",
+      "failure": "insight_degraded",
+      "recovery_strategy": "graceful_degradation",
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 0
+    },
+    {
+      "timestamp": "2026-06-01T10:37:36.636918+00:00",
+      "failure": "network_partition",
+      "recovery_strategy": "circuit_breaker_fail_safe",
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 502
+    },
+    {
+      "timestamp": "2026-06-01T10:37:36.738738+00:00",
+      "failure": "schema_skew",
+      "recovery_strategy": "backward_compatibility_shim",
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 101
+    },
+    {
+      "timestamp": "2026-06-01T10:37:36.939523+00:00",
+      "failure": "disagreement",
+      "recovery_strategy": "replay_arbitration",
+      "arbitration_result": "RAJYA_authority_preferred",
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 200
+    },
+    {
+      "timestamp": "2026-06-01T10:37:37.344464+00:00",
+      "failure": "partial_crash",
+      "recovery_strategy": "service_restart_with_replay",
+      "new_pid": 91700,
+      "outcome": "RECOVERED",
+      "recovery_time_ms": 404
+    }
+  ],
+  "execution_time_seconds": 2.366995,
+  "survival_rate": "100.0%"
+}
