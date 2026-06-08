@@ -1,6 +1,6 @@
 {
   "proof_type": "deployment_validation_proof",
-  "timestamp": "2026-06-01T10:39:25.267876+00:00",
+  "timestamp": "2026-06-07T06:07:06.065774+00:00",
   "deployment_profile": {
     "profile_name": "development",
     "environment": "local",
@@ -30,13 +30,13 @@
         "auto_restart": false
       }
     },
-    "timestamp": "2026-06-01T10:39:25.267892+00:00"
+    "timestamp": "2026-06-07T06:07:06.065814+00:00"
   },
   "tests_executed": [
     {
       "boot_type": "cold_boot",
       "profile": "development",
-      "duration_seconds": 0.803715,
+      "duration_seconds": 0.845047,
       "status": "SUCCESS",
       "startup_sequence": [
         "SANSKAR:8001",
@@ -47,14 +47,14 @@
     {
       "restart_type": "warm_restart",
       "profile": "development",
-      "duration_seconds": 0.502043,
+      "duration_seconds": 0.563863,
       "status": "SUCCESS",
       "state_preserved": true
     },
     {
       "validation_type": "health_checks",
       "profile": "development",
-      "duration_seconds": 0.15192,
+      "duration_seconds": 0.193533,
       "services_checked": 3,
       "all_healthy": true,
       "health_checks": {
@@ -84,5 +84,5 @@
     }
   ],
   "all_tests_passed": true,
-  "deployment_status": "READY_FOR_PRODUCTION"
+  "deployment_status": "OPERATIONAL_PROTOTYPE - DEPLOYMENT CANDIDATE"
 }

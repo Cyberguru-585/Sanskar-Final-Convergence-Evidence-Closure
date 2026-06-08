@@ -1,61 +1,61 @@
 {
   "proof_type": "runtime_boot_proof",
-  "timestamp": "2026-06-01T10:24:58.986193+00:00",
-  "boot_duration_seconds": 13.626766,
+  "timestamp": "2026-06-06T18:12:39.501015+00:00",
+  "boot_duration_seconds": 13.867952,
   "participants_started": 3,
   "boot_sequence": [
     {
-      "timestamp": "2026-06-01T10:24:45.358908+00:00",
+      "timestamp": "2026-06-06T18:12:25.633585+00:00",
       "event": "boot_sequence_start"
     },
     {
-      "timestamp": "2026-06-01T10:24:45.398300+00:00",
+      "timestamp": "2026-06-06T18:12:25.715595+00:00",
       "event": "sanskar_process_started",
-      "pid": 91568
+      "pid": 11016
     },
     {
-      "timestamp": "2026-06-01T10:24:45.916631+00:00",
+      "timestamp": "2026-06-06T18:12:26.431076+00:00",
       "event": "rajya_process_started",
-      "pid": 70304
+      "pid": 6568
     },
     {
-      "timestamp": "2026-06-01T10:24:46.463204+00:00",
+      "timestamp": "2026-06-06T18:12:26.955694+00:00",
       "event": "enforcement_process_started",
-      "pid": 91676
+      "pid": 5104
     },
     {
-      "timestamp": "2026-06-01T10:24:46.964156+00:00",
+      "timestamp": "2026-06-06T18:12:27.457103+00:00",
       "event": "all_services_started",
       "count": 3
     },
     {
-      "timestamp": "2026-06-01T10:24:58.970241+00:00",
+      "timestamp": "2026-06-06T18:12:39.472875+00:00",
       "event": "shutdown_sequence_start"
     },
     {
-      "timestamp": "2026-06-01T10:24:58.973405+00:00",
+      "timestamp": "2026-06-06T18:12:39.477721+00:00",
       "event": "sanskar-001_shutdown",
-      "pid": 91568
+      "pid": 11016
     },
     {
-      "timestamp": "2026-06-01T10:24:58.979013+00:00",
+      "timestamp": "2026-06-06T18:12:39.485925+00:00",
       "event": "rajya-002_shutdown",
-      "pid": 70304
+      "pid": 6568
     },
     {
-      "timestamp": "2026-06-01T10:24:58.984105+00:00",
+      "timestamp": "2026-06-06T18:12:39.497522+00:00",
       "event": "enforcement-003_shutdown",
-      "pid": 91676
+      "pid": 5104
     },
     {
-      "timestamp": "2026-06-01T10:24:58.984680+00:00",
+      "timestamp": "2026-06-06T18:12:39.498727+00:00",
       "event": "all_services_stopped"
     }
   ],
   "service_pids": {
-    "sanskar-001": 91568,
-    "rajya-002": 70304,
-    "enforcement-003": 91676
+    "sanskar-001": 11016,
+    "rajya-002": 6568,
+    "enforcement-003": 5104
   },
   "status": "PASS"
 }

@@ -29,7 +29,7 @@
           "auto_restart": false
         }
       },
-      "timestamp": "2026-06-01T10:39:25.268922+00:00"
+      "timestamp": "2026-06-07T06:07:06.095158+00:00"
     },
     "staging": {
       "profile_name": "staging",
@@ -60,7 +60,7 @@
           "auto_restart": true
         }
       },
-      "timestamp": "2026-06-01T10:39:25.268932+00:00"
+      "timestamp": "2026-06-07T06:07:06.095195+00:00"
     },
     "production": {
       "profile_name": "production",
@@ -94,7 +94,7 @@
           "replicas": 2
         }
       },
-      "timestamp": "2026-06-01T10:39:25.268934+00:00"
+      "timestamp": "2026-06-07T06:07:06.095202+00:00"
     }
   }
 }
