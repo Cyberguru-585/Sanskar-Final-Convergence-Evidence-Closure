@@ -1,0 +1,57 @@
+{
+  "proof_type": "health",
+  "process_name": "SANSKAR",
+  "timestamp": "2026-06-12T07:14:06.035701Z",
+  "health_checks": [
+    {
+      "iteration": 1,
+      "timestamp": "2026-06-12T07:14:03.831309Z",
+      "status": {
+        "status": "healthy",
+        "timestamp": "2026-06-12T07:14:03.831309Z",
+        "pid": 318576,
+        "uptime_seconds": 0,
+        "checks": {
+          "process": "OK",
+          "trace_infrastructure": "OK",
+          "governance": "OK"
+        }
+      },
+      "healthy": true
+    },
+    {
+      "iteration": 2,
+      "timestamp": "2026-06-12T07:14:04.869809Z",
+      "status": {
+        "status": "healthy",
+        "timestamp": "2026-06-12T07:14:04.869809Z",
+        "pid": 318576,
+        "uptime_seconds": 1,
+        "checks": {
+          "process": "OK",
+          "trace_infrastructure": "OK",
+          "governance": "OK"
+        }
+      },
+      "healthy": true
+    },
+    {
+      "iteration": 3,
+      "timestamp": "2026-06-12T07:14:06.003602Z",
+      "status": {
+        "status": "healthy",
+        "timestamp": "2026-06-12T07:14:06.003602Z",
+        "pid": 318576,
+        "uptime_seconds": 2,
+        "checks": {
+          "process": "OK",
+          "trace_infrastructure": "OK",
+          "governance": "OK"
+        }
+      },
+      "healthy": true
+    }
+  ],
+  "overall_healthy": true,
+  "check_count": 3
+}

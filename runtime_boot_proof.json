@@ -1,61 +1,33 @@
 {
-  "proof_type": "runtime_boot_proof",
-  "timestamp": "2026-06-06T18:12:39.501015+00:00",
-  "boot_duration_seconds": 13.867952,
-  "participants_started": 3,
-  "boot_sequence": [
+  "proof_type": "boot",
+  "process_name": "SANSKAR",
+  "start_timestamp": "2026-06-12T07:14:02.550329Z",
+  "end_timestamp": "2026-06-12T07:14:02.645357Z",
+  "pid": 318988,
+  "command": [
+    "C:\\Python314\\python.exe",
+    "C:\\Users\\saksh\\Downloads\\TASK 6\\_boot_test.py"
+  ],
+  "environment": {},
+  "exit_code": null,
+  "snapshots": [
     {
-      "timestamp": "2026-06-06T18:12:25.633585+00:00",
-      "event": "boot_sequence_start"
+      "timestamp": "2026-06-12T07:14:02.645232Z",
+      "pid": 318988,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
     },
     {
-      "timestamp": "2026-06-06T18:12:25.715595+00:00",
-      "event": "sanskar_process_started",
-      "pid": 11016
-    },
-    {
-      "timestamp": "2026-06-06T18:12:26.431076+00:00",
-      "event": "rajya_process_started",
-      "pid": 6568
-    },
-    {
-      "timestamp": "2026-06-06T18:12:26.955694+00:00",
-      "event": "enforcement_process_started",
-      "pid": 5104
-    },
-    {
-      "timestamp": "2026-06-06T18:12:27.457103+00:00",
-      "event": "all_services_started",
-      "count": 3
-    },
-    {
-      "timestamp": "2026-06-06T18:12:39.472875+00:00",
-      "event": "shutdown_sequence_start"
-    },
-    {
-      "timestamp": "2026-06-06T18:12:39.477721+00:00",
-      "event": "sanskar-001_shutdown",
-      "pid": 11016
-    },
-    {
-      "timestamp": "2026-06-06T18:12:39.485925+00:00",
-      "event": "rajya-002_shutdown",
-      "pid": 6568
-    },
-    {
-      "timestamp": "2026-06-06T18:12:39.497522+00:00",
-      "event": "enforcement-003_shutdown",
-      "pid": 5104
-    },
-    {
-      "timestamp": "2026-06-06T18:12:39.498727+00:00",
-      "event": "all_services_stopped"
+      "timestamp": "2026-06-12T07:14:02.645328Z",
+      "pid": 318988,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
     }
   ],
-  "service_pids": {
-    "sanskar-001": 11016,
-    "rajya-002": 6568,
-    "enforcement-003": 5104
-  },
-  "status": "PASS"
+  "recovery_time_ms": null,
+  "state_preserved": true
 }

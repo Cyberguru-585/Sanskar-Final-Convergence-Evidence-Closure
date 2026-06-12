@@ -1,0 +1,73 @@
+{
+  "proof_type": "restart",
+  "process_name": "SANSKAR",
+  "start_timestamp": "2026-06-12T07:14:03.470571Z",
+  "end_timestamp": "2026-06-12T07:14:03.552132Z",
+  "pid": 319232,
+  "command": [
+    "C:\\Python314\\python.exe",
+    "C:\\Users\\saksh\\Downloads\\TASK 6\\_restart_test.py"
+  ],
+  "environment": {},
+  "exit_code": null,
+  "snapshots": [
+    {
+      "timestamp": "2026-06-12T07:14:02.863350Z",
+      "pid": 319072,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
+    },
+    {
+      "timestamp": "2026-06-12T07:14:02.863492Z",
+      "pid": 319072,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
+    },
+    {
+      "timestamp": "2026-06-12T07:14:02.866120Z",
+      "pid": 319072,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
+    },
+    {
+      "timestamp": "2026-06-12T07:14:02.866631Z",
+      "pid": 319072,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
+    },
+    {
+      "timestamp": "2026-06-12T07:14:02.967583Z",
+      "pid": 319072,
+      "state": "DEAD",
+      "return_code": 15,
+      "running": false,
+      "memory_usage_mb": null
+    },
+    {
+      "timestamp": "2026-06-12T07:14:03.550857Z",
+      "pid": 319232,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
+    },
+    {
+      "timestamp": "2026-06-12T07:14:03.551331Z",
+      "pid": 319232,
+      "state": "HEALTHY",
+      "return_code": null,
+      "running": true,
+      "memory_usage_mb": null
+    }
+  ],
+  "recovery_time_ms": 685.256,
+  "state_preserved": true
+}

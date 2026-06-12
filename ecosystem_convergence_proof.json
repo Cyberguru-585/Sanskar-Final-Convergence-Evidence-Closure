@@ -1,0 +1,103 @@
+{
+  "proof_type": "ecosystem_convergence",
+  "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+  "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+  "execution_timestamp": "2026-06-12T07:17:10.229903Z",
+  "stages_executed": 5,
+  "trace_continuity_verified": true,
+  "stage_executions": [
+    {
+      "stage": "SANSKAR",
+      "timestamp": "2026-06-12T07:17:10.184249Z",
+      "owner": "SANSKAR",
+      "input_contract_version": "IntelligenceInputContract v1.0",
+      "output_contract_version": "IntelligenceOutputContract v1.0",
+      "input_size_bytes": 208,
+      "output_size_bytes": 485,
+      "processing_time_ms": 1.443,
+      "output_hash": "fcfed652afb1b8112ca8ff3bfacd868ab033b2a3431127d84ab490acd9218ef7",
+      "status": "SUCCESS",
+      "error": null
+    },
+    {
+      "stage": "RAJYA",
+      "timestamp": "2026-06-12T07:17:10.190910Z",
+      "owner": "RAJYA",
+      "input_contract_version": "IntelligenceOutputContract v1.0",
+      "output_contract_version": "GovernanceDecisionContract v1.0",
+      "input_size_bytes": 485,
+      "output_size_bytes": 827,
+      "processing_time_ms": 0.82,
+      "output_hash": "8915c0d7c398521b46b2d67695d0e8a9550b7e94506027f978e772930d1e2f18",
+      "status": "SUCCESS",
+      "error": null
+    },
+    {
+      "stage": "ENFORCEMENT",
+      "timestamp": "2026-06-12T07:17:10.200604Z",
+      "owner": "ENFORCEMENT",
+      "input_contract_version": "GovernanceDecisionContract v1.0",
+      "output_contract_version": "EnforcementDirectiveContract v1.0",
+      "input_size_bytes": 827,
+      "output_size_bytes": 894,
+      "processing_time_ms": 1.663,
+      "output_hash": "66d54a83e9fbeaa5b7ab655c6b6b5133f2aae9b255fe335aa8f27b89333d4718",
+      "status": "SUCCESS",
+      "error": null
+    },
+    {
+      "stage": "BUCKET",
+      "timestamp": "2026-06-12T07:17:10.209425Z",
+      "owner": "BUCKET",
+      "input_contract_version": "EnforcementDirectiveContract v1.0",
+      "output_contract_version": "TruthStoreContract v1.0",
+      "input_size_bytes": 894,
+      "output_size_bytes": 545,
+      "processing_time_ms": 1.9269999999999998,
+      "output_hash": "a63cee7d63c64d34c5337550156d367ac4f6dd9148941c1171d0092bfd92ec7f",
+      "status": "SUCCESS",
+      "error": null
+    },
+    {
+      "stage": "INSIGHT_BRIDGE",
+      "timestamp": "2026-06-12T07:17:10.216133Z",
+      "owner": "INSIGHT_BRIDGE",
+      "input_contract_version": "TruthStoreContract v1.0",
+      "output_contract_version": "ObservabilityEventContract v1.0",
+      "input_size_bytes": 545,
+      "output_size_bytes": 633,
+      "processing_time_ms": 0.847,
+      "output_hash": "41bf10945dd22f60a62c9fffdf842eca1bc89605526852774f752b1f2ff9cf24",
+      "status": "SUCCESS",
+      "error": null
+    }
+  ],
+  "ownership_transfers": [
+    {
+      "from_stage": "SANSKAR",
+      "to_stage": "RAJYA",
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "timestamp": "2026-06-12T07:17:10.190090Z"
+    },
+    {
+      "from_stage": "RAJYA",
+      "to_stage": "ENFORCEMENT",
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "timestamp": "2026-06-12T07:17:10.198941Z"
+    },
+    {
+      "from_stage": "ENFORCEMENT",
+      "to_stage": "BUCKET",
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "timestamp": "2026-06-12T07:17:10.207498Z"
+    },
+    {
+      "from_stage": "BUCKET",
+      "to_stage": "INSIGHT_BRIDGE",
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "timestamp": "2026-06-12T07:17:10.215286Z"
+    }
+  ],
+  "total_execution_time_ms": 6.7,
+  "all_stages_successful": true
+}

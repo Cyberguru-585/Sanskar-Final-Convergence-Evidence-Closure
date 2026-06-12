@@ -1,0 +1,200 @@
+{
+  "proof_type": "full_chain_execution",
+  "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+  "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+  "execution_timestamp": "2026-06-12T07:17:10.230294Z",
+  "stage_outputs": {
+    "SANSKAR": {
+      "entities": [
+        "Region_A",
+        "Region_B",
+        "Region_C"
+      ],
+      "ranking": [
+        {
+          "region": "Region_C",
+          "score": 0.85,
+          "rank": 1
+        },
+        {
+          "region": "Region_A",
+          "score": 0.82,
+          "rank": 2
+        },
+        {
+          "region": "Region_B",
+          "score": 0.78,
+          "rank": 3
+        }
+      ],
+      "confidence": {
+        "Region_C": 0.92,
+        "Region_A": 0.88,
+        "Region_B": 0.81
+      },
+      "metadata": {
+        "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+        "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+        "stage": "SANSKAR",
+        "owner": "SANSKAR",
+        "timestamp": "2026-06-12T07:17:10.183942Z"
+      }
+    },
+    "RAJYA": {
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+      "original_ranking": [
+        {
+          "region": "Region_C",
+          "score": 0.85,
+          "rank": 1
+        },
+        {
+          "region": "Region_A",
+          "score": 0.82,
+          "rank": 2
+        },
+        {
+          "region": "Region_B",
+          "score": 0.78,
+          "rank": 3
+        }
+      ],
+      "governance_decision": "APPROVED",
+      "authority_checks": {
+        "ranking_valid": true,
+        "confidence_threshold_met": true,
+        "authority_boundary_respected": true
+      },
+      "approved_ranking": [
+        {
+          "region": "Region_C",
+          "score": 0.85,
+          "rank": 1
+        },
+        {
+          "region": "Region_A",
+          "score": 0.82,
+          "rank": 2
+        },
+        {
+          "region": "Region_B",
+          "score": 0.78,
+          "rank": 3
+        }
+      ],
+      "metadata": {
+        "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+        "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+        "stage": "RAJYA",
+        "owner": "RAJYA",
+        "timestamp": "2026-06-12T07:17:10.190563Z",
+        "previous_stage": "SANSKAR"
+      }
+    },
+    "ENFORCEMENT": {
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+      "directives": [
+        {
+          "region": "Region_C",
+          "action": "INCREASE_IRRIGATION",
+          "priority": "HIGH",
+          "reason": "Top ranked region, increase yield potential"
+        },
+        {
+          "region": "Region_C",
+          "action": "INCREASE_MONITORING",
+          "priority": "MEDIUM",
+          "reason": "Track performance metrics"
+        }
+      ],
+      "execution_map": {
+        "Region_C": [
+          {
+            "region": "Region_C",
+            "action": "INCREASE_IRRIGATION",
+            "priority": "HIGH",
+            "reason": "Top ranked region, increase yield potential"
+          },
+          {
+            "region": "Region_C",
+            "action": "INCREASE_MONITORING",
+            "priority": "MEDIUM",
+            "reason": "Track performance metrics"
+          }
+        ]
+      },
+      "metadata": {
+        "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+        "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+        "stage": "ENFORCEMENT",
+        "owner": "ENFORCEMENT",
+        "timestamp": "2026-06-12T07:17:10.199481Z",
+        "previous_stage": "RAJYA"
+      }
+    },
+    "BUCKET": {
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+      "stored": true,
+      "truth_store_id": "560c6b98-893c-44bd-a26f-096a8ff87bfa",
+      "merkle_hash": "a63cee7d63c64d34c5337550156d367ac4f6dd9148941c1171d0092bfd92ec7f",
+      "stored_timestamp": "2026-06-12T07:17:10.208739Z",
+      "metadata": {
+        "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+        "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+        "stage": "BUCKET",
+        "owner": "BUCKET",
+        "timestamp": "2026-06-12T07:17:10.209054Z",
+        "previous_stage": "ENFORCEMENT"
+      }
+    },
+    "INSIGHT_BRIDGE": {
+      "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+      "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+      "correlation_id": "39ed8864-8242-4089-bb22-314a393b1686",
+      "event": {
+        "type": "chain_execution_complete",
+        "timestamp": "2026-06-12T07:17:10.215609Z",
+        "stages_executed": 5,
+        "trace_integrity": "VALID"
+      },
+      "metrics": {
+        "total_execution_time_ms": 5.853,
+        "stages": 4,
+        "ownership_transfers": 4
+      },
+      "metadata": {
+        "trace_id": "f170192c-ede5-494b-815f-417958289f60",
+        "chain_id": "29e07ded-ea5b-4919-9f19-4046f3ca7a88",
+        "stage": "INSIGHT_BRIDGE",
+        "owner": "INSIGHT_BRIDGE",
+        "timestamp": "2026-06-12T07:17:10.215939Z",
+        "previous_stage": "BUCKET"
+      }
+    }
+  },
+  "contract_versions": {
+    "SANSKAR": {
+      "input": "IntelligenceInputContract v1.0",
+      "output": "IntelligenceOutputContract v1.0"
+    },
+    "RAJYA": {
+      "input": "IntelligenceOutputContract v1.0",
+      "output": "GovernanceDecisionContract v1.0"
+    },
+    "ENFORCEMENT": {
+      "input": "GovernanceDecisionContract v1.0",
+      "output": "EnforcementDirectiveContract v1.0"
+    },
+    "BUCKET": {
+      "input": "EnforcementDirectiveContract v1.0",
+      "output": "TruthStoreContract v1.0"
+    },
+    "INSIGHT_BRIDGE": {
+      "input": "TruthStoreContract v1.0",
+      "output": "ObservabilityEventContract v1.0"
+    }
+  }
+}
