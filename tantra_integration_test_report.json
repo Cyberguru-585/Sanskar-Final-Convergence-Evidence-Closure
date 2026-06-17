@@ -1,11 +1,11 @@
 {
   "test_suite": "TANTRA Integration Self-Test",
-  "timestamp": "2026-06-07T07:12:57.110133+00:00Z",
+  "timestamp": "2026-06-17T13:17:15.019212+00:00Z",
   "total_tests": 6,
   "passed": 6,
   "failed": 0,
   "success_rate": "100.0%",
-  "total_execution_time_ms": 38.13910484313965,
+  "total_execution_time_ms": 32.628536224365234,
   "tests": [
     {
       "test_id": "TEST-001",
@@ -15,7 +15,7 @@
       "actual_outcome": "All stages succeeded, trace preserved throughout",
       "result": "PASS",
       "error_details": null,
-      "execution_time_ms": 24.991273880004883
+      "execution_time_ms": 15.7470703125
     },
     {
       "test_id": "TEST-002",
@@ -25,7 +25,7 @@
       "actual_outcome": "Invalid input caught at SANSKAR stage, trace preserved",
       "result": "PASS",
       "error_details": null,
-      "execution_time_ms": 0.10323524475097656
+      "execution_time_ms": 0.4258155822753906
     },
     {
       "test_id": "TEST-003",
@@ -35,7 +35,7 @@
       "actual_outcome": "Dependency failure detected, trace preserved, graceful degradation",
       "result": "PASS",
       "error_details": null,
-      "execution_time_ms": 0.21886825561523438
+      "execution_time_ms": 1.1184215545654297
     },
     {
       "test_id": "TEST-004",
@@ -45,7 +45,7 @@
       "actual_outcome": "Trace break detected: trace_id mismatch",
       "result": "PASS",
       "error_details": null,
-      "execution_time_ms": 0.2186298370361328
+      "execution_time_ms": 1.0006427764892578
     },
     {
       "test_id": "TEST-005",
@@ -55,7 +55,7 @@
       "actual_outcome": "Authority violation detected: {'governance_decision'}",
       "result": "PASS",
       "error_details": null,
-      "execution_time_ms": 1.1451244354248047
+      "execution_time_ms": 1.0619163513183594
     },
     {
       "test_id": "TEST-006",
@@ -65,7 +65,7 @@
       "actual_outcome": "Partial failure detected at Bucket, trace preserved, recovery traceable",
       "result": "PASS",
       "error_details": null,
-      "execution_time_ms": 11.461973190307617
+      "execution_time_ms": 13.274669647216797
     }
   ],
   "status": "ALL PASS"
