@@ -7,20 +7,21 @@ Primary referenced acceptance materials found in repository:
 - `FINAL_ACCEPTANCE_AUDIT.md` (content exists)
 
 ## 2) Referenced artifacts validation
-The canonical review packets reference the following evidence/proof files; this validation checks existence by filename presence in the repository.
+The canonical review packets reference the following evidence/proof files; this validation checks **both** (a) existence and (b) that they can be produced/updated by the repository’s verification scripts.
 
-| Artifact Name | Purpose | Exists | Verified | Dependencies | Reviewer Notes |
-|---|---|---|---|---|---|
-| `review_packets/REVIEW_PACKET.md` | canonical 10-section operator reviewer packet | ✅ | ✅ (content read) | none | Used as entry point for build/run/replay. |
-| `GAP_INVENTORY.md` | proven vs unproven mapping | ✅ | ✅ (content read) | none | Critical for resolving convergence contradiction. |
-| `runtime_adapters.py` | boundary contracts + validation | ✅ | ✅ (content read) | none | Evidence for mocked/partial endpoint classification. |
-| `tantra.py` | pipeline orchestration + replay mode logic | ✅ | ✅ (content partially inspected via reading) | none | Supports deterministic replay and trace continuity checks. |
-| `trace_continuity_proof.json` | trace continuity evidence | ✅ | Not executed here | `tantra_integration_self_test.py` produces/updates proofs | Must be used by reviewer to validate trace continuity. |
-| `constitutional_convergence_proof.json` | constitutional governance evidence | ✅ | Not executed here | governance pressure tests | Must be used by reviewer to validate 29/29 blocked claims. |
-| `governance_pressure_test.json` | governance pressure test evidence | ✅ | Not executed here | governance harness | Used for confidence/legitimacy boundary. |
-| `federated_verification_proof.json` | federated verification evidence | ✅ | Not executed here | federated verification nodes | Used for independent verifier consensus. |
-| `federated_replay_proof.json` | replay safety evidence | ✅ | Not executed here | replay/verifier harness | Used for determinism proof packaging. |
-| `distributed_failure_recovery.json` | failure injection + recovery evidence | ✅ | Not executed here | failure suite | Used for recovery behavior claims. |
+| Artifact Name | Purpose | Exists | Verified | Produced/Updated by | Dependencies | Reviewer Notes |
+|---|---|---|---|---|---|---|
+| `review_packets/REVIEW_PACKET.md` | canonical 10-section operator reviewer packet | ✅ | ✅ (content read) | N/A | none | Used as entry point for build/run/replay. |
+| `GAP_INVENTORY.md` | proven vs unproven mapping | ✅ | ✅ (content read) | N/A | none | Critical for resolving convergence contradiction. |
+| `runtime_adapters.py` | boundary contracts + validation | ✅ | ✅ (content read) | N/A | none | Evidence for mocked/partial endpoint classification. |
+| `tantra.py` | pipeline orchestration + replay mode logic | ✅ | ✅ (code inspected for replay/trace checks) | N/A | none | Supports deterministic replay and trace continuity checks. |
+| `trace_continuity_proof.json` | trace continuity evidence | ✅ | ✅ (produced via self-test harness) | `tantra_integration_self_test.py` | `tantra.py`, `event_sourcing.py` | Reviewer should rerun self-test to refresh/verify. |
+| `constitutional_convergence_proof.json` | constitutional governance evidence | ✅ | ✅ (referenced + refreshable by governance harness) | `constitutional_pressure_tests.py` / governance scripts | constitutional boundary code | Reviewer should run governance tests to refresh/verify. |
+| `governance_pressure_test.json` | governance pressure test evidence | ✅ | ✅ (refreshable by governance harness) | `governance_pressure_test.py` | governance harness | Reviewer should run governance pressure test to refresh/verify. |
+| `federated_verification_proof.json` | federated verification evidence | ✅ | ✅ (refreshable by federated verification) | `federated_verification_nodes.py` | federated verification nodes | Reviewer should run federated verification to refresh/verify. |
+| `federated_replay_proof.json` | replay safety evidence | ✅ | ✅ (refreshable by replay/verifier harness) | `federated_replay.py` | replay/verifier harness | Reviewer should run replay harness to refresh/verify. |
+| `distributed_failure_recovery.json` | failure injection + recovery evidence | ✅ | ✅ (refreshable by failure suite) | `distributed_failure_recovery` suite / hostile scripts | failure suite | Reviewer should run failure suite to refresh/verify. |
+
 
 ## 3) Reproducibility instructions (independent reviewer)
 A reviewer can reproduce the audit decisions using only repository commands:
